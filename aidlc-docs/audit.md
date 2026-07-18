@@ -551,3 +551,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation Part 2(Step 10〜14)。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット① Code Generation - レビュー指摘(.jqwik-database の git 管理)
+**Timestamp**: 2026-07-18T16:20:00Z
+**User Input**: "backend/.jqwik-database はgit管理対象で合っていますか?"
+**AI Response**: "誤りと判定。.jqwik-database は jqwik が失敗サンプル(シード)を記録するテスト実行時生成物(バイナリ、実行ごとに変化)で、Step 6-7 のコミット(547a8f2)に誤って混入していた。.gitignore に `.jqwik-database` を追加し、git rm --cached でトラッキング解除して修正。ステージ承認待ちは継続。"
+**Context**: CONSTRUCTION - ユニット① Code Generation。レビュー指摘対応。ユーザ承認待ち(GATE 継続)
+
+---

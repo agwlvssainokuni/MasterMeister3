@@ -11,6 +11,9 @@ frontend/.node/
 # 内部 DB(H2 ファイルモード)のデータ
 data/
 
+# jqwik の失敗サンプル記録(テスト実行時生成物)
+.jqwik-database
+
 # ログ・OS 固有
 *.log
 .DS_Store

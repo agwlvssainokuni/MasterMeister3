@@ -655,3 +655,19 @@
 **Context**: CONSTRUCTION - ユニット② NFR Requirements 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット② NFR Requirements - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-19T02:30:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "ユニット② NFR Requirements を承認として記録(実装既定値 2 点も確定: Fontsource 採用 / CSP 本則は③)。NFR Design(簡略)を開始する。"
+**Context**: CONSTRUCTION - ユニット② NFR Requirements 完了。NFR Design 開始
+
+---
+
+## ユニット② NFR Design(簡略)- 実施完了
+**Timestamp**: 2026-07-19T02:40:00Z
+**User Input**: "(簡略実施中のため新規入力なし)"
+**AI Response**: "NFR-U2-01〜05 を実装構造化: ThemeProvider(data-theme 制御 + FOUC 防止インラインスクリプト — CSP nonce/hash 対応を③へ申し送り)、i18next 初期化(detector なし・辞書静的 import)、Fontsource ウェイト別 import(unicode-range 分割で NFR-U2-03 成立)、import.meta.env.DEV ガードによるモック除外と dist 検証手順、tree-shaking 構成。論理コンポーネント 5 区分(mock のみ DEV 専用)と③への申し送り 3 点を定義。ステージ承認待ち。"
+**Context**: CONSTRUCTION - ユニット② NFR Design 完了。ユーザ承認待ち(GATE)
+
+---

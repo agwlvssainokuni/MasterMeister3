@@ -471,3 +471,11 @@
 **Context**: CONSTRUCTION - ユニット① NFR Requirements(Step 6〜7)。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット① NFR Requirements - レビュー時の確認事項の問い合わせ
+**Timestamp**: 2026-07-18T14:10:00Z
+**User Input**: "確認事項はありますか？"
+**AI Response**: "ユーザ判断を要する確認事項はなしと回答。Code Generation で適用する既定値 3 点を前提共有: (1) JDK は Gradle toolchain の自動プロビジョニング(Foojay resolver、Temurin 25 既定)、(2) 開発時は Vite dev server + バックエンドへの proxy 構成(本番は WAR 同梱。H-06 の dev CSP 緩和はこの構成が前提)、(3) JDBC ドライバは D-17 どおり MySQL Connector/J 同梱 + MariaDB Connector/J + PostgreSQL JDBC(Testcontainers も同ドライバを使用)。異論なければ Continue to Next Stage で NFR Design へ。"
+**Context**: CONSTRUCTION - ユニット① NFR Requirements。ユーザ承認待ち(GATE 継続)
+
+---

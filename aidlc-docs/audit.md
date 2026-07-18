@@ -623,3 +623,11 @@
 **Context**: CONSTRUCTION - ユニット② Functional Design 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット② Functional Design - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T01:45:00Z
+**User Input**: "確認事項はありますか?"
+**AI Response**: "設計に埋め込んだ判断 5 点を提示: (1) react-router-dom を②で導入(推奨: 導入)、(2) 等幅フォントは同梱せずシステムスタック(推奨: そのまま)、(3) 日時表示は YYYY-MM-DD HH:mm:ss 固定・ロケール非依存(推奨: 固定)、(4) 対応幅 1024px 以上主対象・モバイル専用レイアウトなし(推奨: そのまま)、(5) Select/日付入力はネイティブ要素ベース・専用 DatePicker なし(推奨: そのまま)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット② Functional Design。ユーザ承認待ち(GATE 継続)
+
+---

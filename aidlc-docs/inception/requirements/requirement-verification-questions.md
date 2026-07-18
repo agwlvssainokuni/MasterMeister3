@@ -26,7 +26,7 @@ D) ライブラリ/フレームワーク(他のプログラムから利用)
 
 E) Other (please describe after [Answer]: tag below)
 
-[Answer]:
+[Answer]: A(SPA タイプの Web アプリケーション)
 
 ---
 
@@ -39,7 +39,7 @@ B) おまかせ(要件に応じて AI が提案し、承認を得る)
 
 C) Other (please describe after [Answer]: tag below)
 
-[Answer]:
+[Answer]: A(フロントエンド: React + TypeScript + Vite、バックエンド: Spring Boot + Java 25 + Gradle (wrapper))
 
 ---
 

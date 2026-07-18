@@ -559,3 +559,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation。レビュー指摘対応。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① Code Generation - レビュー指摘(providedRuntime starter-tomcat の問題)
+**Timestamp**: 2026-07-18T16:40:00Z
+**User Input**: "providedRuntime(\"org.springframework.boot:spring-boot-starter-tomcat\") にすると、spring-web がランタイムクラスパスから除外されて実行エラーになるはず。"
+**AI Response**: "検証結果: java -jar 実行は動作する(WarLauncher が lib-provided もロードするため。DoD で実機確認済み)。ただし指摘は本質的に正しく、Boot 4 では starter-tomcat が spring-boot-web-server 経由で spring-web に依存する構造となり、Gradle war プラグインの推移依存除外により spring-web / spring-core / spring-boot 本体まで lib-provided に退避 → 外部コンテナ配備(NFR-02 将来対応)が壊れるレイアウトだった。Boot 側 issue #46944 と Boot 4 公式ドキュメントを確認し、Gradle 専用の spring-boot-starter-tomcat-runtime(4.1.0、Maven Central 実在確認済み)に変更。再ビルド成功、WAR レイアウト正常化(lib-provided は Tomcat 関連 6 jar のみ)、java -jar で health UP / SPA 配信 / api 404 を再検証。code-summary.md に技術判断を追記。"
+**Context**: CONSTRUCTION - ユニット① Code Generation。レビュー指摘対応。ユーザ承認待ち(GATE 継続)
+
+---

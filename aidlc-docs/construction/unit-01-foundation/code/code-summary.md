@@ -42,6 +42,7 @@
 | TypeScript 7.0(latest) | typescript-eslint 8.64 が TS <6.1 制約のため **5.9 系**を採用。TS7 対応後にアップグレード検討 |
 | Testcontainers 座標 | Spring Boot 4.1 BOM は 2.x 系の新名称(`testcontainers-junit-jupiter` 等)を管理。新名称で導入(API は従来互換) |
 | `@eslint/js` | ESLint 10 では別パッケージのため明示追加 |
+| WAR の provided Tomcat | Boot 4 では `providedRuntime(starter-tomcat)` にすると Gradle war プラグインが推移依存(spring-web / spring-core 等)ごと `lib-provided` へ退避し、外部コンテナ配備が壊れる(レビュー指摘)。Boot 4 公式ドキュメントの Gradle 指定である **`spring-boot-starter-tomcat-runtime`** に変更。`java -jar` 起動・SPA 配信・health UP を再検証済み |
 
 ## DoD 検証結果(2026-07-18 実施)
 

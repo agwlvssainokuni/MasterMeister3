@@ -44,8 +44,11 @@ dependencies {
     implementation("org.flywaydb:flyway-core")
     runtimeOnly("com.h2database:h2")
 
-    // 実行可能 WAR: 同梱 Tomcat で起動しつつ、外部コンテナへの配備も可能にする
-    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    // 実行可能 WAR: 同梱 Tomcat で起動しつつ、外部コンテナへの配備も可能にする。
+    // Boot 4 では starter-tomcat を providedRuntime にすると Gradle が推移依存
+    // (spring-web 等)ごと lib-provided へ退避してしまうため、Gradle 専用の
+    // starter-tomcat-runtime を使う(Boot 4 公式ドキュメントの指定)
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat-runtime")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 

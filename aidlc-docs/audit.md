@@ -791,3 +791,11 @@
 **Context**: CONSTRUCTION - ユニット③ NFR Requirements 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット③ NFR Requirements - ユーザ実装 Mustache エンジンのレビュー
+**Timestamp**: 2026-07-19T07:50:00Z
+**User Input**: "自作mustacheエンジンを cherry.mustache においた。テストクラスもおいてある。mustacheエンジンの仕様とテスト状況を理解してほしい。"
+**AI Response**: "cherry.mustache(main 24 ファイル + test 12 ファイル)をレビュー。公式 spec 準拠のフル実装(変数/非エスケープ/セクション/反転/コメント/パーシャル/デリミタ変更/ラムダ/ドット名/スタンドアロントリム、Map+POJO 解決、イミュータブル Context で並行 render 安全、FilePartialResolver はパストラバーサル対策、パーシャル深さ上限 100、行列番号付き parse 例外)。テスト実行: 197 件全パス(公式 spec スイート 146 + jqwik プロパティ 6 + 単体)。PBT-02 は対応済みと判定。HTML エスケープは & < > \" の 4 文字(' 非対象)のためテンプレート属性値はダブルクォート規約とする。NFR 成果物 3 箇所を実態(サブセット新規実装 → ユーザ実装フル機能)に更新。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット③ NFR Requirements。ユーザ承認待ち(GATE 継続)
+
+---

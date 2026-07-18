@@ -17,7 +17,7 @@
 
 | コンポーネント | 配置 | 備考 |
 |---|---|---|
-| Mustache エンジン(サブセット) | `cherry.mastermeister.common.template` | HTML メールのテンプレート描画。対応構文は nfr-requirements.md §3。**PBT-02 ブロッキング対象**(jqwik) |
+| Mustache エンジン(ユーザ実装・公式 spec 準拠) | `cherry.mustache`(独立パッケージ) | HTML メールのテンプレート描画。機能・品質は nfr-requirements.md §3。**PBT-02 対応済み**(jqwik 6 プロパティ + 公式 spec 146 件、全 197 件パス — 2026-07-19 レビュー) |
 
 ## frontend
 

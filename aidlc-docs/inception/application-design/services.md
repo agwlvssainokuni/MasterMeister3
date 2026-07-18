@@ -45,6 +45,8 @@ invalidate は以下から呼ばれる(イベント連携):
   - SchemaImportService(再取込)
 ```
 
+**キャッシュ実装方針**: Spring Cache 抽象(`@Cacheable` + Caffeine)で実装する。キャッシュ対象メソッドは実効権限解決に限らず複数になる想定(例: `EffectivePermissionResolver.resolve`、`MetadataQueryService` の構造参照系)。無効化は粗粒度(キャッシュ全体ないし接続単位の一括退避)とし、選択的無効化は行わない。具体的な対象メソッドとキャッシュ名は各ユニットの Functional Design / Code Generation で確定する。
+
 ### 2.4 監査記録(AuditLogService)— D-20
 - 全サービスは `AuditEventPublisher` 経由でイベント(種別コード + パラメータ — H-07)を発行
 - `AuditLogService.record()` は内部 DB 側の **`REQUIRES_NEW`** で永続化 — 主処理(対象 RDBMS トランザクションや内部 DB トランザクション)の成否と独立

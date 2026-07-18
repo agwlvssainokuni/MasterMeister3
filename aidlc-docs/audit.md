@@ -351,3 +351,11 @@
 **Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## Application Design - 確認事項 4 への補足(キャッシュ対象は複数メソッド)
+**Timestamp**: 2026-07-18T11:40:00Z
+**User Input**: "また、4について、キャッシュ無効化の粒度が全体なのはOKで、キャッシュする対象(@Cacheableをつけるメソッド)は複数になると考えています。"
+**AI Response**: "services.md §2.3 と application-design.md §3(D-21 行)に反映: キャッシュは Spring Cache 抽象(@Cacheable + Caffeine)で実装し、対象は実効権限解決に限らず複数メソッド(例: EffectivePermissionResolver.resolve、MetadataQueryService の構造参照系)。無効化は粗粒度一括退避。具体的な対象メソッドとキャッシュ名は Functional Design / Code Generation で確定。確認事項 5(トークン保持方針)の回答待ち継続。"
+**Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
+
+---

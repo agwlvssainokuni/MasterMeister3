@@ -30,7 +30,7 @@
 | 決定 | 設計上の実現 |
 |---|---|
 | D-20 監査ログ別トランザクション | `AuditEvent`(Spring イベント)→ `AuditLogService` が `REQUIRES_NEW` で内部 DB に記録。audit は他機能に依存しない一方向依存 |
-| D-21 実効権限解決 | `EffectivePermissionResolver` に集約(Caffeine キャッシュ)。無効化はイベント連携(権限変更/グループ変更/再取込) |
+| D-21 実効権限解決 | `EffectivePermissionResolver` に集約(Spring Cache 抽象 `@Cacheable` + Caffeine)。キャッシュ対象は実効権限解決に限らず複数メソッドの想定(メタデータ参照系等)。無効化はイベント連携(権限変更/グループ変更/再取込)で粗粒度一括退避 |
 | D-18 NONE と未設定の区別 | `PermissionService.setEntry`(NONE 含む)と `removeEntry`(未設定に戻す)を別 API として定義 |
 | D-15 主キーなしテーブル | `RecordChangeValidator` が作成のみ許可(更新・削除は拒否) |
 | D-16 スキーマレベル検証 | `QueryExecutionService` 冒頭でスキーマ許可リスト検証のみ実施 |

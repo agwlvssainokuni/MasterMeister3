@@ -57,6 +57,6 @@ X) Other (please describe after [Answer]: tag below)
 
 ## Part B: 成果物生成(回答確定後に実行)
 
-- [ ] `aidlc-docs/construction/unit-01-foundation/nfr-requirements/nfr-requirements.md` — 本ユニットの NFR(ビルド再現性、開発環境の起動容易性、ライセンスヘッダー方針、N/A カテゴリの根拠)
-- [ ] `aidlc-docs/construction/unit-01-foundation/nfr-requirements/tech-stack-decisions.md` — ツールチェーン確定表(Java 25 / Node 24 / Gradle 9.6 / Spring Boot 4.1 / React 19 / Vite + Q1〜Q4 の決定、PBT-09 の記録)
-- [ ] Security Baseline / PBT 拡張ルールの本ステージ適用判定(コンプライアンスサマリ)
+- [x] `aidlc-docs/construction/unit-01-foundation/nfr-requirements/nfr-requirements.md` — 本ユニットの NFR(ビルド再現性、開発環境の起動容易性、ライセンスヘッダー方針、N/A カテゴリの根拠)
+- [x] `aidlc-docs/construction/unit-01-foundation/nfr-requirements/tech-stack-decisions.md` — ツールチェーン確定表(Java 25 / Node 24 / Gradle 9.6 / Spring Boot 4.1 / React 19 / Vite + Q1〜Q4 の決定、PBT-09 の記録)
+- [x] Security Baseline / PBT 拡張ルールの本ステージ適用判定(コンプライアンスサマリ — nfr-requirements.md §3、ブロッキング所見なし)

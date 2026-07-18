@@ -799,3 +799,11 @@
 **Context**: CONSTRUCTION - ユニット③ NFR Requirements。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット③ NFR Requirements - ステージ承認(GATE 通過)、NFR Design 実施
+**Timestamp**: 2026-07-19T08:00:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "NFR Requirements を承認として記録。NFR Design を実施: Spring Security 構成(単一チェーン・oauth2ResourceServer・HS256 Bean 構成・CSP ヘッダー・BCrypt)、AppProperties(@ConfigurationProperties + 起動時検証)、監査リスナーのトランザクション構造(@EventListener + REQUIRES_NEW、非伝播方針)、メール構造(MailTemplateRegistry 起動時 compile fail-fast + MailService)、トークンローテーションの原子的 UPDATE、テスト構造、フロントエンド認証 NFR(シングルフライト・tokenStore 集約・Problem Details 解釈)。論理コンポーネント構成と④以降への提供物 5 点を定義。ステージ承認待ち。"
+**Context**: CONSTRUCTION - ユニット③ NFR Design 完了。ユーザ承認待ち(GATE)
+
+---

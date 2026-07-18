@@ -59,9 +59,9 @@
 #### ユニット③ auth-user-audit(認証・ユーザ管理・監査基盤)
 - [x] Functional Design (2026-07-19 完了: Q1〜Q4 = A、確認 4 点(リセット機能スコープ外 / アクセストークン残存受容 / 申請段階は一覧非表示 / 再有効化将来)提示の上ユーザ承認済み)
 - [x] NFR Requirements (2026-07-19 完了: Q1=A, Q2=C。ユーザ実装 cherry.mustache エンジンをレビュー(197 テスト全パス・PBT-02 充足)して取込。ユーザ承認済み)
-- [ ] NFR Design - EXECUTE(2026-07-19 実施完了、ステージ承認待ち)
+- [x] NFR Design (2026-07-19 完了: 確認 3 点(CSRF 無効 / en フォールバック / 監査同期)提示の上ユーザ承認済み)
 - [ ] Infrastructure Design - SKIP
-- [ ] Code Generation - EXECUTE 予定
+- [ ] Code Generation - EXECUTE(2026-07-19 Part 1 プラン作成済み・承認待ち)
 
 #### ユニット④〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
@@ -74,6 +74,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット③ auth-user-audit — NFR Design
-- **Next Stage**: Code Generation(Part 1 プラン)
+- **Current Stage**: ユニット③ auth-user-audit — Code Generation Part 1(プラン作成)
+- **Next Stage**: プラン承認後、Part 2(実装)
 - **Status**: ユニット② 完了(2026-07-19 モック承認 D-08 通過)。ユニット③ 開始

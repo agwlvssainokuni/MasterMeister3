@@ -41,11 +41,18 @@
 - [x] Units Generation (2026-07-18 完了: 6 ユニット定義・直列依存・48 ストーリー全割当、確認 2 点(MailPit を①devenv に追加、②モックは代表画面+カタログ)反映の上ユーザ承認済み)
 
 ### 🟢 CONSTRUCTION PHASE(ユニットごと)
-- [ ] Functional Design - EXECUTE (per unit)
-- [ ] NFR Requirements - EXECUTE (per unit)
-- [ ] NFR Design - EXECUTE (per unit)
+
+#### ユニット① foundation(骨格・開発環境)
+- [x] Functional Design - SKIPPED(業務ロジック・データモデルなし。2026-07-18 開始時判定)
+- [ ] NFR Requirements - EXECUTE(実行中: プラン作成・質問 4 件提示)
+- [ ] NFR Design - 簡略見込み(NFR Requirements 後に判定)
 - [ ] Infrastructure Design - SKIP
-- [ ] Code Generation - EXECUTE (per unit)
+- [ ] Code Generation - EXECUTE
+
+#### ユニット②〜⑥
+- [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
+
+#### 全ユニット完了後
 - [ ] Build and Test - EXECUTE
 
 ### 🟡 OPERATIONS PHASE

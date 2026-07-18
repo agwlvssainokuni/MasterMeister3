@@ -439,3 +439,11 @@
 **Context**: INCEPTION 完了 → CONSTRUCTION ユニット① 開始
 
 ---
+
+## ユニット① foundation - ステージ判定と NFR Requirements プラン作成
+**Timestamp**: 2026-07-18T13:30:00Z
+**User Input**: "(前項の承認に続く自動遷移のため新規入力なし)"
+**AI Response**: "ユニット①のステージ判定: Functional Design はスキップ(業務ロジック・データモデルなし)、NFR Requirements から実行。unit-01-foundation-nfr-requirements-plan.md を作成し質問 4 件を提示: Q1 対象 RDBMS 開発環境バージョン(A: MySQL 8.4/MariaDB 11.8/PostgreSQL 18 推奨)、Q2 PBT フレームワーク確定 PBT-09(A: jqwik + fast-check 推奨)、Q3 テストフレームワーク(A: JUnit5/AssertJ/Mockito/Testcontainers + Vitest/RTL 推奨)、Q4 コード品質ツール(A: ESLint/Prettier/TS strict + Spotless ライセンスヘッダー自動付与 推奨)。実行時 NFR カテゴリ(Scalability/Performance/Availability/Usability)は本ユニット N/A と根拠明記。回答待ち。"
+**Context**: CONSTRUCTION - ユニット① NFR Requirements(Step 2〜4)。回答待ち(GATE)
+
+---

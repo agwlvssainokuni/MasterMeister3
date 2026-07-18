@@ -15,6 +15,13 @@
 - **Documentation**: aidlc-docs/ only
 - **Structure patterns**: See code-generation.md Critical Rules
 
+## Extension Configuration
+| Extension | Enabled | Decided At |
+|---|---|---|
+| Security Baseline | Yes | Requirements Analysis |
+| Resiliency Baseline | No | Requirements Analysis |
+| Property-Based Testing | Yes (full) | Requirements Analysis |
+
 ## Stage Progress
 - [x] INCEPTION - Workspace Detection (2026-07-18 完了: Greenfield 判定)
 - [ ] INCEPTION - Requirements Analysis

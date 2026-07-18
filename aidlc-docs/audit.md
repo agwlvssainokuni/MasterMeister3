@@ -31,3 +31,11 @@
 **Context**: INCEPTION - Requirements Analysis。Q1・Q4〜Q6 の回答待ち(GATE 継続)
 
 ---
+
+## Requirements Analysis - 拡張オプトイン回答受領(Q4〜Q6)
+**Timestamp**: 2026-07-18T06:15:00Z
+**User Input**: "Q4=A, Q5=B, Q6=Aとします。"
+**AI Response**: "Q4=A(Security Baseline 適用)、Q5=B(Resiliency Baseline スキップ)、Q6=A(Property-Based Testing 全面適用)を質問ファイルと aidlc-state.md の Extension Configuration に記録。オプトインされた拡張のフルルール(security-baseline.md、property-based-testing.md)を読み込み。Q1(開発対象の概要)は引き続き回答待ち。"
+**Context**: INCEPTION - Requirements Analysis。Extension Configuration 確定。Q1 の回答待ち(GATE 継続)
+
+---

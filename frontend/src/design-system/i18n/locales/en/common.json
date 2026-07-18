@@ -1,0 +1,57 @@
+{
+  "app": {
+    "title": "MasterMeister"
+  },
+  "action": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "search": "Search",
+    "apply": "Apply",
+    "discard": "Discard",
+    "add": "Add",
+    "edit": "Edit",
+    "confirm": "Confirm",
+    "login": "Log in",
+    "logout": "Log out",
+    "execute": "Run",
+    "copy": "Copy",
+    "retry": "Retry",
+    "clearFilter": "Clear filters"
+  },
+  "state": {
+    "loading": "Loading...",
+    "empty": "No data found",
+    "error": "An error occurred",
+    "required": "Required",
+    "processing": "Processing..."
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "Follow OS setting"
+  },
+  "language": {
+    "label": "Language",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "pagination": {
+    "page": "Page {{page}} of {{total}}",
+    "prev": "Previous page",
+    "next": "Next page"
+  },
+  "table": {
+    "selectAll": "Select all",
+    "selectRow": "Select row",
+    "sortAsc": "Sort ascending",
+    "sortDesc": "Sort descending"
+  },
+  "form": {
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  }
+}

@@ -19,7 +19,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-const TARGET_DIRS = ["src", "scripts"];
+const TARGET_DIRS = ["src", "scripts", "public"];
 const TARGET_ROOT_FILES = ["vite.config.ts", "eslint.config.js"];
 const TARGET_EXTENSIONS = [".ts", ".tsx", ".css", ".mjs", ".js"];
 const REQUIRED_LINES = ["Copyright", "Licensed under the Apache License, Version 2.0"];

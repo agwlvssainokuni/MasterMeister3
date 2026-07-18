@@ -1,0 +1,57 @@
+{
+  "app": {
+    "title": "MasterMeister"
+  },
+  "action": {
+    "ok": "OK",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "save": "保存",
+    "delete": "削除",
+    "search": "検索",
+    "apply": "反映",
+    "discard": "破棄",
+    "add": "追加",
+    "edit": "編集",
+    "confirm": "確認",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "execute": "実行",
+    "copy": "コピー",
+    "retry": "再試行",
+    "clearFilter": "絞り込みを解除"
+  },
+  "state": {
+    "loading": "読み込み中...",
+    "empty": "該当するデータがありません",
+    "error": "エラーが発生しました",
+    "required": "必須",
+    "processing": "処理中..."
+  },
+  "theme": {
+    "label": "テーマ",
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "OS設定に従う"
+  },
+  "language": {
+    "label": "言語",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "pagination": {
+    "page": "{{page}} / {{total}} ページ",
+    "prev": "前のページ",
+    "next": "次のページ"
+  },
+  "table": {
+    "selectAll": "すべて選択",
+    "selectRow": "行を選択",
+    "sortAsc": "昇順に並べ替え",
+    "sortDesc": "降順に並べ替え"
+  },
+  "form": {
+    "showPassword": "パスワードを表示",
+    "hidePassword": "パスワードを隠す"
+  }
+}

@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import { StrictMode } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { App } from "./App";
+import { ThemeProvider } from "./design-system/theme/ThemeProvider";
+import "./design-system/i18n";
 import "@fontsource/noto-sans-jp/400.css";
 import "@fontsource/noto-sans-jp/500.css";
 import "@fontsource/noto-sans-jp/700.css";
@@ -25,6 +28,10 @@ import "@fontsource/noto-sans-mono/700.css";
 import "./design-system/tokens/tokens.css";
 import "./index.css";
 
+// モックカタログは dev 専用(NFR-U2-02)。production ビルドでは定数畳み込みにより
+// ルートごと除外され、mock チャンクは生成されない。
+const MockCatalog = import.meta.env.DEV ? lazy(() => import("./mock/MockCatalog")) : null;
+
 const rootElement = document.getElementById("root");
 if (!rootElement) {
   throw new Error("root element not found");
@@ -32,6 +39,22 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          {MockCatalog ? (
+            <Route
+              path="/mock/*"
+              element={
+                <Suspense fallback={null}>
+                  <MockCatalog />
+                </Suspense>
+              }
+            />
+          ) : null}
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 );

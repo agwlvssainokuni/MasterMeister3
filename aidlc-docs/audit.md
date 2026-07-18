@@ -263,3 +263,19 @@
 **Context**: INCEPTION - User Stories。ストーリー承認待ち(GATE 継続)
 
 ---
+
+## User Stories - ユーザ承認
+**Timestamp**: 2026-07-18T09:50:00Z
+**User Input**: "Approve & Continue"
+**AI Response**: "ストーリー承認を受領。aidlc-state.md の User Stories を完了に更新し、Workflow Planning ステージへ進行。"
+**Context**: INCEPTION - User Stories 完了(承認済み)。次ステージ: Workflow Planning
+
+---
+
+## Workflow Planning - 実行計画作成、承認プロンプト提示
+**Timestamp**: 2026-07-18T10:00:00Z
+**User Input**: (なし - User Stories 承認から自動遷移)
+**AI Response**: "execution-plan.md を作成(Mermaid 構文検証済み + テキスト版併記)。実行: Application Design、Units Generation、per-unit の Functional Design / NFR Requirements / NFR Design / Code Generation、Build and Test。スキップ: Infrastructure Design(クラウドインフラなし、デプロイ形態確定済み)。ユニット見通し 6 件(モック確認ゲート D-08 含む)。リスク: Medium。承認プロンプトを提示。"
+**Context**: INCEPTION - Workflow Planning Step 9。ユーザ承認待ち(GATE)
+
+---

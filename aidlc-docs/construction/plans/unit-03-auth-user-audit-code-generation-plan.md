@@ -15,10 +15,10 @@
 
 ## Step 2: 監査基盤(audit)— 全機能が呼ぶため先行
 
-- [ ] 2-1: AuditEvent(record)+ イベント種別定数(12 種)+ AuditEventPublisher
-- [ ] 2-2: AuditLogListener(@EventListener + REQUIRES_NEW、例外非伝播)+ AuditLogService
-- [ ] 2-3: SecurityAlertService(時間窓 + クールダウン、TOKEN_REUSE は即時)— メール送信はこの段階ではインタフェースのみ(Step 5 で接続)
-- [ ] 2-4: テスト(REQUIRES_NEW 独立性 = 例外注入、閾値・クールダウン判定)
+- [x] 2-1: AuditEvent(record)+ イベント種別定数(14 種)+ AuditEventPublisher
+- [x] 2-2: AuditLogListener(@EventListener + REQUIRES_NEW、例外非伝播)+ AuditLogService
+- [x] 2-3: SecurityAlertService(時間窓 + クールダウン、TOKEN_REUSE は即時)— メール送信は SecurityAlertNotifier インタフェースのみ(Step 5 で接続)
+- [x] 2-4: テスト(REQUIRES_NEW 独立性 = 例外注入 2 件、閾値・クールダウン・即時通知 8 件)
 
 ## Step 3: セキュリティ構成 + 認証(auth)
 

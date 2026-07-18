@@ -391,3 +391,11 @@
 **Context**: INCEPTION - Units Generation Part 1(Step 1〜5)。回答待ち(GATE)
 
 ---
+
+## Units Generation - 全質問回答受領 + Q4 補足質問(WAR 同梱範囲)
+**Timestamp**: 2026-07-18T12:30:00Z
+**User Input**: "Q1=A, Q2=A, Q3=A, Q4=A.  Q4について。frontendのビルド結果をWARに含めるところまで作る？"
+**AI Response**: "Q1=A(6 ユニット)、Q2=A(厳密直列)、Q3=A(US-046 はユニット⑥)、Q4=A をプランに記録。Q4 補足への回答: はい、ユニット①に WAR 同梱まで含める。D-14 で確定したビルドパイプライン(./gradlew build → npm/Vite ビルド → dist/ を WAR に同梱)を最初に貫通させ、『空の React 画面を配信する実行可能 WAR』をユニット①の完了条件とする方針をプランの [Answer] に追記。プラン承認(生成実行可否)の確認を提示。"
+**Context**: INCEPTION - Units Generation Part 1(Step 6〜9)。プラン承認待ち(GATE)
+
+---

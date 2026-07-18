@@ -17,10 +17,10 @@
 ## 生成ステップ
 
 ### Step 1: ルート Gradle 骨格
-- [ ] `settings.gradle.kts`(backend / frontend をインクルード、Foojay toolchain resolver プラグイン)
-- [ ] `gradle/libs.versions.toml`(バージョンカタログ: Spring Boot 4.1、プラグイン・依存の一元管理)
-- [ ] Gradle wrapper 9.6(`gradlew`, `gradle/wrapper/`)
-- [ ] ルート `.gitignore`(build/, node_modules/, data/ 等。**`.idea/` は入れない** — ユーザ指示)
+- [x] `settings.gradle.kts`(backend / frontend をインクルード、Foojay toolchain resolver プラグイン)
+- [x] `gradle/libs.versions.toml`(バージョンカタログ: Spring Boot 4.1.0、プラグイン・依存の一元管理)
+- [x] Gradle wrapper 9.6.1(`gradlew`, `gradle/wrapper/`)
+- [x] ルート `.gitignore`(build/, node_modules/, data/ 等。**`.idea/` は入れない** — ユーザ指示)
 
 ### Step 2: backend サブプロジェクト骨格
 - [ ] `backend/build.gradle.kts`(Spring Boot 4.1 + war、Java 25 toolchain、-Xlint、Spotless(ライセンスヘッダー)、JPA/Flyway/H2/Actuator 依存)

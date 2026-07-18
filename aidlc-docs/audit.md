@@ -519,3 +519,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation Part 1(Step 1〜6)。プラン承認待ち(GATE)
 
 ---
+
+## ユニット① Code Generation - レビュー時の確認事項の問い合わせ
+**Timestamp**: 2026-07-18T15:10:00Z
+**User Input**: "確認事項はありますか？"
+**AI Response**: "確認事項 1 点(Java ルートパッケージ名 / Gradle group の確定 — 案 A: io.github.agwlvssainokuni.mastermeister、案 B: 短い独自名、案 X: 指定)と、前提共有 2 点(初回ビルドは Gradle 配布物・Node 24・Maven/npm 依存・Docker イメージをネットワーク取得するため時間を要する、wrapper 生成のため一時的に Gradle 本体を取得して実行する)を提示。"
+**Context**: CONSTRUCTION - ユニット① Code Generation Part 1。プラン承認待ち(GATE 継続)
+
+---

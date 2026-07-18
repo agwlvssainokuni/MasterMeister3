@@ -15,13 +15,13 @@
 ./gradlew build
 ```
 
-生成物: `backend/build/libs/mastermeister.war`(フロントエンド同梱・実行可能)
+生成物: `backend/build/libs/mastermeister-<version>.war`(フロントエンド同梱・実行可能)
 
 ## 起動
 
 ```bash
 # 本番相当(実行可能 WAR)
-java -jar backend/build/libs/mastermeister.war
+java -jar backend/build/libs/mastermeister-0.1.0-SNAPSHOT.war
 # → http://localhost:8080
 
 # 開発(ホットリロード)

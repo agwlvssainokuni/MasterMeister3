@@ -70,9 +70,9 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
-// 成果物名はバージョンによらず固定(デプロイ・起動コマンドを安定させる)
+// 成果物名はサブプロジェクト名(backend)ではなくアプリ名 + バージョンとする
 tasks.bootWar {
-    archiveFileName = "mastermeister.war"
+    archiveBaseName = "mastermeister"
 }
 
 // フロントエンドのビルド成果物(frontend/dist)を WAR の静的リソース(static/)として同梱する(D-14)

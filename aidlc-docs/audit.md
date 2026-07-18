@@ -591,3 +591,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① Code Generation - WAR 名にバージョン番号を付与
+**Timestamp**: 2026-07-19T00:55:00Z
+**User Input**: "バージョン番号ありにできますか?"
+**AI Response**: "bootWar の設定を archiveFileName(固定名)から archiveBaseName = mastermeister に変更し、成果物名を mastermeister-0.1.0-SNAPSHOT.war(アプリ名 + バージョン)とした。README も更新。クリーン再ビルドで生成を確認。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット① Code Generation。ユーザ承認待ち(GATE 継続)
+
+---

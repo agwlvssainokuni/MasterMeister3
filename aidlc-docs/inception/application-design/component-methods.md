@@ -57,7 +57,7 @@
 | メソッド | 入力 → 出力 | 目的 |
 |---|---|---|
 | `RecordService.listAccessibleTables(userId, connId, schema)` | → `List<TableSummary>` | READ 以上のテーブル/ビュー一覧(US-020) |
-| `RecordService.fetchRecords(userId, connId, schema, table, criteria, page)` | 絞り込み条件(UI 指定 + WHERE/ORDER BY 手入力)→ `Page<RecordRow>` | READ 以上のカラムのみ返却。NONE カラム完全非表示(D-18)。手入力条件は D-19 のとおり許容 |
+| `RecordService.fetchRecords(userId, connId, schema, table, criteria, page)` | 絞り込み条件(UI 指定 + WHERE/ORDER BY 手入力)→ `RecordPage`(行データ + カラムメタデータ) | READ 以上のカラムのみ返却。NONE カラム完全非表示(D-18)。手入力条件は D-19 のとおり許容。応答には権限のあるカラムのメタデータ(名前・型・PK/NULL 可否・実効権限)を同梱し、フロントエンドは表示・編集可否をこれで判定する |
 | `RecordBatchService.applyBatch(userId, connId, schema, table, changes)` | 作成/更新/削除の変更セット → `BatchResult` | 統一 API。全件検証 → 単一トランザクション反映。1 件でも失敗なら全ロールバック(US-027)。監査記録は別トランザクション(D-20) |
 | `RecordChangeValidator.validate(effectivePermissions, tableMeta, changes)` | → `ValidationResult` | 権限判定(D-15/US-014 のルール)+ 制約事前チェック |
 
@@ -68,7 +68,7 @@
 | `QueryBuilderService.buildSql(builderModel)` | タブ入力モデル → SQL 文字列 | スキーマ非修飾 SQL 生成(US-029) |
 | `QueryBuilderService.parseSql(sql)` | SQL → `builderModel` | リバースエンジニアリング(US-030。解析不能時は明示エラー) |
 | `SavedQueryService.save/update/retire(savedQuery)` | → void | 保存・編集(作成者のみ)・retired 化(US-031〜033) |
-| `QueryExecutionService.execute(userId, connId, schema, sql, params, paging)` | → `QueryResult` | 読み取り専用強制(H-01)、スキーマ許可リスト検証(D-16)+ 方言別切替、履歴記録、大量取得の監査(US-034〜038) |
+| `QueryExecutionService.execute(userId, connId, schema, sql, params, paging)` | → `QueryResult`(行データ + 結果セットのカラムメタデータ) | 読み取り専用強制(H-01)、スキーマ許可リスト検証(D-16)+ 方言別切替、履歴記録、大量取得の監査(US-034〜038)。応答には結果セットのカラムメタデータ(名前・型)を同梱する |
 | `QueryExecutionService.detectParameters(sql)` | SQL → `List<ParamName>` | `:param` 自動検出(US-035) |
 | `QueryHistoryService.search(criteria, page)` | 絞り込み条件 → `Page<HistoryEntry>` | 履歴一覧・絞り込み(US-039〜040) |
 

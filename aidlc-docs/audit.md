@@ -343,3 +343,11 @@
 **Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## Application Design - 確認事項 1〜4 の承認 + 補足(カラムメタデータ同梱)
+**Timestamp**: 2026-07-18T11:30:00Z
+**User Input**: "1, 2, 3, 4 についてOKです。なお、2についての補足として、利用者にテーブルの照会結果を返却する時には、カラムのメタデータ(権限のあるもののみ)も一緒に返却するものと考えています。(マスタメンテもクエリも)"
+**AI Response**: "確認事項 1〜4 を承認として記録。補足を component-methods.md に反映: RecordService.fetchRecords は行データ + 権限のあるカラムのメタデータ(名前・型・PK/NULL 可否・実効権限)を同梱して返却、QueryExecutionService.execute は行データ + 結果セットのカラムメタデータ(名前・型)を同梱して返却(query はスキーマレベル検証のみ — D-16 — のため結果セット準拠)。確認事項 5(トークン保持方針を NFR Design 送りとする件)の回答を確認中。"
+**Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
+
+---

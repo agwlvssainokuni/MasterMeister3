@@ -135,3 +135,11 @@
 **Context**: INCEPTION - Requirements Analysis Step 9。ユーザ承認待ち(GATE)
 
 ---
+
+## Requirements Analysis - 注意事項の有無を問われ、追加質問と申し送り事項を提示
+**Timestamp**: 2026-07-18T07:35:00Z
+**User Input**: "他に注意すべき事項はある?"
+**AI Response**: "要件レベルの未決事項 3 点を Question 15〜17 として質問ファイルに追加: Q15 主キーなしテーブルの UPDATE 可否、Q16 自由入力 SQL に対する権限モデルの適用範囲、Q17 MySQL 用 JDBC ドライバーの選定(ライセンス)。あわせて設計ステージへの申し送り事項(読み取り専用 SQL の強制方式、内部 DB マイグレーション、暗号鍵管理、非対応カラム型、同時編集、開発時 CSP、監査ログのロケール非依存)を requirements.md §10 に追記。"
+**Context**: INCEPTION - Requirements Analysis。Q15〜17 の回答待ち(GATE 継続)
+
+---

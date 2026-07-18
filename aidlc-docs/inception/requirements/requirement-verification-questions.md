@@ -214,3 +214,48 @@ D) バックエンド内包型(backend/src/main/frontend に React を配置)—
 X) Other (please describe after [Answer]: tag below)
 
 [Answer]: B
+
+---
+
+## Question 15: 主キーなしテーブルの UPDATE の扱い
+project-overview.md §5.2 は主キーなしテーブルについて「削除は常に不可」「作成は可能」と規定していますが、**更新(UPDATE)の扱いが未規定**です。主キーがない場合、更新対象行を一意に特定できず、同一値の複数行を意図せず更新するリスクがあります。
+
+A) 主キーなしテーブルは読み取り + 作成のみ(UPDATE 不可)— 安全側に倒す(推奨)
+
+B) 全カラム値の一致で行を特定して UPDATE を許可 — 同一値の行が複数ある場合は全行更新となる旨を UI で警告
+
+C) 更新前に全カラム一致で件数を確認し、1 件に特定できる場合のみ UPDATE を許可
+
+X) Other (please describe after [Answer]: tag below)
+
+[Answer]:
+
+---
+
+## Question 16: 自由入力 SQL に対する権限モデルの適用範囲
+クエリ実行機能(§5.7)では読み取り専用 SQL を自由に入力できますが、テーブル/カラム単位の主権限(§5.2)をこの SQL にどこまで適用するかが未規定です。スキーマ単位の許可リスト検証のみだと、READ 権限のないテーブル/カラムのデータを SELECT で参照できてしまいます。
+
+A) SQL を解析し、参照テーブル/カラムに対して READ 権限を検証する — 権限モデルと完全に整合(推奨。クエリビルダーのリバースエンジニアリング(§5.5)にも SQL パーサーが必要なため実装資産を共用できる)
+
+B) テーブルレベルまで検証(参照テーブルすべてに READ 以上を要求。カラム単位は適用外として文書化)
+
+C) スキーマレベルの検証のみ(§5.7 の現行記述どおり。カラム/テーブル権限はクエリ実行機能には適用されないことをリスクとして文書化)
+
+X) Other (please describe after [Answer]: tag below)
+
+[Answer]:
+
+---
+
+## Question 17: MySQL 接続用 JDBC ドライバーの選定
+MySQL Connector/J は GPLv2(Universal FOSS Exception 付き)であり、Apache 2.0 の本プロジェクトが WAR に同梱することは FOSS Exception の範囲内ですが、ライセンス管理の単純さに影響します。
+
+A) MariaDB Connector/J(LGPL)で MySQL / MariaDB の両方に接続する — ドライバーを 1 本化でき、ライセンスも単純(推奨。MySQL プロトコル互換で実用上問題なし)
+
+B) MySQL Connector/J を同梱する(FOSS Exception の範囲内と判断し、その旨を文書化)
+
+C) MySQL Connector/J を同梱せず、利用者が実行環境に配置する方式(クラスパス追加)
+
+X) Other (please describe after [Answer]: tag below)
+
+[Answer]:

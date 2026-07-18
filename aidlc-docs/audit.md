@@ -719,3 +719,11 @@
 **Context**: CONSTRUCTION - ユニット② Code Generation Part 2 完了。モック承認ゲート D-08(GATE)
 
 ---
+
+## ユニット② Code Generation - モック承認前の確認事項提示
+**Timestamp**: 2026-07-19T06:00:00Z
+**User Input**: "確認すべき事項はありますか?"
+**AI Response**: "確認 3 点を提示: (1) D-08 は視覚確認のゲートであり /mock の実際の確認が本体(特に両テーマのコントラスト・14px 密度・日本語フォント)、(2) ThemeToggle/LanguageSwitcher は FD 記載の Dropdown ベースからネイティブ select に単純化した実装差分(推奨: このまま)、(3) font-display: swap のため初回表示・言語切替時に一瞬フォールバックフォントが見える場合がある(仕様どおり)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット② モック承認ゲート D-08(GATE 継続)
+
+---

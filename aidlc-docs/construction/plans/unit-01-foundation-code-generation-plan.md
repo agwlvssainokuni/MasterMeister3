@@ -1,0 +1,65 @@
+# Code Generation Plan — ユニット① foundation(骨格・開発環境)
+
+**作成日**: 2026-07-18
+**入力**: unit-of-work.md(ユニット①定義・DoD)、nfr-requirements.md、tech-stack-decisions.md、nfr-design-patterns.md、logical-components.md
+**本プランが Code Generation の単一の正**(実行はこのプランのステップ順のみに従う)
+
+## ユニットコンテキスト
+
+- **対応ストーリー**: なし(基盤整備ユニット。全 48 ストーリーは②〜⑥で実装)
+- **DoD**: `./gradlew build` 一発で「空の React 画面を配信する実行可能 WAR」が得られる。`docker compose up` で対象 RDBMS 3 種 + MailPit が起動する
+- **依存**: なし(最初のユニット)。後続ユニットへの提供物: ビルドパイプライン、テスト基盤、devenv、品質ゲート
+- **コード配置**: ワークスペースルート(`backend/` `frontend/` `devenv/`)。aidlc-docs/ にはコード禁止(サマリのみ)
+- **ライセンス**: 全ソースファイルに Apache 2.0 ヘッダー(Copyright 2026 agwlvssainokuni)。Spotless / ESLint で自動検査
+
+## 生成ステップ
+
+### Step 1: ルート Gradle 骨格
+- [ ] `settings.gradle.kts`(backend / frontend をインクルード、Foojay toolchain resolver プラグイン)
+- [ ] `gradle/libs.versions.toml`(バージョンカタログ: Spring Boot 4.1、プラグイン・依存の一元管理)
+- [ ] Gradle wrapper 9.6(`gradlew`, `gradle/wrapper/`)
+- [ ] ルート `.gitignore`(build/, node_modules/, data/ 等。**`.idea/` は入れない** — ユーザ指示)
+
+### Step 2: backend サブプロジェクト骨格
+- [ ] `backend/build.gradle.kts`(Spring Boot 4.1 + war、Java 25 toolchain、-Xlint、Spotless(ライセンスヘッダー)、JPA/Flyway/H2/Actuator 依存)
+- [ ] メインアプリケーションクラス(実行可能 WAR 対応 — D-14)
+- [ ] `application.yaml`(`mm.app.*` 設定骨格、H2 ファイルモード(データは `data/` 配下)、Flyway 有効化、Actuator health のみ公開)
+- [ ] Flyway `V1` マイグレーション(最小: マイグレーション動作確認用)
+- [ ] SPA フォールバック設定(非 `/api/**` → index.html。common パッケージ配下)
+
+### Step 3: frontend サブプロジェクト骨格
+- [ ] `frontend/package.json` + Vite + React 19 + TypeScript(strict)雛形(App + 動作確認ページ)
+- [ ] `frontend/vite.config.ts`(dev proxy `/api` → localhost:8080、ビルド出力設定)
+- [ ] ESLint + Prettier 設定(ライセンスヘッダー検査ルール含む)
+- [ ] `frontend/build.gradle.kts`(gradle-node-plugin 系: Node 24 固定、npm ci → lint/型検査 → vite build のタスク鎖)
+
+### Step 4: ビルド統合(WAR 同梱)
+- [ ] frontend のビルド成果物(`dist/`)を backend の WAR に静的リソースとして同梱するタスク接続
+- [ ] `./gradlew build` の一本鎖(npm ci → lint/tsc → vite build → 同梱 → spotlessCheck → test → war)を確立
+
+### Step 5: devenv(docker compose)
+- [ ] `devenv/compose.yaml`(mysql:8.4=3306、mariadb:11.8=3307、postgres:18=5432、mailpit=1025/8025。タグ固定・名前付きボリューム)
+- [ ] 各 RDBMS の初期化スクリプト(開発用ユーザ + 空のサンプルスキーマ)
+- [ ] `devenv/README.md`(起動手順・接続情報)
+
+### Step 6: テスト基盤
+- [ ] backend: JUnit 5 + AssertJ + Mockito + Spring Boot Test 導入 + コンテキスト起動テスト
+- [ ] backend: Testcontainers 導入 + 方言別パラメータ化の抽象基底 + 3 RDBMS 接続スモークテスト(Docker 不在時は除外可能なタグ付き)
+- [ ] backend: jqwik 導入 + サンプルプロパティ(シード再現の動作確認)
+- [ ] frontend: Vitest + React Testing Library 導入 + サンプルテスト
+- [ ] frontend: fast-check 導入 + サンプルプロパティ
+
+### Step 7: ドキュメント
+- [ ] ルート `README.md`(プロジェクト概要、ビルド・起動・devenv 手順、Apache 2.0 表記)
+- [ ] `aidlc-docs/construction/unit-01-foundation/code/code-summary.md`(生成物サマリ — markdown のみ)
+
+### Step 8: 検証(DoD 確認)
+- [ ] `./gradlew build` が通る(品質ゲート・テスト込み)
+- [ ] `java -jar` で WAR を起動し、React 画面が配信される(SPA フォールバック確認)
+- [ ] `docker compose up` で 4 サービスが起動し、接続スモークテストが通る
+
+## 補足
+
+- 各 Step 完了ごとにチェックボックスを [x] 更新し、細かめの節目でコミットする(ユーザ標準指示)
+- UI 要素には `data-testid` を付与する(①では動作確認ページのみ)
+- Spring Security・機能パッケージ・design-system は本ユニットの対象外(logical-components.md §5)

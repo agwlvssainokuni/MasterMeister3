@@ -511,3 +511,11 @@
 **Context**: CONSTRUCTION - ユニット① NFR Design 完了 → Code Generation 開始
 
 ---
+
+## ユニット① Code Generation - Part 1 プラン作成・承認プロンプト提示
+**Timestamp**: 2026-07-18T15:00:00Z
+**User Input**: "(前項の承認に続く自動遷移のため新規入力なし)"
+**AI Response**: "unit-01-foundation-code-generation-plan.md を作成(8 ステップ: ①ルート Gradle 骨格 ②backend 骨格 ③frontend 骨格 ④WAR 同梱ビルド統合 ⑤devenv compose ⑥テスト基盤 ⑦ドキュメント ⑧DoD 検証)。対応ストーリーなし(基盤ユニット)、DoD と依存関係を明記。プラン承認プロンプトを提示。"
+**Context**: CONSTRUCTION - ユニット① Code Generation Part 1(Step 1〜6)。プラン承認待ち(GATE)
+
+---

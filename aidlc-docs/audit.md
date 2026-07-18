@@ -103,3 +103,11 @@
 **Context**: INCEPTION - Requirements Analysis。追加質問 Q9〜13 の回答待ち(GATE 継続)
 
 ---
+
+## Requirements Analysis - Q9〜13 の推奨問い合わせ
+**Timestamp**: 2026-07-18T07:05:00Z
+**User Input**: "推奨は?"
+**AI Response**: "推奨を提示: Q9=A(日本語のみ、ただしメッセージはリソース化して将来の i18n に備える)、Q10=B(ライト+ダーク両対応)、Q11=A(アカウントロックアウト)、Q12=B(TOTP を MVP 後に先送り、例外文書化)、Q13=B(閾値超過時の管理者メール通知)。"
+**Context**: INCEPTION - Requirements Analysis。Q9〜13 の回答待ち(GATE 継続)
+
+---

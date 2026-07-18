@@ -671,3 +671,11 @@
 **Context**: CONSTRUCTION - ユニット② NFR Design 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット② NFR Design - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T03:20:00Z
+**User Input**: "確認事項はありますか?"
+**AI Response**: "確認 2 点を提示: (1) FOUC 防止スクリプトの形態 — インライン(現設計)は③の CSP で hash 許可が必要になる。静的 index.html は nonce と相性が悪く hash 管理も煩雑なため、外部ファイル(public/theme-init.js、head 同期読込)への変更を推奨(CSP を script-src 'self' のみで完結)。(2) ②完了時点の `/` は①の動作確認ページを維持(本アプリ画面は③から)— 現状どおりを推奨。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット② NFR Design。ユーザ承認待ち(GATE 継続)
+
+---

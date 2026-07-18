@@ -1,0 +1,98 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mm-space-1);
+  height: var(--mm-control-height-md);
+  padding: 0 var(--mm-space-2);
+  border: 1px solid var(--mm-color-border-strong);
+  border-radius: var(--mm-radius-sm);
+  background: var(--mm-color-surface);
+  color: var(--mm-color-text);
+  font-family: inherit;
+  font-size: var(--mm-font-size-md);
+  cursor: pointer;
+}
+
+.trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--mm-focus-ring);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + var(--mm-space-1));
+  right: 0;
+  z-index: var(--mm-z-dropdown);
+  min-width: 160px;
+  padding: var(--mm-space-1);
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-radius-md);
+  background: var(--mm-color-surface-raised);
+  box-shadow: var(--mm-shadow-md);
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  padding: var(--mm-space-1) var(--mm-space-2);
+  border: none;
+  border-radius: var(--mm-radius-sm);
+  background: transparent;
+  color: var(--mm-color-text);
+  font-family: inherit;
+  font-size: var(--mm-font-size-md);
+  text-align: left;
+  cursor: pointer;
+}
+
+.itemActive {
+  background: var(--mm-color-primary-subtle);
+}
+
+.itemDanger {
+  color: var(--mm-color-danger);
+}
+
+.tooltipHost {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + var(--mm-space-1));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--mm-z-tooltip);
+  padding: var(--mm-space-1) var(--mm-space-2);
+  border-radius: var(--mm-radius-sm);
+  background: var(--mm-palette-gray-800);
+  color: var(--mm-palette-gray-100);
+  font-size: var(--mm-font-size-sm);
+  white-space: nowrap;
+  pointer-events: none;
+}

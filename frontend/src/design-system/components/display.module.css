@@ -1,0 +1,170 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 var(--mm-space-2);
+  border-radius: var(--mm-radius-full);
+  font-size: var(--mm-font-size-xs);
+  font-weight: var(--mm-font-weight-medium);
+  white-space: nowrap;
+}
+
+.badgeNeutral {
+  background: var(--mm-color-border);
+  color: var(--mm-color-text);
+}
+
+.badgePrimary {
+  background: var(--mm-color-primary-subtle);
+  color: var(--mm-color-primary);
+}
+
+.badgeSuccess {
+  background: var(--mm-color-success-subtle);
+  color: var(--mm-color-success);
+}
+
+.badgeWarning {
+  background: var(--mm-color-warning-subtle);
+  color: var(--mm-color-warning);
+}
+
+.badgeDanger {
+  background: var(--mm-color-danger-subtle);
+  color: var(--mm-color-danger);
+}
+
+/* Alert */
+.alert {
+  display: flex;
+  gap: var(--mm-space-2);
+  padding: var(--mm-space-2) var(--mm-space-3);
+  border: 1px solid;
+  border-radius: var(--mm-radius-md);
+  font-size: var(--mm-font-size-md);
+}
+
+.alertInfo {
+  background: var(--mm-color-primary-subtle);
+  border-color: var(--mm-color-primary);
+  color: var(--mm-color-text);
+}
+
+.alertSuccess {
+  background: var(--mm-color-success-subtle);
+  border-color: var(--mm-color-success);
+  color: var(--mm-color-text);
+}
+
+.alertWarning {
+  background: var(--mm-color-warning-subtle);
+  border-color: var(--mm-color-warning);
+  color: var(--mm-color-text);
+}
+
+.alertDanger {
+  background: var(--mm-color-danger-subtle);
+  border-color: var(--mm-color-danger);
+  color: var(--mm-color-text);
+}
+
+/* Card */
+.card {
+  background: var(--mm-color-surface);
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-radius-md);
+  box-shadow: var(--mm-shadow-sm);
+}
+
+.cardHeader {
+  padding: var(--mm-space-3) var(--mm-space-4);
+  border-bottom: 1px solid var(--mm-color-border);
+  font-size: var(--mm-font-size-lg);
+  font-weight: var(--mm-font-weight-bold);
+  line-height: var(--mm-line-height-tight);
+}
+
+.cardBody {
+  padding: var(--mm-space-4);
+}
+
+/* EmptyState */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--mm-space-3);
+  padding: var(--mm-space-10) var(--mm-space-4);
+  color: var(--mm-color-text-muted);
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* CodeBlock */
+.code {
+  position: relative;
+  background: var(--mm-color-bg);
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-radius-md);
+}
+
+.codePre {
+  margin: 0;
+  padding: var(--mm-space-3);
+  font-family: var(--mm-font-mono);
+  font-size: var(--mm-font-size-sm);
+  overflow-x: auto;
+}
+
+.codeWrap {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.codeActions {
+  position: absolute;
+  top: var(--mm-space-1);
+  right: var(--mm-space-1);
+  display: flex;
+  gap: var(--mm-space-1);
+}
+
+/* KeyValueList */
+.kv {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--mm-space-1) var(--mm-space-4);
+  margin: 0;
+}
+
+.kvKey {
+  color: var(--mm-color-text-muted);
+  font-size: var(--mm-font-size-sm);
+  line-height: var(--mm-line-height-normal);
+}
+
+.kvValue {
+  margin: 0;
+  font-size: var(--mm-font-size-md);
+}

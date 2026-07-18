@@ -1,0 +1,64 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--mm-z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--mm-space-10) var(--mm-space-4);
+  background: var(--mm-color-overlay);
+  overflow-y: auto;
+}
+
+.dialog {
+  width: min(560px, 100%);
+  background: var(--mm-color-surface-raised);
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-radius-md);
+  box-shadow: var(--mm-shadow-lg);
+  outline: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mm-space-2);
+  padding: var(--mm-space-3) var(--mm-space-4);
+  border-bottom: 1px solid var(--mm-color-border);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--mm-font-size-lg);
+  font-weight: var(--mm-font-weight-bold);
+  line-height: var(--mm-line-height-tight);
+}
+
+.body {
+  padding: var(--mm-space-4);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--mm-space-2);
+  padding: var(--mm-space-3) var(--mm-space-4);
+  border-top: 1px solid var(--mm-color-border);
+}

@@ -56,7 +56,14 @@
 - [ ] Infrastructure Design - SKIP
 - [x] Code Generation (2026-07-19 完了: Part 2 全 8 ステップ + DoD 検証、モック承認ゲート D-08 通過 = ユニット②完了)
 
-#### ユニット③〜⑥
+#### ユニット③ auth-user-audit(認証・ユーザ管理・監査基盤)
+- [ ] Functional Design - EXECUTE(2026-07-19 プラン + Q1〜Q4 作成済み、回答待ち)
+- [ ] NFR Requirements - EXECUTE 予定(セキュリティ NFR・設定プロパティ体系)
+- [ ] NFR Design - EXECUTE 予定
+- [ ] Infrastructure Design - SKIP
+- [ ] Code Generation - EXECUTE 予定
+
+#### ユニット④〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
 
 #### 全ユニット完了後
@@ -67,6 +74,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット③ auth-user-audit(認証・ユーザ管理・監査基盤)— ステージ判定から開始
-- **Next Stage**: ユニット③ Functional Design(Part 1: プラン+質問)
+- **Current Stage**: ユニット③ auth-user-audit — Functional Design Part 1(質問回答待ち)
+- **Next Stage**: 回答後、Functional Design 成果物生成
 - **Status**: ユニット② 完了(2026-07-19 モック承認 D-08 通過)。ユニット③ 開始

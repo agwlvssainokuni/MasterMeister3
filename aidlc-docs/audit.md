@@ -823,3 +823,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation Part 1。プラン承認待ち(GATE)
 
 ---
+
+## ユニット③ Code Generation Part 1 - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T08:30:00Z
+**User Input**: "確認すべき事項はありますか?"
+**AI Response**: "実装判断 3 点を提示: (1) mm.app.jwt.secret は application.yaml に既定値を書かず環境変数必須(開発手順は README 記載。誤って弱い鍵のまま本番稼働する事故を防ぐ — 推奨)、(2) ③完了時点で / は①の動作確認ページからログイン後ホーム(プレースホルダ)に置換(未認証は /login へ)、(3) spring.mail.* の開発既定は localhost:1025(MailPit)を application.yaml に記載し本番は上書き(推奨)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation Part 1。プラン承認待ち(GATE 継続)
+
+---

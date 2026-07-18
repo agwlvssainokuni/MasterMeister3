@@ -51,7 +51,7 @@
 
 #### ユニット② design-system(デザインシステム+モック)
 - [x] Functional Design (2026-07-19 完了: Q1〜Q6 = A/A/A/B/A/A、確認 5 点提示のうち等幅フォント同梱を反映、成果物 4 点、ユーザ承認済み)
-- [ ] NFR Requirements - 簡略実施予定(H-06 CSP・モック本番除外の確認)
+- [ ] NFR Requirements - EXECUTE(2026-07-19 簡略実施: NFR-U2-01〜05 と追加依存 5 件を確定、ステージ承認待ち)
 - [ ] NFR Design - 簡略実施予定
 - [ ] Infrastructure Design - SKIP
 - [ ] Code Generation - EXECUTE 予定(モック承認ゲート D-08 が完了ゲート)

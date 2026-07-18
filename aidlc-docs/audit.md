@@ -647,3 +647,11 @@
 **Context**: CONSTRUCTION - ユニット② Functional Design 完了。NFR Requirements 開始
 
 ---
+
+## ユニット② NFR Requirements(簡略)- 実施完了
+**Timestamp**: 2026-07-19T02:20:00Z
+**User Input**: "(簡略実施中のため新規入力なし)"
+**AI Response**: "②固有 NFR 5 件(NFR-U2-01〜05: CSP 整合・モック本番除外・フォント配信性能・アクセシビリティ・バンドル影響)と追加依存 5 件(react-router-dom 7.18.1 / i18next 26.3.6 / react-i18next 17.0.10 / @fontsource/noto-sans-jp 5.2.9 / @fontsource/noto-sans-mono 5.2.10 — npm 実在・peer 確認済み)を確定。実装既定値 2 点(Fontsource 採用によるフォント同梱、CSP 本則は③スコープ)を完了メッセージで確認。ステージ承認待ち。"
+**Context**: CONSTRUCTION - ユニット② NFR Requirements 完了。ユーザ承認待ち(GATE)
+
+---

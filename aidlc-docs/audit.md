@@ -47,3 +47,11 @@
 **Context**: INCEPTION - Requirements Analysis。PBT 適用モードを Partial に変更。Q1 の回答待ち(GATE 継続)
 
 ---
+
+## Requirements Analysis - Q1 の提供方法についての質問
+**Timestamp**: 2026-07-18T06:25:00Z
+**User Input**: "Q1について。プロジェクトフォルダにファイルを置く形で良いですか?どこへおけば良いですか?"
+**AI Response**: "ファイル提供を了承。推奨配置場所として aidlc-docs/inception/requirements/project-overview.md を案内(ファイル名は任意、Markdown 推奨だが他形式も変換対応可)。配置後に知らせてもらうよう依頼。"
+**Context**: INCEPTION - Requirements Analysis。Q1 の回答待ち(GATE 継続)
+
+---

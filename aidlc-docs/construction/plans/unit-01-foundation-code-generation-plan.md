@@ -30,10 +30,10 @@
 - [x] SPA フォールバック設定(非 `/api/**` → index.html。common パッケージ配下)
 
 ### Step 3: frontend サブプロジェクト骨格
-- [ ] `frontend/package.json` + Vite + React 19 + TypeScript(strict)雛形(App + 動作確認ページ)
-- [ ] `frontend/vite.config.ts`(dev proxy `/api` → localhost:8080、ビルド出力設定)
-- [ ] ESLint + Prettier 設定(ライセンスヘッダー検査ルール含む)
-- [ ] `frontend/build.gradle.kts`(gradle-node-plugin 系: Node 24 固定、npm ci → lint/型検査 → vite build のタスク鎖)
+- [x] `frontend/package.json` + Vite + React 19 + TypeScript(strict)雛形(App + 動作確認ページ)※TypeScript は 5.9 系(7 系は typescript-eslint 未対応のため)
+- [x] `frontend/vite.config.ts`(dev proxy `/api` → localhost:8080、ビルド出力設定)
+- [x] ESLint + Prettier 設定(ライセンスヘッダー検査は scripts/check-license-header.mjs)
+- [x] `frontend/build.gradle.kts`(gradle-node-plugin: Node 24.18.0 固定、npm ci → tsc/eslint/ヘッダー検査 → vite build のタスク鎖)
 
 ### Step 4: ビルド統合(WAR 同梱)
 - [ ] frontend のビルド成果物(`dist/`)を backend の WAR に静的リソースとして同梱するタスク接続

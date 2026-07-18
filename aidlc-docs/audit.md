@@ -759,3 +759,19 @@
 **Context**: CONSTRUCTION - ユニット③ Functional Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット③ Functional Design - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-19T07:10:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "ユニット③ Functional Design を承認として記録(確認 4 点も現設計どおり確定)。NFR Requirements を開始する。"
+**Context**: CONSTRUCTION - ユニット③ Functional Design 完了。NFR Requirements 開始
+
+---
+
+## ユニット③ NFR Requirements - Part A(質問提示)
+**Timestamp**: 2026-07-19T07:15:00Z
+**User Input**: "(プラン作成中のため新規入力なし)"
+**AI Response**: "NFR Requirements プランを作成し質問 2 点を提示: Q1 JWT 実装ライブラリ(推奨 A: spring-security-oauth2-jose — Security BOM 7.1.0 管理)、Q2 メール形式(推奨 A: プレーンテキスト + MessageSource)。実装既定値 3 点(BCrypt strength 10 / HS256 + 32 バイト以上検証 / Actuator health のみ)も提示。回答待ち。"
+**Context**: CONSTRUCTION - ユニット③ NFR Requirements Part A。回答待ち
+
+---

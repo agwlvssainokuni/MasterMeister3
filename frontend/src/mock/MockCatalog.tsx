@@ -20,6 +20,10 @@ import "./i18n-mock";
 import { LanguageSwitcher, ThemeToggle, ToastProvider } from "../design-system/components";
 import { TokensPage } from "./pages/TokensPage";
 import { ComponentsPage } from "./pages/ComponentsPage";
+import { LoginMock } from "./pages/screens/LoginMock";
+import { UserListMock } from "./pages/screens/UserListMock";
+import { RecordEditMock } from "./pages/screens/RecordEditMock";
+import { QueryRunMock } from "./pages/screens/QueryRunMock";
 import styles from "./MockCatalog.module.css";
 
 function CatalogNavLink({ to, label }: { to: string; label: string }) {
@@ -51,6 +55,21 @@ export default function MockCatalog() {
               <CatalogNavLink to="/mock/components" label={t("nav.components")} />
             </li>
           </ul>
+          <p className={styles.navGroup}>{t("nav.screens")}</p>
+          <ul className={styles.navList}>
+            <li>
+              <CatalogNavLink to="/mock/screens/login" label={t("nav.login")} />
+            </li>
+            <li>
+              <CatalogNavLink to="/mock/screens/user-list" label={t("nav.userList")} />
+            </li>
+            <li>
+              <CatalogNavLink to="/mock/screens/record-edit" label={t("nav.recordEdit")} />
+            </li>
+            <li>
+              <CatalogNavLink to="/mock/screens/query-run" label={t("nav.queryRun")} />
+            </li>
+          </ul>
         </nav>
         <div className={styles.main}>
           <div className={styles.topbar}>
@@ -62,6 +81,10 @@ export default function MockCatalog() {
               <Route index element={<Navigate to="/mock/tokens" replace />} />
               <Route path="tokens" element={<TokensPage />} />
               <Route path="components" element={<ComponentsPage />} />
+              <Route path="screens/login" element={<LoginMock />} />
+              <Route path="screens/user-list" element={<UserListMock />} />
+              <Route path="screens/record-edit" element={<RecordEditMock />} />
+              <Route path="screens/query-run" element={<QueryRunMock />} />
             </Routes>
           </div>
         </div>

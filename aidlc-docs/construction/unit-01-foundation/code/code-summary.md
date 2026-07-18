@@ -43,6 +43,14 @@
 | Testcontainers 座標 | Spring Boot 4.1 BOM は 2.x 系の新名称(`testcontainers-junit-jupiter` 等)を管理。新名称で導入(API は従来互換) |
 | `@eslint/js` | ESLint 10 では別パッケージのため明示追加 |
 
-## DoD 検証結果
+## DoD 検証結果(2026-07-18 実施)
 
-Step 8 実施時に本節へ追記する。
+| 検証項目 | 結果 |
+|---|---|
+| `./gradlew build`(品質ゲート + テスト込み) | ✅ 成功。テスト: backend 5 件(コンテキスト起動 / jqwik / 実エンジン 3 種スモーク)+ frontend 2 件(RTL / fast-check)全パス、スキップなし |
+| `java -jar` で WAR 起動 | ✅ `/` と `/some/spa/route` で React ページ配信(SPA フォールバック動作)、`/api/**` は 404(除外動作)、`/actuator/health` UP、H2 データファイル(`data/mastermeister.mv.db`)生成・Flyway V1 適用 |
+| `docker compose up` | ✅ mysql / mariadb / postgres / mailpit の 4 サービス起動。3 RDBMS に mmdev で接続し `sample` スキーマを確認。MailPit Web UI 応答 200 |
+
+**検証中の修正**:
+- postgres:18 はデータマウント先が `/var/lib/postgresql`(親ディレクトリ)に変更されたため compose を修正
+- Testcontainers の Docker 検出: colima 環境(標準ソケットなし)向けに、`DOCKER_HOST` 未設定時のソケット自動設定を backend/build.gradle.kts に追加

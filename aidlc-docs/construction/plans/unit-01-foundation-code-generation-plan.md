@@ -56,9 +56,9 @@
 - [x] `aidlc-docs/construction/unit-01-foundation/code/code-summary.md`(生成物サマリ — markdown のみ)
 
 ### Step 8: 検証(DoD 確認)
-- [ ] `./gradlew build` が通る(品質ゲート・テスト込み)
-- [ ] `java -jar` で WAR を起動し、React 画面が配信される(SPA フォールバック確認)
-- [ ] `docker compose up` で 4 サービスが起動し、接続スモークテストが通る
+- [x] `./gradlew build` が通る(品質ゲート・テスト込み。Spotless 違反 2 件は spotlessApply で自動修正)
+- [x] `java -jar` で WAR を起動し、React 画面が配信される(/ と /some/spa/route で index.html 配信、/api/** は 404、health UP、H2 データファイル生成を確認)
+- [x] `docker compose up` で 4 サービスが起動(postgres:18 はマウント先を /var/lib/postgresql に修正)し、3 RDBMS への接続と sample スキーマ作成を確認。Testcontainers スモークテストも実エンジン 3 種でパス
 
 ## 補足
 

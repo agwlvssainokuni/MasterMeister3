@@ -52,7 +52,7 @@
 #### ユニット② design-system(デザインシステム+モック)
 - [x] Functional Design (2026-07-19 完了: Q1〜Q6 = A/A/A/B/A/A、確認 5 点提示のうち等幅フォント同梱を反映、成果物 4 点、ユーザ承認済み)
 - [x] NFR Requirements (2026-07-19 完了: 簡略実施、NFR-U2-01〜05・追加依存 5 件・既定値 2 点(Fontsource 採用 / CSP 本則は③)、ユーザ承認済み)
-- [ ] NFR Design - EXECUTE(2026-07-19 簡略実施完了、ステージ承認待ち)
+- [x] NFR Design (2026-07-19 完了: 簡略実施、FOUC 防止を外部ファイル方式に変更の上ユーザ承認済み)
 - [ ] Infrastructure Design - SKIP
 - [ ] Code Generation - EXECUTE 予定(モック承認ゲート D-08 が完了ゲート)
 
@@ -67,6 +67,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット② design-system(デザインシステム+モック)— ステージ判定から開始
-- **Next Stage**: ユニット②の Functional Design(デザイントークン・コンポーネント仕様の設計として実施見込み — 開始時に正式判定)
-- **Status**: ユニット① foundation 完了(2026-07-19 ユーザ承認)。ユニット② 開始。モック承認(D-08)がユニット②の完了ゲート
+- **Current Stage**: ユニット② design-system — Code Generation(Part 1 プラン作成)
+- **Next Stage**: ユニット② Code Generation Part 2(実装)→ モック承認ゲート(D-08)
+- **Status**: ユニット② FD / NFR Requirements / NFR Design 承認済み(2026-07-19)。Code Generation 開始

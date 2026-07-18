@@ -679,3 +679,11 @@
 **Context**: CONSTRUCTION - ユニット② NFR Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット② NFR Design - 修正指示とステージ承認(GATE 通過)
+**Timestamp**: 2026-07-19T03:30:00Z
+**User Input**: "1は推奨どおり外部ファイル方式に変更してください。Continue to Next Stage"
+**AI Response**: "FOUC 防止を外部ファイル方式(public/theme-init.js、head 同期読込)に変更し nfr-design-patterns.md / logical-components.md を更新(CSP 特例の申し送りを解消)。NFR Design を承認として記録し、Code Generation Part 1(プラン作成)を開始する。"
+**Context**: CONSTRUCTION - ユニット② NFR Design 完了。Code Generation Part 1 開始
+
+---

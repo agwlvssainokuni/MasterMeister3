@@ -8,7 +8,7 @@
 - `ThemeProvider`(`design-system/theme/`): React Context で `theme: "light" | "dark" | "system"` と `setTheme` を提供
   - 初期化: `localStorage("mm.theme")` → なければ `system`
   - 反映: `document.documentElement` の `data-theme` 属性に解決値(light/dark)を設定。`system` 時は `matchMedia("(prefers-color-scheme: dark)")` を購読して追従
-  - 初期表示のちらつき(FOUC)防止: `index.html` の冒頭にインライン初期化スクリプト(数行、localStorage 読取→ data-theme 設定)を配置。**インラインスクリプトは③の CSP 本則で nonce/hash 許可が必要になる点を申し送り**
+  - 初期表示のちらつき(FOUC)防止: **外部ファイル方式**(レビューで確定 — 2026-07-19)。`frontend/public/theme-init.js`(数行、localStorage 読取→ data-theme 設定)を `index.html` の `<head>` で同期読み込みする。インラインスクリプトを使わないため、③の CSP 本則は `script-src 'self'` のみで完結する(静的 index.html と nonce/hash の相性問題を回避)
 - トークン CSS は `:root { ... }` + `:root[data-theme="dark"] { ... }` の 2 ブロック(design-tokens.md §1)
 
 ## 2. i18n 機構(D-09 / US-047 前段)

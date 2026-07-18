@@ -727,3 +727,11 @@
 **Context**: CONSTRUCTION - ユニット② モック承認ゲート D-08(GATE 継続)
 
 ---
+
+## ユニット② Code Generation - モック承認(D-08 通過、ユニット②完了)
+**Timestamp**: 2026-07-19T06:10:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "モック承認(D-08)として記録。ユニット② design-system 完了。確認事項 3 点(視覚確認 / ネイティブ select / font-display swap)は現状どおりで確定。aidlc-state.md を更新し、ユニット③ auth-user-audit のステージ判定を開始する。"
+**Context**: CONSTRUCTION - ユニット② 完了。ユニット③ 開始
+
+---

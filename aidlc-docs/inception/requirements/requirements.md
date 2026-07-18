@@ -42,6 +42,7 @@
 | D-11 | ログインのブルートフォース対策はアカウントロックアウト方式(閾値・ロック時間は環境変数で設定可能、管理者手動解除あり) | Q11=A |
 | D-12 | 管理者 MFA は TOTP 方式を提供予定だが MVP 後に先送り(SECURITY-12 の文書化された例外。根拠: 内部ツール・約 10 名規模) | Q12=B |
 | D-13 | セキュリティイベント(連続ログイン失敗等)の閾値超過時に管理者へメール通知(SECURITY-14 対応) | Q13=B |
+| D-14 | ディレクトリ構成はルート Gradle マルチプロジェクト統合方式(§6 参照。project-overview.md §4 の構成に対する確定版) | Q14=B |
 
 技術スタックの詳細(JPA / NamedParameterJdbcTemplate / H2 / Caffeine / JWT / コネクションプール等)は project-overview.md §2〜3 を正とする。
 
@@ -82,13 +83,20 @@
 
 ## 6. プロジェクト構成(ワークスペースレイアウト)
 
+ルート Gradle マルチプロジェクト統合方式(Q14=B、D-14)。project-overview.md §4 の 3 ディレクトリ構成を維持しつつ、ビルドを統合する。
+
 ```
 MasterMeister3/
-+-- backend/        # Spring Boot アプリケーション
-+-- frontend/       # React アプリケーション (Vite)
-+-- devenv/         # 開発環境 (Docker Compose)
-+-- aidlc-docs/     # AI-DLC ドキュメント
++-- settings.gradle.kts     # ルート: backend をサブプロジェクトとして include
++-- gradlew / gradle/       # Gradle wrapper(ルートに配置)
++-- backend/                # Spring Boot アプリケーション(Gradle サブプロジェクト)
++-- frontend/               # React アプリケーション(Vite。npm 管理は独立)
++-- devenv/                 # 開発環境 (Docker Compose)
++-- aidlc-docs/             # AI-DLC ドキュメント
 ```
+
+- `./gradlew build` の単一コマンドで npm install → Vite ビルド → dist/ の WAR 静的リソース組み込み → 実行可能 WAR 生成まで完結する
+- 開発時は Vite dev サーバ(バックエンドへのプロキシ)と bootRun を並行起動する
 
 ## 7. スコープ外・未実装事項(project-overview.md に明記)
 

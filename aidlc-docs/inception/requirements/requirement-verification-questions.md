@@ -213,4 +213,4 @@ D) バックエンド内包型(backend/src/main/frontend に React を配置)—
 
 X) Other (please describe after [Answer]: tag below)
 
-[Answer]:
+[Answer]: B

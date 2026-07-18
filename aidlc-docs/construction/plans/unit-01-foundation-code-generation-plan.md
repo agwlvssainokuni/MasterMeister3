@@ -23,11 +23,11 @@
 - [x] ルート `.gitignore`(build/, node_modules/, data/ 等。**`.idea/` は入れない** — ユーザ指示)
 
 ### Step 2: backend サブプロジェクト骨格
-- [ ] `backend/build.gradle.kts`(Spring Boot 4.1 + war、Java 25 toolchain、-Xlint、Spotless(ライセンスヘッダー)、JPA/Flyway/H2/Actuator 依存)
-- [ ] メインアプリケーションクラス(実行可能 WAR 対応 — D-14)
-- [ ] `application.yaml`(`mm.app.*` 設定骨格、H2 ファイルモード(データは `data/` 配下)、Flyway 有効化、Actuator health のみ公開)
-- [ ] Flyway `V1` マイグレーション(最小: マイグレーション動作確認用)
-- [ ] SPA フォールバック設定(非 `/api/**` → index.html。common パッケージ配下)
+- [x] `backend/build.gradle.kts`(Spring Boot 4.1 + war、Java 25 toolchain、-Xlint、Spotless(ライセンスヘッダー)、JPA/Flyway/H2/Actuator 依存)
+- [x] メインアプリケーションクラス(実行可能 WAR 対応 — D-14)
+- [x] `application.yaml`(`mm.app.*` 設定骨格、H2 ファイルモード(データは `data/` 配下)、Flyway 有効化、Actuator health のみ公開)
+- [x] Flyway `V1` マイグレーション(最小: マイグレーション動作確認用)
+- [x] SPA フォールバック設定(非 `/api/**` → index.html。common パッケージ配下)
 
 ### Step 3: frontend サブプロジェクト骨格
 - [ ] `frontend/package.json` + Vite + React 19 + TypeScript(strict)雛形(App + 動作確認ページ)

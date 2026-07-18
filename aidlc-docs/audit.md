@@ -447,3 +447,11 @@
 **Context**: CONSTRUCTION - ユニット① NFR Requirements(Step 2〜4)。回答待ち(GATE)
 
 ---
+
+## コミット指示
+**Timestamp**: 2026-07-18T13:40:00Z
+**User Input**: "一旦コミット"
+**AI Response**: "作業ツリーは既にクリーン(直前の変更は 52f5604 までコミット済み)であることを確認し、本監査エントリのみ追記してコミット。ユニット① NFR Requirements の質問 4 件への回答待ちを継続。"
+**Context**: CONSTRUCTION - ユニット① NFR Requirements。回答待ち(GATE 継続)
+
+---

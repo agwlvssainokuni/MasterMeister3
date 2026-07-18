@@ -807,3 +807,11 @@
 **Context**: CONSTRUCTION - ユニット③ NFR Design 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット③ NFR Design - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T08:10:00Z
+**User Input**: "確認すべき事項はありますか?"
+**AI Response**: "確認 3 点を提示: (1) CSRF 保護は無効(トークンは Cookie に置かず sessionStorage + Authorization ヘッダーのみのため CSRF 攻撃面が存在しない — 標準構成)、(2) メールテンプレートの言語フォールバックは en(フロント i18n の fallbackLng と整合。ja/en 両テンプレートを必ず用意するため実質発動しない)、(3) 監査 INSERT は同期実行のため主処理レイテンシに数 ms 乗る(D-20 の一貫性優先の帰結 — Phase 1 の負荷では問題なし)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット③ NFR Design。ユーザ承認待ち(GATE 継続)
+
+---

@@ -48,6 +48,18 @@ dependencies {
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    // PBT(PBT-09: jqwik)
+    testImplementation(libs.jqwik)
+
+    // 対象 RDBMS の実エンジン結合テスト(Testcontainers)
+    testImplementation("org.testcontainers:testcontainers-junit-jupiter")
+    testImplementation("org.testcontainers:testcontainers-mysql")
+    testImplementation("org.testcontainers:testcontainers-mariadb")
+    testImplementation("org.testcontainers:testcontainers-postgresql")
+    testRuntimeOnly("com.mysql:mysql-connector-j")
+    testRuntimeOnly("org.mariadb.jdbc:mariadb-java-client")
+    testRuntimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<JavaCompile>().configureEach {
@@ -65,6 +77,16 @@ tasks.processResources {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+
+    // Testcontainers の Docker 検出: DOCKER_HOST 未設定で colima を使っている環境では
+    // ソケットの場所を自動設定する(標準の /var/run/docker.sock が存在しないため)
+    if (System.getenv("DOCKER_HOST") == null) {
+        val colimaSocket = file("${System.getProperty("user.home")}/.colima/default/docker.sock")
+        if (colimaSocket.exists()) {
+            environment("DOCKER_HOST", "unix://${colimaSocket.absolutePath}")
+            environment("TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE", "/var/run/docker.sock")
+        }
+    }
 }
 
 spotless {

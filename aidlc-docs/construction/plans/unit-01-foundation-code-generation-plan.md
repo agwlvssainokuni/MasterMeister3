@@ -45,15 +45,15 @@
 - [x] `devenv/README.md`(起動手順・接続情報)
 
 ### Step 6: テスト基盤
-- [ ] backend: JUnit 5 + AssertJ + Mockito + Spring Boot Test 導入 + コンテキスト起動テスト
-- [ ] backend: Testcontainers 導入 + 方言別パラメータ化の抽象基底 + 3 RDBMS 接続スモークテスト(Docker 不在時は除外可能なタグ付き)
-- [ ] backend: jqwik 導入 + サンプルプロパティ(シード再現の動作確認)
-- [ ] frontend: Vitest + React Testing Library 導入 + サンプルテスト
-- [ ] frontend: fast-check 導入 + サンプルプロパティ
+- [x] backend: JUnit 5 + AssertJ + Mockito + Spring Boot Test 導入 + コンテキスト起動テスト(インメモリ H2 + Flyway 適用)
+- [x] backend: Testcontainers 導入(Boot BOM 管理の 2.x 新座標)+ 方言別抽象基底 + 3 RDBMS 接続スモークテスト(@Testcontainers disabledWithoutDocker、colima ソケット自動検出)— 実エンジン 3 種でパス
+- [x] backend: jqwik 導入 + サンプルプロパティ(シード再現の動作確認)
+- [x] frontend: Vitest + React Testing Library 導入 + サンプルテスト
+- [x] frontend: fast-check 導入 + サンプルプロパティ
 
 ### Step 7: ドキュメント
-- [ ] ルート `README.md`(プロジェクト概要、ビルド・起動・devenv 手順、Apache 2.0 表記)
-- [ ] `aidlc-docs/construction/unit-01-foundation/code/code-summary.md`(生成物サマリ — markdown のみ)
+- [x] ルート `README.md`(プロジェクト概要、ビルド・起動・devenv 手順、Apache 2.0 表記)
+- [x] `aidlc-docs/construction/unit-01-foundation/code/code-summary.md`(生成物サマリ — markdown のみ)
 
 ### Step 8: 検証(DoD 確認)
 - [ ] `./gradlew build` が通る(品質ゲート・テスト込み)

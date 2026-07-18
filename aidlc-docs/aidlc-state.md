@@ -37,7 +37,7 @@
 - [x] Requirements Analysis (2026-07-18 完了: 全 17 問回答、D-01〜17 確定、ユーザ承認済み)
 - [x] User Stories (2026-07-18 完了: 2 ペルソナ + 48 ストーリー、レビューで D-18〜D-21 確定、ユーザ承認済み)
 - [x] Workflow Planning (2026-07-18 完了: execution-plan.md、レビュー観点 5 点確認の上ユーザ承認済み)
-- [ ] Application Design - EXECUTE
+- [x] Application Design (2026-07-18 完了: 設計プラン Q1〜Q3 + レビュー確認 5 点(監査イベント方式/メタデータ権限フィルタ/一括反映単一API/キャッシュ粗粒度無効化・@Cacheable複数対象/トークン sessionStorage 保持)+ カラムメタデータ同梱を確定、ユーザ承認済み)
 - [ ] Units Generation - EXECUTE
 
 ### 🟢 CONSTRUCTION PHASE(ユニットごと)
@@ -53,6 +53,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: INCEPTION
-- **Current Stage**: Application Design(実行中)
-- **Next Stage**: Units Generation
-- **Status**: Application Design 実行中
+- **Current Stage**: Units Generation(実行中)
+- **Next Stage**: CONSTRUCTION - ユニット①の Functional Design
+- **Status**: Units Generation 実行中

@@ -375,3 +375,11 @@
 **Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## Application Design - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-18T12:10:00Z
+**User Input**: "Approve & Continue"
+**AI Response**: "Application Design を承認完了として記録。aidlc-state.md を更新(Application Design 完了、Current Stage を Units Generation へ)。Units Generation ステージを開始。"
+**Context**: INCEPTION - Application Design 完了 → Units Generation 開始
+
+---

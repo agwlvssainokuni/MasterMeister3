@@ -47,7 +47,7 @@
 - [x] NFR Requirements (2026-07-18 完了: Q1〜Q4 = A、実装既定値 3 点共有の上ユーザ承認済み)
 - [x] NFR Design (2026-07-18 完了: 簡略実施、devenv ポート既定値確認の上ユーザ承認済み)
 - [ ] Infrastructure Design - SKIP
-- [ ] Code Generation - EXECUTE(実行中: Part 1 プランニング)
+- [ ] Code Generation - EXECUTE(Part 1 承認済み、Part 2 生成実行中)
 
 #### ユニット②〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施

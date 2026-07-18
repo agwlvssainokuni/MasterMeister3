@@ -36,7 +36,7 @@
 - [x] Reverse Engineering (SKIPPED)
 - [x] Requirements Analysis (2026-07-18 完了: 全 17 問回答、D-01〜17 確定、ユーザ承認済み)
 - [x] User Stories (2026-07-18 完了: 2 ペルソナ + 48 ストーリー、レビューで D-18〜D-21 確定、ユーザ承認済み)
-- [ ] Workflow Planning (execution-plan.md 作成済み、ユーザ承認待ち)
+- [x] Workflow Planning (2026-07-18 完了: execution-plan.md、レビュー観点 5 点確認の上ユーザ承認済み)
 - [ ] Application Design - EXECUTE
 - [ ] Units Generation - EXECUTE
 
@@ -53,6 +53,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: INCEPTION
-- **Current Stage**: Workflow Planning(承認待ち)
-- **Next Stage**: Application Design
-- **Status**: 実行計画のユーザ承認待ち
+- **Current Stage**: Application Design(実行中)
+- **Next Stage**: Units Generation
+- **Status**: Application Design 実行中

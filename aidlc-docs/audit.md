@@ -119,3 +119,11 @@
 **Context**: INCEPTION - Requirements Analysis Step 9。ユーザ承認待ち(GATE)
 
 ---
+
+## Requirements Analysis - ディレクトリ構成の改善提案依頼
+**Timestamp**: 2026-07-18T07:20:00Z
+**User Input**: "Q1の回答で、ディレクトリ構成 backend, frontend, devenv が書いて合ったが、これはMUSTではない。より良い構成があれば提案して欲しい。"
+**AI Response**: "ディレクトリ構成の選択肢を Question 14 として質問ファイルに追加。推奨は B(トップレベル 3 ディレクトリ構成は維持しつつ、ルートに Gradle マルチプロジェクトを置き、フロントエンドビルドを WAR に統合して単一コマンドビルドを実現)。"
+**Context**: INCEPTION - Requirements Analysis。Q14 の回答待ち(GATE 継続)
+
+---

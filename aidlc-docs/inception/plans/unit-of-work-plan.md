@@ -64,8 +64,8 @@ X) Other (please describe after [Answer]: tag below)
 
 ## Part B: 生成作業(承認後に実行)
 
-- [ ] `aidlc-docs/inception/application-design/unit-of-work.md` — ユニット定義と責務、各ユニットの完了条件(Definition of Done)、グリーンフィールドのコード編成方針(要件 §6 のルート Gradle マルチプロジェクト構成を反映)
-- [ ] `aidlc-docs/inception/application-design/unit-of-work-dependency.md` — ユニット間依存マトリクスと開発順序
-- [ ] `aidlc-docs/inception/application-design/unit-of-work-story-map.md` — 48 ストーリー(US-001〜048)の全ユニット割当マップ(漏れなし検証付き)
-- [ ] ユニット境界と依存の妥当性検証(機能パッケージ構成・依存マトリクスとの整合)
-- [ ] 全ストーリーの割当完了検証(未割当ゼロ)
+- [x] `aidlc-docs/inception/application-design/unit-of-work.md` — ユニット定義と責務、各ユニットの完了条件(Definition of Done)、グリーンフィールドのコード編成方針(要件 §6 のルート Gradle マルチプロジェクト構成を反映)
+- [x] `aidlc-docs/inception/application-design/unit-of-work-dependency.md` — ユニット間依存マトリクスと開発順序
+- [x] `aidlc-docs/inception/application-design/unit-of-work-story-map.md` — 48 ストーリー(US-001〜048)の全ユニット割当マップ(漏れなし検証付き)
+- [x] ユニット境界と依存の妥当性検証(機能パッケージ構成・依存マトリクスとの整合 — 一方向依存・循環なしを確認)
+- [x] 全ストーリーの割当完了検証(48/48 割当・重複なし)

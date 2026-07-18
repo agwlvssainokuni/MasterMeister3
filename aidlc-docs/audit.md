@@ -255,3 +255,11 @@
 **Context**: INCEPTION - User Stories。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## Requirements 前提 3 件の承認
+**Timestamp**: 2026-07-18T09:45:00Z
+**User Input**: "1, 2, 3 ともにその前提を承認します。"
+**AI Response**: "前提 3 件(モダンブラウザのみ / JST 表示 / MVP スコープ境界)の承認を受領し、requirements.md §8 に承認済みと明記。残る待ち事項はストーリー承認のみ。"
+**Context**: INCEPTION - User Stories。ストーリー承認待ち(GATE 継続)
+
+---

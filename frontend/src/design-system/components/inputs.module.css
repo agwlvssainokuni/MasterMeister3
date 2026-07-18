@@ -1,0 +1,169 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* テキスト入力・選択系の共通スタイル */
+.input {
+  height: var(--mm-control-height-md);
+  padding: 0 var(--mm-space-2);
+  border: 1px solid var(--mm-color-border-strong);
+  border-radius: var(--mm-radius-sm);
+  background: var(--mm-color-surface);
+  color: var(--mm-color-text);
+  font-family: inherit;
+  font-size: var(--mm-font-size-md);
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--mm-color-text-muted);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--mm-color-primary);
+  box-shadow: var(--mm-focus-ring);
+}
+
+.input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--mm-color-bg);
+}
+
+.input[readonly] {
+  background: var(--mm-color-bg);
+}
+
+.invalid {
+  border-color: var(--mm-color-danger);
+}
+
+.invalid:focus-visible {
+  border-color: var(--mm-color-danger);
+}
+
+.textarea {
+  height: auto;
+  min-height: calc(var(--mm-control-height-md) * 2.5);
+  padding: var(--mm-space-1) var(--mm-space-2);
+  line-height: var(--mm-line-height-normal);
+  resize: vertical;
+}
+
+/* PasswordInput / SearchInput のラッパ */
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.wrapper .input {
+  padding-right: var(--mm-control-height-md);
+}
+
+.trailing {
+  position: absolute;
+  right: 0;
+  display: inline-flex;
+}
+
+/* Checkbox / Radio / Switch */
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mm-space-2);
+  cursor: pointer;
+  font-size: var(--mm-font-size-md);
+}
+
+.choice input {
+  accent-color: var(--mm-color-primary);
+  width: 15px;
+  height: 15px;
+  margin: 0;
+}
+
+.choice input:focus-visible {
+  outline: none;
+  box-shadow: var(--mm-focus-ring);
+}
+
+.choice input:disabled,
+.choice:has(input:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.choiceGroup {
+  display: flex;
+  gap: var(--mm-space-4);
+  flex-wrap: wrap;
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mm-space-2);
+  cursor: pointer;
+}
+
+.switchInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.switchTrack {
+  width: 32px;
+  height: 18px;
+  border-radius: var(--mm-radius-full);
+  background: var(--mm-color-border-strong);
+  transition: background-color var(--mm-duration-fast);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.switchTrack::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--mm-radius-full);
+  background: var(--mm-palette-white);
+  transition: transform var(--mm-duration-fast);
+}
+
+.switchInput:checked + .switchTrack {
+  background: var(--mm-color-primary);
+}
+
+.switchInput:checked + .switchTrack::after {
+  transform: translateX(14px);
+}
+
+.switchInput:focus-visible + .switchTrack {
+  box-shadow: var(--mm-focus-ring);
+}
+
+.switch:has(.switchInput:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

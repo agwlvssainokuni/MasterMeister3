@@ -14,11 +14,20 @@
  * limitations under the License.
  */
 
-import "@testing-library/jest-dom/vitest";
-import { beforeAll } from "vitest";
-// コンポーネントが useTranslation を使うため、テストでも i18n を初期化する(ja 固定)
-import i18n from "../design-system/i18n";
+import { useTranslation } from "react-i18next";
+import styles from "./Spinner.module.css";
 
-beforeAll(async () => {
-  await i18n.changeLanguage("ja");
-});
+export interface SpinnerProps {
+  size?: "sm" | "md" | "lg";
+}
+
+export function Spinner({ size = "md" }: SpinnerProps) {
+  const { t } = useTranslation();
+  return (
+    <span
+      className={`${styles.spinner} ${styles[size]}`}
+      role="status"
+      aria-label={t("state.loading")}
+    />
+  );
+}

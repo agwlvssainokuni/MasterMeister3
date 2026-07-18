@@ -1,0 +1,103 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mm-space-1);
+  border: 1px solid transparent;
+  border-radius: var(--mm-radius-sm);
+  font-family: inherit;
+  font-size: var(--mm-font-size-md);
+  font-weight: var(--mm-font-weight-medium);
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--mm-duration-fast), border-color var(--mm-duration-fast);
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: var(--mm-focus-ring);
+}
+
+.md {
+  height: var(--mm-control-height-md);
+  padding: 0 var(--mm-space-3);
+}
+
+.sm {
+  height: var(--mm-control-height-sm);
+  padding: 0 var(--mm-space-2);
+  font-size: var(--mm-font-size-sm);
+}
+
+.icon.md {
+  width: var(--mm-control-height-md);
+  padding: 0;
+}
+
+.icon.sm {
+  width: var(--mm-control-height-sm);
+  padding: 0;
+}
+
+.primary {
+  background: var(--mm-color-primary);
+  color: var(--mm-color-text-inverse);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--mm-color-primary-hover);
+}
+
+.secondary {
+  background: var(--mm-color-surface);
+  border-color: var(--mm-color-border-strong);
+  color: var(--mm-color-text);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--mm-color-bg);
+}
+
+.danger {
+  background: var(--mm-color-danger);
+  color: var(--mm-color-text-inverse);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--mm-color-danger-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--mm-color-text);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--mm-color-primary-subtle);
+}
+
+.loadingLabel {
+  opacity: 0.8;
+}

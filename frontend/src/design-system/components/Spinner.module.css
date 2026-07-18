@@ -14,11 +14,32 @@
  * limitations under the License.
  */
 
-import "@testing-library/jest-dom/vitest";
-import { beforeAll } from "vitest";
-// コンポーネントが useTranslation を使うため、テストでも i18n を初期化する(ja 固定)
-import i18n from "../design-system/i18n";
+.spinner {
+  display: inline-block;
+  border: 2px solid var(--mm-color-border);
+  border-top-color: var(--mm-color-primary);
+  border-radius: var(--mm-radius-full);
+  animation: spin 0.7s linear infinite;
+}
 
-beforeAll(async () => {
-  await i18n.changeLanguage("ja");
-});
+.sm {
+  width: 12px;
+  height: 12px;
+}
+
+.md {
+  width: 18px;
+  height: 18px;
+}
+
+.lg {
+  width: 28px;
+  height: 28px;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -33,6 +33,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["src/test/setup.ts"],
-    globals: false,
+    // RTL の自動クリーンアップ(afterEach)に必要
+    globals: true,
   },
 });

@@ -51,8 +51,8 @@
 ## 4. タイポグラフィ
 
 - `--mm-font-sans`: `"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif`(Q4=B: Noto Sans JP を WAR に同梱。フォールバックにシステム日本語フォント)
-- `--mm-font-mono`: `ui-monospace, "SF Mono", Menlo, Consolas, monospace`(SQL・コード表示。等幅は同梱せずシステムスタック)
-- **Noto Sans JP 同梱方針**: woff2(可変フォントまたは 400/500/700 の 3 ウェイト)を `frontend/src/design-system/tokens/fonts/` に配置し `@font-face`(`font-display: swap`)で読み込む。**ライセンス: SIL OFL 1.1** — 同梱物にライセンス文を添付し、D-17 と同様にサードパーティライセンスとして文書化する
+- `--mm-font-mono`: `"Noto Sans Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace`(SQL・コード表示。**Noto Sans Mono も同梱**し等幅も見た目を揃える — レビュー時ユーザ指示。CJK 文字はフォールバックの Noto Sans JP / システムフォントで表示)
+- **フォント同梱方針**: Noto Sans JP(400/500/700)+ Noto Sans Mono(400/700)の woff2 を `frontend/src/design-system/tokens/fonts/` に配置し `@font-face`(`font-display: swap`)で読み込む。**ライセンス: いずれも SIL OFL 1.1** — 同梱物にライセンス文を添付し、D-17 と同様にサードパーティライセンスとして文書化する
 - サイズ(ベース 14px — Q5=A):
 
 | トークン | 値 | 用途 |

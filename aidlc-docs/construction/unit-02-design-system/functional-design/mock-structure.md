@@ -49,4 +49,4 @@ frontend/src/
 |---|---|---|
 | react-router-dom | ルーティング(モック + 本実装) | ②で導入し③以降も使用 |
 | react-i18next + i18next | i18n(Q6=A) | ブラウザ言語検出は自前実装(§screen-specs 5)で十分か実装時判断 |
-| Noto Sans JP(woff2 同梱) | フォント(Q4=B) | npm パッケージではなくアセット同梱。SIL OFL 1.1 をライセンス文書化 |
+| Noto Sans JP + Noto Sans Mono(woff2 同梱) | フォント(Q4=B + 等幅同梱のユーザ指示) | npm パッケージではなくアセット同梱。SIL OFL 1.1 をライセンス文書化 |

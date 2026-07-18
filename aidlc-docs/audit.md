@@ -631,3 +631,11 @@
 **Context**: CONSTRUCTION - ユニット② Functional Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット② Functional Design - 確認事項への回答(等幅フォントも同梱)
+**Timestamp**: 2026-07-19T01:55:00Z
+**User Input**: "2は、等幅も見た目を揃えてください。"
+**AI Response**: "design-tokens.md を更新: --mm-font-mono の先頭を Noto Sans Mono とし、Noto Sans Mono(400/700)の woff2 も同梱する方針に変更(SIL OFL 1.1、CJK はフォールバックで表示)。mock-structure.md の依存表も更新。他 4 点(react-router-dom 導入 / 日時固定フォーマット / 1024px 主対象 / ネイティブ要素ベース)は推奨どおり。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット② Functional Design。ユーザ承認待ち(GATE 継続)
+
+---

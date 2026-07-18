@@ -479,3 +479,11 @@
 **Context**: CONSTRUCTION - ユニット① NFR Requirements。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① NFR Requirements - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-18T14:20:00Z
+**User Input**: "3点ともOKです。Continue to Next Stage"
+**AI Response**: "既定値 3 点(Temurin 25 自動プロビジョニング、Vite dev server + proxy の 2 面構成、JDBC ドライバ構成)の承認と NFR Requirements ステージ承認を記録。aidlc-state.md を更新し、ユニット① NFR Design を開始。"
+**Context**: CONSTRUCTION - ユニット① NFR Requirements 完了 → NFR Design 開始
+
+---

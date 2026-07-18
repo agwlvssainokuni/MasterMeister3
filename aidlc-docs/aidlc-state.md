@@ -44,8 +44,8 @@
 
 #### ユニット① foundation(骨格・開発環境)
 - [x] Functional Design - SKIPPED(業務ロジック・データモデルなし。2026-07-18 開始時判定)
-- [ ] NFR Requirements - EXECUTE(成果物 2 件生成済み、ステージ承認待ち)
-- [ ] NFR Design - 簡略見込み(NFR Requirements 後に判定)
+- [x] NFR Requirements (2026-07-18 完了: Q1〜Q4 = A、実装既定値 3 点共有の上ユーザ承認済み)
+- [ ] NFR Design - EXECUTE(実行中・簡略実施)
 - [ ] Infrastructure Design - SKIP
 - [ ] Code Generation - EXECUTE
 

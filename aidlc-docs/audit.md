@@ -279,3 +279,11 @@
 **Context**: INCEPTION - Workflow Planning Step 9。ユーザ承認待ち(GATE)
 
 ---
+
+## Workflow Planning - レビュー観点の問い合わせ
+**Timestamp**: 2026-07-18T10:10:00Z
+**User Input**: "特に確認すべき事項は?"
+**AI Response**: "実行計画の判断ポイント 5 点を提示: (1) Infrastructure Design スキップの妥当性(devenv は Code Generation 内で扱う)、(2) ユニット分割 — デザインシステムの独立ユニット化とモックゲート、監査ログ基盤のユニット 3 同居、(3) NFR Requirements の初回集中方式、(4) テストの二段構え(ユニット内テスト + 最終 Build and Test)、(5) ゴール範囲(MVP=Phase 1〜3 で一区切りか Phase 4 まで連続か)。"
+**Context**: INCEPTION - Workflow Planning。ユーザ承認待ち(GATE 継続)
+
+---

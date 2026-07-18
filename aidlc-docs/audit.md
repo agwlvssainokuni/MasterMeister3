@@ -39,3 +39,11 @@
 **Context**: INCEPTION - Requirements Analysis。Extension Configuration 確定。Q1 の回答待ち(GATE 継続)
 
 ---
+
+## Requirements Analysis - Q6 回答訂正
+**Timestamp**: 2026-07-18T06:20:00Z
+**User Input**: "Q6=Bに訂正。"
+**AI Response**: "Q6 を A から B(PBT 一部適用)に訂正。質問ファイルと aidlc-state.md を更新。Partial モードでは PBT-02, PBT-03, PBT-07, PBT-08, PBT-09 のみブロッキング適用、その他は助言扱い。Q1(開発対象の概要)は引き続き回答待ち。"
+**Context**: INCEPTION - Requirements Analysis。PBT 適用モードを Partial に変更。Q1 の回答待ち(GATE 継続)
+
+---

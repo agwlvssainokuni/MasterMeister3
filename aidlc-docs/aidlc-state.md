@@ -20,7 +20,9 @@
 |---|---|---|
 | Security Baseline | Yes | Requirements Analysis |
 | Resiliency Baseline | No | Requirements Analysis |
-| Property-Based Testing | Yes (full) | Requirements Analysis |
+| Property-Based Testing | Yes (partial) | Requirements Analysis |
+
+**PBT Enforcement Mode**: Partial — PBT-02, PBT-03, PBT-07, PBT-08, PBT-09 のみブロッキング適用。その他の PBT ルールは助言扱い(非ブロッキング)。
 
 ## Stage Progress
 - [x] INCEPTION - Workspace Detection (2026-07-18 完了: Greenfield 判定)

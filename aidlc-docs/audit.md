@@ -319,3 +319,11 @@
 **Context**: INCEPTION - Application Design。Q2・Q3 の回答待ち(GATE 継続)
 
 ---
+
+## Application Design - Q2/Q3 の A 案の詳細説明依頼
+**Timestamp**: 2026-07-18T11:00:00Z
+**User Input**: "Q2のA, Q3のAについてもう少し教えて。"
+**AI Response**: "Q2=A(リソース指向 REST + RFC 9457 Problem Details)と Q3=A(TanStack Query + ローカル状態)の詳細を、本プロジェクトの具体例(API パス設計、エラー JSON、レコード編集バッファ、キャッシュ無効化)を交えて説明。"
+**Context**: INCEPTION - Application Design。Q2・Q3 の回答待ち(GATE 継続)
+
+---

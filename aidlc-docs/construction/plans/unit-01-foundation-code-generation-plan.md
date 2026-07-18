@@ -40,9 +40,9 @@
 - [x] `./gradlew build` の一本鎖(npm ci → lint/tsc → vite build → 同梱 → spotlessCheck → test → war)を確立(WAR 内に index.html/assets 同梱を確認)
 
 ### Step 5: devenv(docker compose)
-- [ ] `devenv/compose.yaml`(mysql:8.4=3306、mariadb:11.8=3307、postgres:18=5432、mailpit=1025/8025。タグ固定・名前付きボリューム)
-- [ ] 各 RDBMS の初期化スクリプト(開発用ユーザ + 空のサンプルスキーマ)
-- [ ] `devenv/README.md`(起動手順・接続情報)
+- [x] `devenv/compose.yaml`(mysql:8.4=3306、mariadb:11.8=3307、postgres:18=5432、mailpit:v1.30=1025/8025。タグ固定・名前付きボリューム)
+- [x] 各 RDBMS の初期化スクリプト(開発用ユーザ mmdev + 空のサンプルスキーマ sample)
+- [x] `devenv/README.md`(起動手順・接続情報)
 
 ### Step 6: テスト基盤
 - [ ] backend: JUnit 5 + AssertJ + Mockito + Spring Boot Test 導入 + コンテキスト起動テスト

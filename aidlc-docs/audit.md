@@ -423,3 +423,11 @@
 **Context**: INCEPTION - Units Generation Part 2(Step 12〜16)。ユーザ承認待ち(GATE)
 
 ---
+
+## Units Generation - レビュー時の確認事項の問い合わせ
+**Timestamp**: 2026-07-18T13:10:00Z
+**User Input**: "確認事項はありますか？"
+**AI Response**: "確認事項 2 点を提示: (1) 開発環境のメール確認サーバ(MailPit 等)をユニット①の devenv(docker compose)に含める提案 — ユニット③のメール機能(登録確認・承認結果・アラート)の動作確認に必要。(2) ユニット②のモック対象範囲 — 代表画面(ログイン、管理系一覧、レコード一覧・編集、クエリ実行)+ トークン/コンポーネントカタログとし、全画面は作らない方針。対象の確定は②の Functional Design で行う。その他(RDBMS バージョン等)はユニット①の NFR Requirements で確定と回答。"
+**Context**: INCEPTION - Units Generation。ユーザ承認待ち(GATE 継続)
+
+---

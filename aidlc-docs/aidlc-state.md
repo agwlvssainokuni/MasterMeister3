@@ -47,7 +47,7 @@
 - [x] NFR Requirements (2026-07-18 完了: Q1〜Q4 = A、実装既定値 3 点共有の上ユーザ承認済み)
 - [x] NFR Design (2026-07-18 完了: 簡略実施、devenv ポート既定値確認の上ユーザ承認済み)
 - [ ] Infrastructure Design - SKIP
-- [ ] Code Generation - EXECUTE(Part 2 全 8 ステップ完了・DoD 検証済み、ステージ承認待ち)
+- [x] Code Generation (2026-07-19 完了: Part 2 全 8 ステップ + DoD 検証。レビュー対応 4 件(.jqwik-database 管理外化 / starter-tomcat-runtime 変更 / frontend 依存最新化・TS 6.0 / WAR 名 mastermeister-<version>.war)を反映の上ユーザ承認済み)
 
 #### ユニット②〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
@@ -60,6 +60,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット① foundation(骨格・開発環境)— ステージ判定から開始
-- **Next Stage**: ユニット①の NFR Requirements(Functional Design はスキップ見込み — 開始時に正式判定)
-- **Status**: INCEPTION PHASE 完了(2026-07-18)。CONSTRUCTION PHASE ユニット① 開始
+- **Current Stage**: ユニット② design-system(デザインシステム+モック)— ステージ判定から開始
+- **Next Stage**: ユニット②の Functional Design(デザイントークン・コンポーネント仕様の設計として実施見込み — 開始時に正式判定)
+- **Status**: ユニット① foundation 完了(2026-07-19 ユーザ承認)。ユニット② 開始。モック承認(D-08)がユニット②の完了ゲート

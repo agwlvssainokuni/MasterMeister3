@@ -599,3 +599,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① Code Generation - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-19T01:05:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "ユニット① foundation の Code Generation を承認として記録。ユニット①完了。aidlc-state.md を更新し、ユニット②(design-system: デザインシステム+モック)のステージ判定を開始する。"
+**Context**: CONSTRUCTION - ユニット① Code Generation 完了。ユニット② 開始
+
+---

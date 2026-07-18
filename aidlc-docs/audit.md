@@ -575,3 +575,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation。レビュー対応。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① Code Generation - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T00:45:00Z
+**User Input**: "確認事項はありますか?"
+**AI Response**: "確認 3 点を提示: (1) WAR ファイル名が backend-0.1.0-SNAPSHOT.war(変更可能、推奨: 現状維持か mastermeister.war へ統一)、(2) 外部 Tomcat 配備は NFR-02 将来対応のためレイアウト正常化のみで実機未検証(推奨: 将来対応着手時に検証)、(3) TypeScript 6.0 は TS7 への橋渡しリリースでありユニット②以降もこの前提で進める(推奨: 維持)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット① Code Generation。ユーザ承認待ち(GATE 継続)
+
+---

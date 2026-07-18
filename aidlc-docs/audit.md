@@ -367,3 +367,11 @@
 **Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## Application Design - 追加確認事項の問い合わせ
+**Timestamp**: 2026-07-18T12:00:00Z
+**User Input**: "他に確認すべき事項は？"
+**AI Response**: "本ステージでユーザ判断を要する設計事項は出し切ったと回答。意図的に後続ステージへ先送りした事項の一覧(6 件: エンドポイント/DTO/errorCode 体系 → Functional Design、接続プール・実行上限 → NFR Requirements、PBT フレームワーク選定 → NFR Requirements(PBT-09)、parseSql 実装方式 → Phase 4 ユニット、内部 DB テーブル定義/Flyway → Phase 1 Functional Design、デザインシステム具体化 → ユニット②モック承認ゲート)を提示し、承認可否を確認。"
+**Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
+
+---

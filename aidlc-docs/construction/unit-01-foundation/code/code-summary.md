@@ -21,7 +21,7 @@
 - テスト: コンテキスト起動(インメモリ H2)、Testcontainers 方言別抽象基底 + MySQL 8.4 / MariaDB 11.8 / PostgreSQL 18 接続スモーク(Docker 不在時スキップ)、jqwik サンプルプロパティ
 
 ### frontend(Step 3, 6)
-- `package.json` / `package-lock.json` — React 19.2、Vite 8、TypeScript 5.9(7 系は typescript-eslint 未対応のため 5.9 を採用)、Vitest 4、fast-check 4、ESLint 10 + typescript-eslint 8、Prettier
+- `package.json` / `package-lock.json` — React 19.2、Vite 8、TypeScript 6.0(7 系は typescript-eslint 未対応のため peer 制約内最新の 6.0 を採用)、Vitest 4、fast-check 4、ESLint 10 + typescript-eslint 8、Prettier
 - `vite.config.ts` — dev proxy(/api, /actuator → :8080)、Vitest 設定(jsdom)
 - `eslint.config.js` / `.prettierrc.json` / `scripts/check-license-header.mjs` — 品質ゲート(ヘッダー検査は npm run check に組込)
 - `frontend/build.gradle.kts` — Node 24.18.0 自動取得、npm ci 固定、assemble=npmBuild / check=npmTest
@@ -39,7 +39,7 @@
 
 | 事項 | 判断 |
 |---|---|
-| TypeScript 7.0(latest) | typescript-eslint 8.64 が TS <6.1 制約のため **5.9 系**を採用。TS7 対応後にアップグレード検討 |
+| TypeScript 7.0(latest) | typescript-eslint 8.64 が TS <6.1 制約のため、制約内最新の **6.0 系**を採用(依存最新化レビュー時に 5.9 → 6.0 へ更新。TS 6.0 の新チェック TS2882 対応で `src/vite-env.d.ts` を追加)。TS7 対応後にアップグレード検討 |
 | Testcontainers 座標 | Spring Boot 4.1 BOM は 2.x 系の新名称(`testcontainers-junit-jupiter` 等)を管理。新名称で導入(API は従来互換) |
 | `@eslint/js` | ESLint 10 では別パッケージのため明示追加 |
 | WAR の provided Tomcat | Boot 4 では `providedRuntime(starter-tomcat)` にすると Gradle war プラグインが推移依存(spring-web / spring-core 等)ごと `lib-provided` へ退避し、外部コンテナ配備が壊れる(レビュー指摘)。Boot 4 公式ドキュメントの Gradle 指定である **`spring-boot-starter-tomcat-runtime`** に変更。`java -jar` 起動・SPA 配信・health UP を再検証済み |

@@ -567,3 +567,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation。レビュー指摘対応。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① Code Generation - レビュー対応(frontend 依存ライブラリ最新化)
+**Timestamp**: 2026-07-18T16:55:00Z
+**User Input**: "frontendの依存ライブラリを最新化できる?全部uninstallしてinstallしなおす形で。"
+**AI Response**: "node_modules と package-lock.json を削除し、全依存を @latest で再インストール。更新: @types/react 19.2.0→19.2.17、@types/react-dom 19.2.0→19.2.3、eslint-plugin-react-hooks 7.1.0→7.1.1、TypeScript ~5.9→~6.0.3(typescript-eslint の peer 制約 <6.1.0 内の最新。TS7 は依然未対応)。他は既に最新。TS 6.0 の新チェック TS2882(CSS side-effect import)対応で src/vite-env.d.ts(vite/client 型参照)を追加。npm run check・npm test・./gradlew clean build すべて通過。"
+**Context**: CONSTRUCTION - ユニット① Code Generation。レビュー対応。ユーザ承認待ち(GATE 継続)
+
+---

@@ -1,0 +1,122 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+  position: relative;
+  overflow: auto;
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-radius-md);
+  background: var(--mm-color-surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--mm-font-size-md);
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: var(--mm-table-row-height);
+  padding: 0 var(--mm-space-3);
+  background: var(--mm-color-bg);
+  border-bottom: 1px solid var(--mm-color-border);
+  font-size: var(--mm-font-size-sm);
+  font-weight: var(--mm-font-weight-medium);
+  color: var(--mm-color-text-muted);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  height: var(--mm-table-row-height);
+  padding: 0 var(--mm-space-3);
+  border-bottom: 1px solid var(--mm-color-border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+}
+
+.table tbody tr:hover {
+  background: var(--mm-color-bg);
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.checkboxCell {
+  width: 36px;
+  text-align: center;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mm-space-1);
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sortButton:focus-visible {
+  outline: none;
+  box-shadow: var(--mm-focus-ring);
+  border-radius: var(--mm-radius-sm);
+}
+
+.sortMark {
+  font-size: 9px;
+}
+
+.rowSelected {
+  background: var(--mm-color-primary-subtle);
+}
+
+.rowAdded {
+  background: var(--mm-color-success-subtle);
+}
+
+.rowRemoved {
+  background: var(--mm-color-danger-subtle);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+.cellEdited {
+  background: var(--mm-color-primary-subtle);
+  box-shadow: inset 2px 0 0 var(--mm-color-primary);
+}
+
+.cellError {
+  background: var(--mm-color-danger-subtle);
+  box-shadow: inset 2px 0 0 var(--mm-color-danger);
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--mm-color-surface) 70%, transparent);
+}

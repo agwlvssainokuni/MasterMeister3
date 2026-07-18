@@ -15,7 +15,21 @@
  */
 
 import "@testing-library/jest-dom/vitest";
-import { beforeAll } from "vitest";
+import { beforeAll, vi } from "vitest";
+
+// jsdom は matchMedia 未実装のためスタブする(ThemeProvider が使用)
+if (typeof window !== "undefined" && !window.matchMedia) {
+  window.matchMedia = vi.fn().mockImplementation((query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  }));
+}
 // コンポーネントが useTranslation を使うため、テストでも i18n を初期化する(ja 固定)
 import i18n from "../design-system/i18n";
 

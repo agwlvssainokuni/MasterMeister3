@@ -695,3 +695,11 @@
 **Context**: CONSTRUCTION - ユニット② Code Generation Part 1。プラン承認待ち(GATE)
 
 ---
+
+## ユニット② Code Generation Part 1 - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T04:00:00Z
+**User Input**: "確認事項はありますか?"
+**AI Response**: "実装判断 3 点を提示: (1) RTL テストは挙動を持つコンポーネント中心(フォーム接続・フォーカストラップ・ソート等)に絞り、全 27 種の網羅はしない(推奨: この範囲)、(2) モック専用文言は本番辞書(common.json)に入れず mock 側で動的登録 — dist への文言混入を防ぎ DoD 検査と整合(推奨: 分離)、(3) 画面モックのサンプルデータは日本語中心の静的データとし、言語切替では UI 文言のみ切り替わる(実運用と同じ挙動。推奨: そのまま)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット② Code Generation Part 1。プラン承認待ち(GATE 継続)
+
+---

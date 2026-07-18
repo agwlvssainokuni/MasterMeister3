@@ -55,6 +55,14 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
+// フロントエンドのビルド成果物(frontend/dist)を WAR の静的リソース(static/)として同梱する(D-14)
+tasks.processResources {
+    dependsOn(":frontend:npmBuild")
+    from(rootProject.layout.projectDirectory.dir("frontend/dist")) {
+        into("static")
+    }
+}
+
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }

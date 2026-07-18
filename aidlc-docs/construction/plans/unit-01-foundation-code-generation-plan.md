@@ -36,8 +36,8 @@
 - [x] `frontend/build.gradle.kts`(gradle-node-plugin: Node 24.18.0 固定、npm ci → tsc/eslint/ヘッダー検査 → vite build のタスク鎖)
 
 ### Step 4: ビルド統合(WAR 同梱)
-- [ ] frontend のビルド成果物(`dist/`)を backend の WAR に静的リソースとして同梱するタスク接続
-- [ ] `./gradlew build` の一本鎖(npm ci → lint/tsc → vite build → 同梱 → spotlessCheck → test → war)を確立
+- [x] frontend のビルド成果物(`dist/`)を backend の WAR に静的リソースとして同梱するタスク接続(processResources → static/)
+- [x] `./gradlew build` の一本鎖(npm ci → lint/tsc → vite build → 同梱 → spotlessCheck → test → war)を確立(WAR 内に index.html/assets 同梱を確認)
 
 ### Step 5: devenv(docker compose)
 - [ ] `devenv/compose.yaml`(mysql:8.4=3306、mariadb:11.8=3307、postgres:18=5432、mailpit=1025/8025。タグ固定・名前付きボリューム)

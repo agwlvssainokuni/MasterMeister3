@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-/* ユニット①の最小スタイル。デザイントークンはユニット②で導入する */
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
+/* ベーススタイル(トークンは design-system/tokens/tokens.css) */
+* {
+  box-sizing: border-box;
 }
 
-main {
-  max-width: 40rem;
-  margin: 4rem auto;
-  padding: 0 1rem;
+body {
+  margin: 0;
+  background: var(--mm-color-bg);
+  color: var(--mm-color-text);
+  font-family: var(--mm-font-sans);
+  font-size: var(--mm-font-size-md);
+  line-height: var(--mm-line-height-normal);
+}
+
+code,
+pre {
+  font-family: var(--mm-font-mono);
 }

@@ -14,8 +14,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/noto-sans-jp": "^5.2.9",
+    "@fontsource/noto-sans-mono": "^5.2.10",
+    "i18next": "^26.3.6",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-i18next": "^17.0.10",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

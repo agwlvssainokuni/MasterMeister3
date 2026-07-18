@@ -1,0 +1,183 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * デザイントークン(design-tokens.md)
+ * - プリミティブ層: --mm-palette-* (コンポーネントから直接参照しない)
+ * - セマンティック層: --mm-color-* ほか(コンポーネント・画面はこの層のみ参照)
+ * - テーマ: :root = ライト(既定)、:root[data-theme="dark"] = ダーク上書き
+ */
+
+:root {
+  /* ---- プリミティブ層: カラーパレット ---- */
+  --mm-palette-blue-50: #eff6ff;
+  --mm-palette-blue-100: #dbeafe;
+  --mm-palette-blue-200: #bfdbfe;
+  --mm-palette-blue-300: #93c5fd;
+  --mm-palette-blue-400: #60a5fa;
+  --mm-palette-blue-500: #3b82f6;
+  --mm-palette-blue-600: #2563eb;
+  --mm-palette-blue-700: #1d4ed8;
+  --mm-palette-blue-800: #1e40af;
+  --mm-palette-blue-900: #1e3a8a;
+
+  --mm-palette-gray-50: #f9fafb;
+  --mm-palette-gray-100: #f3f4f6;
+  --mm-palette-gray-200: #e5e7eb;
+  --mm-palette-gray-300: #d1d5db;
+  --mm-palette-gray-400: #9ca3af;
+  --mm-palette-gray-500: #6b7280;
+  --mm-palette-gray-600: #4b5563;
+  --mm-palette-gray-700: #374151;
+  --mm-palette-gray-800: #1f2937;
+  --mm-palette-gray-900: #111827;
+
+  --mm-palette-green-50: #f0fdf4;
+  --mm-palette-green-100: #dcfce7;
+  --mm-palette-green-200: #bbf7d0;
+  --mm-palette-green-300: #86efac;
+  --mm-palette-green-400: #4ade80;
+  --mm-palette-green-500: #22c55e;
+  --mm-palette-green-600: #16a34a;
+  --mm-palette-green-700: #15803d;
+  --mm-palette-green-800: #166534;
+  --mm-palette-green-900: #14532d;
+
+  --mm-palette-amber-50: #fffbeb;
+  --mm-palette-amber-100: #fef3c7;
+  --mm-palette-amber-200: #fde68a;
+  --mm-palette-amber-300: #fcd34d;
+  --mm-palette-amber-400: #fbbf24;
+  --mm-palette-amber-500: #f59e0b;
+  --mm-palette-amber-600: #d97706;
+  --mm-palette-amber-700: #b45309;
+  --mm-palette-amber-800: #92400e;
+  --mm-palette-amber-900: #78350f;
+
+  --mm-palette-red-50: #fef2f2;
+  --mm-palette-red-100: #fee2e2;
+  --mm-palette-red-200: #fecaca;
+  --mm-palette-red-300: #fca5a5;
+  --mm-palette-red-400: #f87171;
+  --mm-palette-red-500: #ef4444;
+  --mm-palette-red-600: #dc2626;
+  --mm-palette-red-700: #b91c1c;
+  --mm-palette-red-800: #991b1b;
+  --mm-palette-red-900: #7f1d1d;
+
+  --mm-palette-white: #ffffff;
+
+  /* ---- セマンティック層: カラー(ライト) ---- */
+  --mm-color-bg: var(--mm-palette-gray-50);
+  --mm-color-surface: var(--mm-palette-white);
+  --mm-color-surface-raised: var(--mm-palette-white);
+  --mm-color-text: var(--mm-palette-gray-900);
+  --mm-color-text-muted: var(--mm-palette-gray-500);
+  --mm-color-text-inverse: var(--mm-palette-white);
+  --mm-color-border: var(--mm-palette-gray-200);
+  --mm-color-border-strong: var(--mm-palette-gray-300);
+  --mm-color-primary: var(--mm-palette-blue-600);
+  --mm-color-primary-hover: var(--mm-palette-blue-700);
+  --mm-color-primary-subtle: var(--mm-palette-blue-50);
+  --mm-color-success: var(--mm-palette-green-600);
+  --mm-color-success-subtle: var(--mm-palette-green-50);
+  --mm-color-warning: var(--mm-palette-amber-600);
+  --mm-color-warning-subtle: var(--mm-palette-amber-50);
+  --mm-color-danger: var(--mm-palette-red-600);
+  --mm-color-danger-hover: var(--mm-palette-red-700);
+  --mm-color-danger-subtle: var(--mm-palette-red-50);
+  --mm-color-focus-ring: rgb(59 130 246 / 50%);
+  --mm-color-overlay: rgb(17 24 39 / 45%);
+
+  /* ---- タイポグラフィ ---- */
+  --mm-font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
+  --mm-font-mono: "Noto Sans Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --mm-font-size-xs: 11px;
+  --mm-font-size-sm: 12px;
+  --mm-font-size-md: 14px;
+  --mm-font-size-lg: 16px;
+  --mm-font-size-xl: 18px;
+  --mm-font-size-2xl: 22px;
+  --mm-font-weight-normal: 400;
+  --mm-font-weight-medium: 500;
+  --mm-font-weight-bold: 700;
+  --mm-line-height-tight: 1.3;
+  --mm-line-height-normal: 1.6;
+
+  /* ---- スペーシング(4px グリッド) ---- */
+  --mm-space-0_5: 2px;
+  --mm-space-1: 4px;
+  --mm-space-2: 8px;
+  --mm-space-3: 12px;
+  --mm-space-4: 16px;
+  --mm-space-5: 20px;
+  --mm-space-6: 24px;
+  --mm-space-8: 32px;
+  --mm-space-10: 40px;
+
+  /* ---- 形状・エレベーション ---- */
+  --mm-radius-sm: 3px;
+  --mm-radius-md: 6px;
+  --mm-radius-full: 9999px;
+  --mm-shadow-sm: 0 1px 2px rgb(17 24 39 / 8%);
+  --mm-shadow-md: 0 4px 8px rgb(17 24 39 / 12%);
+  --mm-shadow-lg: 0 8px 24px rgb(17 24 39 / 18%);
+  --mm-focus-ring: 0 0 0 2px var(--mm-color-focus-ring);
+
+  /* ---- Z-index ---- */
+  --mm-z-dropdown: 1000;
+  --mm-z-modal: 1300;
+  --mm-z-toast: 1400;
+  --mm-z-tooltip: 1500;
+
+  /* ---- トランジション ---- */
+  --mm-duration-fast: 100ms;
+  --mm-duration-normal: 200ms;
+
+  /* ---- コンポーネント寸法(高密度) ---- */
+  --mm-control-height-sm: 26px;
+  --mm-control-height-md: 32px;
+  --mm-table-row-height: 34px;
+  --mm-header-height: 48px;
+  --mm-sidenav-width: 220px;
+  --mm-sidenav-width-collapsed: 48px;
+}
+
+:root[data-theme="dark"] {
+  --mm-color-bg: var(--mm-palette-gray-900);
+  --mm-color-surface: var(--mm-palette-gray-800);
+  --mm-color-surface-raised: var(--mm-palette-gray-700);
+  --mm-color-text: var(--mm-palette-gray-100);
+  --mm-color-text-muted: var(--mm-palette-gray-400);
+  --mm-color-text-inverse: var(--mm-palette-gray-900);
+  --mm-color-border: var(--mm-palette-gray-600);
+  --mm-color-border-strong: var(--mm-palette-gray-500);
+  --mm-color-primary: var(--mm-palette-blue-500);
+  --mm-color-primary-hover: var(--mm-palette-blue-400);
+  --mm-color-primary-subtle: rgb(30 58 138 / 30%);
+  --mm-color-success: var(--mm-palette-green-500);
+  --mm-color-success-subtle: rgb(20 83 45 / 30%);
+  --mm-color-warning: var(--mm-palette-amber-500);
+  --mm-color-warning-subtle: rgb(120 53 15 / 30%);
+  --mm-color-danger: var(--mm-palette-red-500);
+  --mm-color-danger-hover: var(--mm-palette-red-400);
+  --mm-color-danger-subtle: rgb(127 29 29 / 30%);
+  --mm-color-focus-ring: rgb(96 165 250 / 60%);
+  --mm-color-overlay: rgb(0 0 0 / 60%);
+  --mm-shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --mm-shadow-md: 0 4px 8px rgb(0 0 0 / 50%);
+  --mm-shadow-lg: 0 8px 24px rgb(0 0 0 / 60%);
+}

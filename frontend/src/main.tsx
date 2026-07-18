@@ -17,6 +17,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
+import "@fontsource/noto-sans-jp/400.css";
+import "@fontsource/noto-sans-jp/500.css";
+import "@fontsource/noto-sans-jp/700.css";
+import "@fontsource/noto-sans-mono/400.css";
+import "@fontsource/noto-sans-mono/700.css";
+import "./design-system/tokens/tokens.css";
 import "./index.css";
 
 const rootElement = document.getElementById("root");

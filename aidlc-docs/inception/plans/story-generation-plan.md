@@ -79,22 +79,22 @@ X) Other (please describe after [Answer]: tag below)
 ## Part B: 生成手順(プラン承認後に実行)
 
 ### Phase 1: ペルソナ生成
-- [ ] Question 1 の回答に基づき personas.md を作成(各ペルソナ: 名前、役割、目標、技術リテラシー、主な利用シーン、フラストレーション)
-- [ ] ペルソナと FR-01〜13 の対応マップを personas.md に含める
+- [x] Question 1 の回答に基づき personas.md を作成(各ペルソナ: 名前、役割、目標、技術リテラシー、主な利用シーン、フラストレーション)
+- [x] ペルソナと FR-01〜13 の対応マップを personas.md に含める
 
 ### Phase 2: ストーリー生成
-- [ ] Question 2/3 の回答に基づき、FR-01〜13 を網羅するストーリーを stories.md に作成
-- [ ] 各ストーリーは INVEST 基準(Independent / Negotiable / Valuable / Estimable / Small / Testable)に準拠
-- [ ] 各ストーリーに Question 4 の形式で受け入れ基準を記述
-- [ ] 決定事項 D-01〜17(特に D-11 ロックアウト、D-13 メール通知、D-15 主キーなしテーブル、D-16 スキーマレベル検証)をストーリーの受け入れ基準に反映
-- [ ] Question 5 の回答に基づきフェーズタグを付与
-- [ ] 各ストーリーに要件 ID(FR-xx)への参照を付け、トレーサビリティを確保
+- [x] Question 2/3 の回答に基づき、FR-01〜13 を網羅するストーリーを stories.md に作成(全 48 ストーリー、Epic 1〜14)
+- [x] 各ストーリーは INVEST 基準(Independent / Negotiable / Valuable / Estimable / Small / Testable)に準拠
+- [x] 各ストーリーに Question 4 の形式で受け入れ基準を記述
+- [x] 決定事項 D-01〜17(特に D-11 ロックアウト、D-13 メール通知、D-15 主キーなしテーブル、D-16 スキーマレベル検証)をストーリーの受け入れ基準に反映
+- [x] Question 5 の回答に基づきフェーズタグを付与
+- [x] 各ストーリーに要件 ID(FR-xx)への参照を付け、トレーサビリティを確保
 
 ### Phase 3: 検証
-- [ ] FR-01〜13 のすべてが 1 つ以上のストーリーでカバーされていることを確認(カバレッジ表を stories.md 末尾に付す)
-- [ ] ペルソナ⇔ストーリーのマッピングを確認
-- [ ] スコープ外事項(requirements.md §7)がストーリーに混入していないことを確認
+- [x] FR-01〜13 のすべてが 1 つ以上のストーリーでカバーされていることを確認(カバレッジ表を stories.md 末尾に付す)
+- [x] ペルソナ⇔ストーリーのマッピングを確認
+- [x] スコープ外事項(requirements.md §7)がストーリーに混入していないことを確認
 
 ### Phase 4: 完了処理
-- [ ] aidlc-state.md / audit.md を更新
+- [x] aidlc-state.md / audit.md を更新
 - [ ] 完了メッセージを提示しユーザ承認を待つ

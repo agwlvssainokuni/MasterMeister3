@@ -10,6 +10,8 @@
 - **DoD**: `./gradlew build` 一発で「空の React 画面を配信する実行可能 WAR」が得られる。`docker compose up` で対象 RDBMS 3 種 + MailPit が起動する
 - **依存**: なし(最初のユニット)。後続ユニットへの提供物: ビルドパイプライン、テスト基盤、devenv、品質ゲート
 - **コード配置**: ワークスペースルート(`backend/` `frontend/` `devenv/`)。aidlc-docs/ にはコード禁止(サマリのみ)
+- **Java ルートパッケージ / Gradle group**: `cherry.mastermeister`(ユーザ指定。機能パッケージは `cherry.mastermeister.auth` 等)
+- **Gradle wrapper 生成**: セットアップ済みの Gradle 9.6 で `gradle wrapper` を実行して生成
 - **ライセンス**: 全ソースファイルに Apache 2.0 ヘッダー(Copyright 2026 agwlvssainokuni)。Spotless / ESLint で自動検査
 
 ## 生成ステップ

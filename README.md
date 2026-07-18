@@ -19,7 +19,12 @@
 
 ## 起動
 
+JWT 署名鍵(32 バイト以上)の設定が必須。未設定の場合は起動に失敗する(誤って既知の鍵のまま本番稼働する事故を防ぐため、既定値は用意していない)。
+
 ```bash
+# 開発用の鍵を生成して環境変数に設定(例)
+export MM_APP_JWT_SECRET="$(openssl rand -base64 48)"
+
 # 本番相当(実行可能 WAR)
 java -jar backend/build/libs/mastermeister-0.1.0-SNAPSHOT.war
 # → http://localhost:8080
@@ -28,6 +33,8 @@ java -jar backend/build/libs/mastermeister-0.1.0-SNAPSHOT.war
 ./gradlew :backend:bootRun            # バックエンド(:8080)
 cd frontend && npm run dev            # フロントエンド(:5173、/api を :8080 へ proxy)
 ```
+
+初期管理者は環境変数 `MM_APP_ADMIN_BOOTSTRAP_EMAIL` / `MM_APP_ADMIN_BOOTSTRAP_PASSWORD` を設定して起動すると初回に作成される(既存なら何もしない)。メールの動作確認は devenv の MailPit(SMTP :1025 / UI http://localhost:8025)を使う。
 
 ## 開発環境(対象 RDBMS + メール確認)
 

@@ -17,15 +17,15 @@ package cherry.mastermeister;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 /**
  * コンテキスト起動テスト。
- * Flyway マイグレーション(V1)適用を含めてアプリケーションコンテキストが起動することを確認する。
- * テストでは内部 DB をインメモリ H2 に切り替える(ファイルを汚さない)。
+ * Flyway マイグレーション適用を含めてアプリケーションコンテキストが起動することを確認する。
+ * test プロファイル(application-test.yaml)でインメモリ H2 + mm.app.* 全項目を設定する。
  */
-@SpringBootTest(properties = {
-        "spring.datasource.url=jdbc:h2:mem:mastermeister-test;DB_CLOSE_DELAY=-1"
-})
+@SpringBootTest
+@ActiveProfiles("test")
 class MasterMeisterApplicationTests {
 
     @Test

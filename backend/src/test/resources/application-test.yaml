@@ -12,42 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# テストプロファイル: インメモリ H2(ファイルを汚さない)+ mm.app.* 全項目設定
+
 spring:
-  application:
-    name: mastermeister
-
-  # 内部 DB(H2 ファイルモード)。データは作業ディレクトリ配下 data/ に保存
   datasource:
-    url: jdbc:h2:file:./data/mastermeister
-    username: sa
-    password: ""
-    driver-class-name: org.h2.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: none # スキーマ管理は Flyway に一本化
-    open-in-view: false
-
-  # SMTP(開発既定: devenv の MailPit。本番は環境変数等で上書きする)
+    url: jdbc:h2:mem:mastermeister-test;DB_CLOSE_DELAY=-1
   mail:
     host: localhost
     port: 1025
 
-server:
-  port: 8080
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health
-
-# アプリケーション設定(mm.app.*)
-# jwt.secret のみ既定値なし(未設定は起動失敗)。環境変数 MM_APP_JWT_SECRET で
-# 32 バイト以上の値を設定する(開発手順は README 参照)
 mm:
   app:
     jwt:
+      secret: test-secret-0123456789abcdef0123456789abcdef
       access-token-expiry: 10m
       refresh-token-expiry: 24h
     user-registration:
@@ -59,7 +36,6 @@ mm:
     security-alert:
       window: 10m
       threshold: 10
-    # admin.bootstrap.email / .password: 初期管理者(未設定なら何もしない)
     mail:
       from: noreply@mastermeister.local
       base-url: http://localhost:8080

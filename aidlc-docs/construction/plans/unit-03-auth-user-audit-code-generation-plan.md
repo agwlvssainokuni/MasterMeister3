@@ -7,11 +7,11 @@
 
 ## Step 1: 基盤(依存・設定・マイグレーション・エンティティ)
 
-- [ ] 1-1: backend 依存追加(security / oauth2-jose / mail / validation / security-test — すべて BOM 管理)
-- [ ] 1-2: `V2__auth_user_audit.sql`(5 テーブル + インデックス)
-- [ ] 1-3: AppProperties(`mm.app.*` 11 項目、Bean Validation、secret 32 バイト検証)+ application.yaml / application-test.yaml
-- [ ] 1-4: エンティティ + リポジトリ(AppUser / RegistrationToken / RefreshToken / AuditLog / SecurityAlertState)
-- [ ] 1-5: テスト(AppProperties 検証、コンテキスト起動、Flyway V2 適用)
+- [x] 1-1: backend 依存追加(security / oauth2-jose / mail / validation / security-test — すべて BOM 管理)※加えて spring-boot-flyway を追加(Boot 4 で Flyway 自動構成が別モジュール化されており flyway-core 単体では実行されない問題を発見・修正)
+- [x] 1-2: `V2__auth_user_audit.sql`(5 テーブル + インデックス)
+- [x] 1-3: AppProperties(`mm.app.*` 11 項目、Bean Validation、secret 32 バイト検証)+ application.yaml / application-test.yaml + README(jwt.secret 開発手順)
+- [x] 1-4: エンティティ + リポジトリ(AppUser / RegistrationToken / RefreshToken / AuditLog / SecurityAlertState)
+- [x] 1-5: テスト(AppProperties 検証、コンテキスト起動、Flyway V2 適用 + エンティティマッピング整合)
 
 ## Step 2: 監査基盤(audit)— 全機能が呼ぶため先行
 

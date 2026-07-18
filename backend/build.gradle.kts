@@ -41,6 +41,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    // Boot 4 では Flyway 自動構成が spring-boot-flyway モジュールに分離されている
+    // (flyway-core 単体では自動構成が働かずマイグレーションが実行されない)
+    implementation("org.springframework.boot:spring-boot-flyway")
     implementation("org.flywaydb:flyway-core")
     runtimeOnly("com.h2database:h2")
 
@@ -51,6 +58,7 @@ dependencies {
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat-runtime")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
 
     // PBT(PBT-09: jqwik)
     testImplementation(libs.jqwik)

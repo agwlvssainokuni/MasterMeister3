@@ -607,3 +607,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation 完了。ユニット② 開始
 
 ---
+
+## ユニット② design-system - ステージ判定と Functional Design プラン作成
+**Timestamp**: 2026-07-19T01:15:00Z
+**User Input**: "(ユニット②開始に伴う AI 主導のステージ判定。新規ユーザ入力なし)"
+**AI Response**: "ステージ判定: Functional Design 実施(デザイントークン・コンポーネント仕様・画面仕様が相当)、NFR Requirements 簡略実施(H-06 CSP とモックの本番ビルド除外の確認)、NFR Design 簡略実施、Infrastructure Design スキップ、Code Generation 実施(モック承認ゲート D-08 が完了ゲート)。Functional Design プラン(設計 6 ステップ + 確認事項 Q1〜Q6: デザイントーン/プライマリカラー/スタイリング方式/フォント/密度/i18n ライブラリ)を unit-02-design-system-functional-design-plan.md に作成し、回答待ち。"
+**Context**: CONSTRUCTION - ユニット② Functional Design Part 1(プラン+質問)。回答待ち
+
+---

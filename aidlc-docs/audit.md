@@ -455,3 +455,11 @@
 **Context**: CONSTRUCTION - ユニット① NFR Requirements。回答待ち(GATE 継続)
 
 ---
+
+## ユニット① NFR Requirements - 全質問回答受領 + Testcontainers の説明依頼
+**Timestamp**: 2026-07-18T13:50:00Z
+**User Input**: "Q1=A, Q2=A, Q3=A, Q4=A.  Q3のTestcontainersって？"
+**AI Response**: "Q1〜Q4 すべて A をプランに記録。Testcontainers の説明を提示: テストコードから使い捨ての Docker コンテナ(MySQL/MariaDB/PostgreSQL 等)を起動・破棄するライブラリで、JUnit 5 と統合し、毎回まっさらな実 DB で結合テストを再現性高く実行できる。devenv 接続方式(B 案)との違い(状態汚染なし・ポート自動割当・CI 移行容易 / 代償は Docker 必須と起動時間)も説明。説明を踏まえて Q3=A のままでよいか確認中。"
+**Context**: CONSTRUCTION - ユニット① NFR Requirements(Step 5)。Q3 確定確認待ち(GATE 継続)
+
+---

@@ -399,3 +399,11 @@
 **Context**: INCEPTION - Units Generation Part 1(Step 6〜9)。プラン承認待ち(GATE)
 
 ---
+
+## Units Generation - 追加確認事項の問い合わせ
+**Timestamp**: 2026-07-18T12:40:00Z
+**User Input**: "他に確認事項はありますか？"
+**AI Response**: "残る確認事項 2 点を提示: (1) Epic 14 UI 基盤(US-047 言語切替 / US-048 テーマ切替)の割当 — 推奨はユニット②で UI 実装(モックで切替を確認)+ ユニット③で本アプリ統合(バックエンドメッセージ・メール言語)として完了、主割当は③。(2) ユニット①②の CONSTRUCTION ステージ簡略化の見込み — ①は業務ロジックなしのため Functional Design スキップ見込み(NFR Requirements はビルド・ツールチェーン・PBT-09 選定のため実施)、②はデザイン仕様が Functional Design 相当。各ユニット開始時に正式判定する前提を共有。その他の監査ストーリー(US-042〜045)はフェーズタグどおりの割当で曖昧さなしと回答。"
+**Context**: INCEPTION - Units Generation Part 1。プラン承認待ち(GATE 継続)
+
+---

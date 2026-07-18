@@ -495,3 +495,11 @@
 **Context**: CONSTRUCTION - ユニット① NFR Design(Step 2〜7)。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット① NFR Design - レビュー時の確認事項の問い合わせ
+**Timestamp**: 2026-07-18T14:40:00Z
+**User Input**: "確認事項はありますか？"
+**AI Response**: "確認事項 1 点(devenv の公開ポート既定値 3306/3307/5432/1025/8025 がローカル環境の既存サービスと衝突しないか — 衝突する場合はオフセット案 13306 等に変更)と、前提共有 2 点(H2 データファイルの配置場所は Code Generation で確定、compose の初期スキーマは空で作成し後続ユニットで拡充)を提示。"
+**Context**: CONSTRUCTION - ユニット① NFR Design。ユーザ承認待ち(GATE 継続)
+
+---

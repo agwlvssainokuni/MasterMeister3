@@ -26,4 +26,4 @@
 
 ## Stage Progress
 - [x] INCEPTION - Workspace Detection (2026-07-18 完了: Greenfield 判定)
-- [ ] INCEPTION - Requirements Analysis
+- [ ] INCEPTION - Requirements Analysis (requirements.md 作成済み、ユーザ承認待ち)

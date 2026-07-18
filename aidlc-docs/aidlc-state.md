@@ -50,7 +50,7 @@
 - [x] Code Generation (2026-07-19 完了: Part 2 全 8 ステップ + DoD 検証。レビュー対応 4 件(.jqwik-database 管理外化 / starter-tomcat-runtime 変更 / frontend 依存最新化・TS 6.0 / WAR 名 mastermeister-<version>.war)を反映の上ユーザ承認済み)
 
 #### ユニット② design-system(デザインシステム+モック)
-- [ ] Functional Design - EXECUTE(2026-07-19: Q1〜Q6 回答済み(A/A/A/B/A/A)、成果物 4 点生成済み、ステージ承認待ち)
+- [x] Functional Design (2026-07-19 完了: Q1〜Q6 = A/A/A/B/A/A、確認 5 点提示のうち等幅フォント同梱を反映、成果物 4 点、ユーザ承認済み)
 - [ ] NFR Requirements - 簡略実施予定(H-06 CSP・モック本番除外の確認)
 - [ ] NFR Design - 簡略実施予定
 - [ ] Infrastructure Design - SKIP

@@ -583,3 +583,11 @@
 **Context**: CONSTRUCTION - ユニット① Code Generation。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット① Code Generation - レビュー確認事項への回答(WAR 名変更)
+**Timestamp**: 2026-07-19T00:50:00Z
+**User Input**: "1はmastermeister.warに変更してください"
+**AI Response**: "bootWar の archiveFileName を mastermeister.war(バージョン表記なしの固定名)に設定。README の生成物・起動コマンド記載も更新。再ビルドで backend/build/libs/mastermeister.war の生成と java -jar 起動(health UP)を確認。確認事項 2(外部 Tomcat 実機検証は将来対応時)・3(TS 6.0 前提)は推奨どおりで、残る対応なし。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット① Code Generation。ユーザ承認待ち(GATE 継続)
+
+---

@@ -199,3 +199,11 @@
 **Context**: INCEPTION - User Stories Part 2 Step 20〜21。ユーザ承認待ち(GATE)
 
 ---
+
+## User Stories - レビュー観点の問い合わせ
+**Timestamp**: 2026-07-18T08:35:00Z
+**User Input**: "特に確認すべき事項は?"
+**AI Response**: "レビューで確認すべき箇所として、AI が解釈を補完した 6 点を提示: (1) US-021 NONE カラムの完全非表示、(2) US-023 WHERE 手入力とカラム権限の相互作用(サイドチャネル)、(3) US-024 主キーなしテーブルの編集不可(D-15 の帰結)、(4) US-036 『アクセス権限を持つスキーマ』の判定基準、(5) US-047 登録確認メールの言語決定方法、(6) US-046 監査ログ閲覧の Phase 4 配置。"
+**Context**: INCEPTION - User Stories。ユーザ承認待ち(GATE 継続)
+
+---

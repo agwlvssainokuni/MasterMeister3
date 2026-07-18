@@ -17,13 +17,13 @@
 
 ## 2. 設計ステップ
 
-- [ ] Step 1: ドメインモデル設計 — エンティティ(user / registration_token / refresh_token / audit_log ほか)、状態遷移(登録申請→完了→承認/却下、ロック)、Flyway V2〜 のマイグレーション方針
-- [ ] Step 2: 認証・登録の業務ルール設計 — 登録フロー(トークン有効期限・使用済み判定)、ログイン(ロックアウト判定順序)、リフレッシュ(ローテーション・ファミリ・再利用検知)、ログアウト、初期管理者ブートストラップ
-- [ ] Step 3: 監査記録基盤設計 — イベント種別カタログ(Phase 1 分 + ③以降の拡張規約)、記録項目、発行 API(AuditEventPublisher)、例外パスの記録、セキュリティアラート判定(US-045)
-- [ ] Step 4: API 設計 — /api/auth/*、/api/registration/*、/api/admin/users/*、/api/me/*(設定)。Problem Details 形式、認可(ADMIN/USER)
-- [ ] Step 5: フロントエンド設計 — 画面(ログイン / 登録申請 / パスワード設定 / ユーザ管理一覧)、認証状態管理(sessionStorage・自動リフレッシュ・401 処理)、②デザインシステムの本実装統合(AppShell・ヘッダー)、US-047/048 のサーバ設定統合
-- [ ] Step 6: メール設計 — テンプレート(登録確認・承認・却下・セキュリティアラート)× 2 言語、送信ポリシー
-- [ ] Step 7: 成果物生成 — domain-entities.md / business-rules.md / business-logic-model.md / frontend-components.md
+- [x] Step 1: ドメインモデル設計 — エンティティ(user / registration_token / refresh_token / audit_log ほか)、状態遷移(登録申請→完了→承認/却下、ロック)、Flyway V2〜 のマイグレーション方針
+- [x] Step 2: 認証・登録の業務ルール設計 — 登録フロー(トークン有効期限・使用済み判定)、ログイン(ロックアウト判定順序)、リフレッシュ(ローテーション・ファミリ・再利用検知)、ログアウト、初期管理者ブートストラップ
+- [x] Step 3: 監査記録基盤設計 — イベント種別カタログ(Phase 1 分 + ③以降の拡張規約)、記録項目、発行 API(AuditEventPublisher)、例外パスの記録、セキュリティアラート判定(US-045)
+- [x] Step 4: API 設計 — /api/auth/*、/api/registration/*、/api/admin/users/*、/api/me/*(設定)。Problem Details 形式、認可(ADMIN/USER)
+- [x] Step 5: フロントエンド設計 — 画面(ログイン / 登録申請 / パスワード設定 / ユーザ管理一覧)、認証状態管理(sessionStorage・自動リフレッシュ・401 処理)、②デザインシステムの本実装統合(AppShell・ヘッダー)、US-047/048 のサーバ設定統合
+- [x] Step 6: メール設計 — テンプレート(登録確認・承認・却下・セキュリティアラート)× 2 言語、送信ポリシー
+- [x] Step 7: 成果物生成 — domain-entities.md / business-rules.md / business-logic-model.md / frontend-components.md
 
 ## 3. 確認事項(回答をお願いします)
 
@@ -34,7 +34,7 @@
 - B) UUID(v7)— 分散・露出耐性はあるがサイズ増。API 露出 ID は別途対策可能
 - C) その他
 
-[Answer]:
+[Answer]: A(BIGINT 自動採番)
 
 **Q2. セキュリティアラート(US-045)の閾値評価方式**
 
@@ -42,7 +42,7 @@
 - B) 連続失敗回数の累積のみ(時間窓なし)
 - C) その他
 
-[Answer]:
+[Answer]: A(固定時間窓 + クールダウン)
 
 **Q3. 言語・テーマ設定のサーバ保存範囲(US-047/048 の本実装)**
 メール言語(受信者の言語設定)のため、少なくとも言語はユーザ属性としてサーバ保存が必要です。
@@ -51,7 +51,7 @@
 - B) 言語のみサーバ保存、テーマは localStorage のまま(テーマは端末ごとで良いという考え方)
 - C) その他
 
-[Answer]:
+[Answer]: A(言語・テーマともサーバ保存。ログイン後はサーバ値が正)
 
 **Q4. メール送信の実行方式**
 
@@ -59,7 +59,7 @@
 - B) 非同期送信(@Async + 再試行)— レスポンス速度は安定するが失敗時の追跡・再試行設計が増える
 - C) その他
 
-[Answer]:
+[Answer]: A(同期送信。列挙対策維持・失敗は監査記録)
 
 ## 4. 承認
 

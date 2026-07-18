@@ -359,3 +359,11 @@
 **Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## Application Design - 確認事項 5 の回答受領(トークンは sessionStorage 保持)
+**Timestamp**: 2026-07-18T11:50:00Z
+**User Input**: "5はセッションストレージにしたいです。"
+**AI Response**: "トークン保持方針を確定として application-design.md §3 と component-dependency.md §4 に反映: アクセス・リフレッシュとも sessionStorage に保存(タブ単位・リロード耐性あり・タブクローズで消滅)。XSS 窃取リスクは短寿命アクセストークン(10 分)+ リフレッシュローテーション・再利用検知 + 厳格 CSP で緩和し残余リスクを受容。NFR Design 送りは不要となった。確認事項 1〜5 すべて解決 — ステージ承認(Approve & Continue)の最終確認を提示。"
+**Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
+
+---

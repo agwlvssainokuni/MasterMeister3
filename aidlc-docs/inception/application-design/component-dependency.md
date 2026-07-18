@@ -65,7 +65,7 @@
    v                v
 [design-system]   [api クライアント + TanStack Query フック]
    v                v
-[デザイントークン]  [認証 Context(トークン・自動リフレッシュ)]
+[デザイントークン]  [認証 Context(トークンは sessionStorage 保持・自動リフレッシュ)]
 ```
 
 - features は design-system と api 層にのみ依存(features 間の直接依存は禁止。画面間連携はルーティングとクエリパラメータで行う — 例: 履歴 → クエリビルダーへの SQL 引き継ぎ)

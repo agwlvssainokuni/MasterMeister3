@@ -14,7 +14,58 @@
  * limitations under the License.
  */
 
-// モックカタログ本体は Step 6 で実装する(このファイルは骨格のみ)
+import { NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import "./i18n-mock";
+import { LanguageSwitcher, ThemeToggle, ToastProvider } from "../design-system/components";
+import { TokensPage } from "./pages/TokensPage";
+import { ComponentsPage } from "./pages/ComponentsPage";
+import styles from "./MockCatalog.module.css";
+
+function CatalogNavLink({ to, label }: { to: string; label: string }) {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink
+      }
+    >
+      {label}
+    </NavLink>
+  );
+}
+
 export default function MockCatalog() {
-  return <p>Mock Catalog(Step 6 で実装)</p>;
+  const { t } = useTranslation("mock");
+  return (
+    <ToastProvider>
+      <div className={styles.layout}>
+        <nav className={styles.nav}>
+          <h1 className={styles.navTitle}>{t("catalog.title")}</h1>
+          <p className={styles.navSubtitle}>{t("catalog.subtitle")}</p>
+          <ul className={styles.navList}>
+            <li>
+              <CatalogNavLink to="/mock/tokens" label={t("nav.tokens")} />
+            </li>
+            <li>
+              <CatalogNavLink to="/mock/components" label={t("nav.components")} />
+            </li>
+          </ul>
+        </nav>
+        <div className={styles.main}>
+          <div className={styles.topbar}>
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
+          <div className={styles.content}>
+            <Routes>
+              <Route index element={<Navigate to="/mock/tokens" replace />} />
+              <Route path="tokens" element={<TokensPage />} />
+              <Route path="components" element={<ComponentsPage />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </ToastProvider>
+  );
 }

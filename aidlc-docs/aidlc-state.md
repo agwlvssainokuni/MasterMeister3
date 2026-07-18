@@ -54,7 +54,7 @@
 - [x] NFR Requirements (2026-07-19 完了: 簡略実施、NFR-U2-01〜05・追加依存 5 件・既定値 2 点(Fontsource 採用 / CSP 本則は③)、ユーザ承認済み)
 - [x] NFR Design (2026-07-19 完了: 簡略実施、FOUC 防止を外部ファイル方式に変更の上ユーザ承認済み)
 - [ ] Infrastructure Design - SKIP
-- [ ] Code Generation - EXECUTE(2026-07-19 Part 1 プラン作成済み・承認待ち。完了ゲート = モック承認 D-08)
+- [ ] Code Generation - EXECUTE(2026-07-19 Part 2 全 8 ステップ完了・DoD 検証済み。モック承認ゲート D-08 待ち)
 
 #### ユニット③〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
@@ -67,6 +67,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット② design-system — Code Generation(Part 1 プラン作成)
-- **Next Stage**: ユニット② Code Generation Part 2(実装)→ モック承認ゲート(D-08)
-- **Status**: ユニット② FD / NFR Requirements / NFR Design 承認済み(2026-07-19)。Code Generation 開始
+- **Current Stage**: ユニット② design-system — Code Generation 完了、モック承認ゲート(D-08)待ち
+- **Next Stage**: モック承認後、ユニット③ auth-user-audit のステージ判定
+- **Status**: ユニット② Code Generation Part 2 完了(2026-07-19)。/mock でのモック確認をユーザに依頼中

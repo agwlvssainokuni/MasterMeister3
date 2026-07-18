@@ -335,3 +335,11 @@
 **Context**: INCEPTION - Application Design Step 10〜12。ユーザ承認待ち(GATE)
 
 ---
+
+## Application Design - レビュー時の確認事項の問い合わせ
+**Timestamp**: 2026-07-18T11:20:00Z
+**User Input**: "特に確認すべき事項は？"
+**AI Response**: "設計成果物に埋め込んだ設計判断のうち、明示質問(Q1〜Q3)に含めなかった 5 点を確認事項として提示: (1)監査イベントの発行方式(同期リスナー + REQUIRES_NEW、失敗時も発行)、(2)メタデータ参照の権限フィルタ適用位置(利用側 Service で強制)、(3)一括反映の単一エンドポイント化、(4)権限キャッシュ無効化の粒度(接続単位で一括)、(5)トークンのフロントエンド保持方針(アクセスはメモリ、リフレッシュの保存先は NFR Design で確定)。"
+**Context**: INCEPTION - Application Design。ユーザ承認待ち(GATE 継続)
+
+---

@@ -783,3 +783,11 @@
 **Context**: CONSTRUCTION - ユニット③ NFR Requirements Part A。Q2 明確化待ち
 
 ---
+
+## ユニット③ NFR Requirements - Q2 明確化回答と Part B 実行
+**Timestamp**: 2026-07-19T07:35:00Z
+**User Input**: "HTMLメール+mustacheエンジン(自作)としたい。対応できそうならばソースツリーに自作mustacheエンジンのソースを置く。"
+**AI Response**: "対応可能と判断し Q2=C を確定: HTML メール + 自作 Mustache サブセットエンジン(cherry.mastermeister.common.template に配置)。対応構文を確定({{var}} エスケープ / {{{var}}} / セクション / 反転 / コメント / ドット名。パーシャル・ラムダ等は対象外)、自作パーサのため PBT-02 ブロッキング対象として jqwik プロパティテスト必須と位置づけ。Part B 実行: NFR-U3-01〜07、mm.app.* プロパティカタログ、追加依存(security / oauth2-jose / mail / validation — すべて BOM 管理)を確定。FD 成果物のメール記載も更新。ステージ承認待ち。"
+**Context**: CONSTRUCTION - ユニット③ NFR Requirements 完了。ユーザ承認待ち(GATE)
+
+---

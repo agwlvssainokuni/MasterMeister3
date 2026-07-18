@@ -58,7 +58,7 @@
 
 #### ユニット③ auth-user-audit(認証・ユーザ管理・監査基盤)
 - [x] Functional Design (2026-07-19 完了: Q1〜Q4 = A、確認 4 点(リセット機能スコープ外 / アクセストークン残存受容 / 申請段階は一覧非表示 / 再有効化将来)提示の上ユーザ承認済み)
-- [ ] NFR Requirements - EXECUTE 予定(セキュリティ NFR・設定プロパティ体系)
+- [ ] NFR Requirements - EXECUTE(2026-07-19: Q1=A, Q2=C(HTML + 自作 Mustache)、NFR-U3-01〜07 生成済み、ステージ承認待ち)
 - [ ] NFR Design - EXECUTE 予定
 - [ ] Infrastructure Design - SKIP
 - [ ] Code Generation - EXECUTE 予定

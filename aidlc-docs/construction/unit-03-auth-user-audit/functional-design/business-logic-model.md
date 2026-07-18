@@ -59,7 +59,8 @@
 - `SecurityAlertService` — 閾値判定(時間窓 + クールダウン)・管理者メール
 
 ### common
-- `MailService` — テンプレート(Thymeleaf または MessageSource ベース)+ 受信者言語で送信、失敗時 MAIL_SEND_FAILED 発行
+- `MailService` — HTML メール(自作 Mustache エンジン — NFR Requirements Q2=C)+ 件名は MessageSource、受信者言語で送信、失敗時 MAIL_SEND_FAILED 発行
+- `MustacheRenderer`(`common.template`)— 自作 Mustache サブセットエンジン(対応構文・品質要件は nfr-requirements.md §3 / NFR-U3-05)
 - `GlobalExceptionHandler` — Problem Details 変換(@RestControllerAdvice)
 - `SecurityConfig` — Spring Security チェーン、JWT フィルタ、**CSP・セキュリティヘッダー本則**(下記)
 - `AppProperties` — `mm.app.*` の @ConfigurationProperties(型安全・起動時検証)

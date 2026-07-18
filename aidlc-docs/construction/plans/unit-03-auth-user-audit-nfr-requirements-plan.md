@@ -5,10 +5,10 @@
 
 ## ステップ
 
-- [ ] Step 1: Functional Design 成果物の分析(セキュリティ・性能・運用要件の抽出)
-- [ ] Step 2: 質問(Q1〜Q2)の回答確定
-- [ ] Step 3: `mm.app.*` 設定プロパティ体系の確定(既定値・検証ルール)
-- [ ] Step 4: 追加依存のバージョン確定と成果物生成
+- [x] Step 1: Functional Design 成果物の分析(セキュリティ・性能・運用要件の抽出)
+- [x] Step 2: 質問(Q1〜Q2)の回答確定
+- [x] Step 3: `mm.app.*` 設定プロパティ体系の確定(既定値・検証ルール)
+- [x] Step 4: 追加依存のバージョン確定と成果物生成
 
 ## 確認事項(回答をお願いします)
 
@@ -19,7 +19,7 @@
 - C) 自前実装(HMAC + Base64)— 依存ゼロだが検証実装のリスク
 - D) その他
 
-[Answer]:
+[Answer]: A(spring-security-oauth2-jose — Security BOM 管理)
 
 **Q2. メールの形式・テンプレート方式**
 
@@ -27,7 +27,7 @@
 - B) HTML メール + Thymeleaf(spring-boot-starter-thymeleaf)— リッチだがテンプレート・CSS 管理が増える
 - C) その他
 
-[Answer]:
+[Answer]: C(HTML メール + 自作 Mustache エンジン。エンジンのソースは backend ソースツリーに配置 — ユーザ指定 2026-07-19。自作パーサのため PBT-02 のブロッキング対象)
 
 ## 実装既定値(異論なければこのまま)
 

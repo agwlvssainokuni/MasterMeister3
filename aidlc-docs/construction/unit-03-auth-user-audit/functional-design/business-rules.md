@@ -82,7 +82,7 @@
 
 ## 6. メール送信(Q4=A)
 
-- 同期送信(JavaMailSender)。テンプレート: 登録確認 / 承認 / 却下 / セキュリティアラート × ja/en(受信者言語: 申請系はトークンの language、既存ユーザは user.language、アラートは各管理者の language)
+- 同期送信(JavaMailSender)。**HTML メール + 自作 Mustache エンジン**(NFR Requirements Q2=C)。テンプレート: 登録確認 / 承認 / 却下 / セキュリティアラート × ja/en(受信者言語: 申請系はトークンの language、既存ユーザは user.language、アラートは各管理者の language)。件名は MessageSource
 - 送信失敗: 例外を握りつぶして MAIL_SEND_FAILED を監査記録。**US-001 の応答は送信失敗でも変わらない**(列挙対策維持)。承認・却下は操作自体は成立させ、画面に警告 Toast 用のフラグを応答に含める
 - 設定: `mm.app.mail.from`、SMTP は Spring Boot 標準(`spring.mail.*`)。開発は MailPit(devenv)
 

@@ -38,7 +38,7 @@
 - [x] User Stories (2026-07-18 完了: 2 ペルソナ + 48 ストーリー、レビューで D-18〜D-21 確定、ユーザ承認済み)
 - [x] Workflow Planning (2026-07-18 完了: execution-plan.md、レビュー観点 5 点確認の上ユーザ承認済み)
 - [x] Application Design (2026-07-18 完了: 設計プラン Q1〜Q3 + レビュー確認 5 点(監査イベント方式/メタデータ権限フィルタ/一括反映単一API/キャッシュ粗粒度無効化・@Cacheable複数対象/トークン sessionStorage 保持)+ カラムメタデータ同梱を確定、ユーザ承認済み)
-- [ ] Units Generation - EXECUTE
+- [x] Units Generation (2026-07-18 完了: 6 ユニット定義・直列依存・48 ストーリー全割当、確認 2 点(MailPit を①devenv に追加、②モックは代表画面+カタログ)反映の上ユーザ承認済み)
 
 ### 🟢 CONSTRUCTION PHASE(ユニットごと)
 - [ ] Functional Design - EXECUTE (per unit)
@@ -52,7 +52,7 @@
 - [ ] Operations - PLACEHOLDER
 
 ## Current Status
-- **Lifecycle Phase**: INCEPTION
-- **Current Stage**: Units Generation(実行中)
-- **Next Stage**: CONSTRUCTION - ユニット①の Functional Design
-- **Status**: Units Generation Part 2 完了(成果物 3 件生成済み)、ステージ承認待ち
+- **Lifecycle Phase**: CONSTRUCTION
+- **Current Stage**: ユニット① foundation(骨格・開発環境)— ステージ判定から開始
+- **Next Stage**: ユニット①の NFR Requirements(Functional Design はスキップ見込み — 開始時に正式判定)
+- **Status**: INCEPTION PHASE 完了(2026-07-18)。CONSTRUCTION PHASE ユニット① 開始

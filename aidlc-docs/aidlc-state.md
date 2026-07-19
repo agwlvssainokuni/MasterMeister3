@@ -63,7 +63,14 @@
 - [ ] Infrastructure Design - SKIP
 - [x] Code Generation (2026-07-19 完了: Part 2 全 7 ステップ + DoD 検証(実機フロー 29 項目)。レビュー対応 4 件(feature ごとの api.ts 統一 / standalone.module.css を app 層へ / tokenStore を app 層へ / 命名統一(DTO 接尾辞・通知アダプタ・API 関数動詞))を反映の上ユーザ承認済み = ユニット③完了)
 
-#### ユニット④〜⑥
+#### ユニット④ connection-permission(接続・スキーマ取込・権限)
+- [x] Functional Design (2026-07-19 完了: Q1〜Q5 = A(鍵 ID 付き複数鍵暗号化 / 孤児エントリ保持 / YAML は email・グループ名 / プール遅延生成 + 接続テスト / プリンシパル軸ツリー)。レビュー反映 2 回(接続テスト未保存値実行・db_type 不変、YAML connection フィールド削除ほか確認 4 点明記)の上ユーザ承認済み)
+- [ ] NFR Requirements - EXECUTE
+- [ ] NFR Design - EXECUTE
+- [ ] Infrastructure Design - SKIP
+- [ ] Code Generation - EXECUTE
+
+#### ユニット⑤〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
 
 #### 全ユニット完了後
@@ -74,6 +81,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット④ connection-permission — ステージ判定
-- **Next Stage**: ステージ判定後、Functional Design(判定結果による)
-- **Status**: ユニット③完了承認(2026-07-19)。ユニット④(DB 接続管理・権限管理)開始
+- **Current Stage**: ユニット④ connection-permission — NFR Requirements
+- **Next Stage**: NFR Design
+- **Status**: ユニット④ Functional Design 承認済み(2026-07-19)。NFR Requirements 実施中

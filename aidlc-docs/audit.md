@@ -1031,3 +1031,19 @@
 **Context**: CONSTRUCTION - ユニット④ Functional Design。レビュー反映 2(GATE 継続)
 
 ---
+
+## ユニット④ Functional Design - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-19T19:05:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "ユニット④ Functional Design を承認として記録(Q1〜Q5 = A、レビュー反映 2 回: 接続テスト未保存値実行 + db_type 不変、YAML connection フィールド削除 + 確認 4 点明記)。aidlc-state.md を更新し、NFR Requirements を開始する。"
+**Context**: CONSTRUCTION - ユニット④ Functional Design 完了。NFR Requirements 開始
+
+---
+
+## ユニット④ NFR Requirements - Part A(質問提示)
+**Timestamp**: 2026-07-19T19:15:00Z
+**User Input**: (なし - プラン作成)
+**AI Response**: "NFR Requirements プランを作成(Q1〜Q3: JDBC ドライバ選定[MySQL を MariaDB Connector/J で接続するライセンス構成の推奨] / YAML ライブラリ[jackson-dataformat-yaml 推奨] / キャッシュ失効ポリシー[サイズ上限 + 防御的 TTL 推奨])。実装既定値 6 点(HikariCP 接続別プール・暗号鍵起動時検証・接続テスト 5 秒・Caffeine 1,000 件・YAML 1MB 上限・性能目安)を共有。回答待ち。"
+**Context**: CONSTRUCTION - ユニット④ NFR Requirements Part A。回答待ち
+
+---

@@ -37,10 +37,10 @@
 
 ## Step 5: メール(common.mail)
 
-- [ ] 5-1: MailTemplateRegistry(起動時 compile・fail-fast)+ MailService(cherry.mustache 利用、言語フォールバック、失敗時 MAIL_SEND_FAILED)
-- [ ] 5-2: テンプレート 4 種 × ja/en(registration-confirm / user-approved / user-rejected / security-alert)— インライン CSS・属性ダブルクォート規約
-- [ ] 5-3: 各サービスへの送信接続(申請・承認・却下・アラート)+ SecurityAlertService の送信実装
-- [ ] 5-4: テスト(Registry fail-fast、言語選択・フォールバック、送信失敗時の応答不変・監査記録)
+- [x] 5-1: MailTemplateRegistry(起動時 compile・fail-fast)+ MailService(cherry.mustache 利用、言語フォールバック、失敗時 MAIL_SEND_FAILED)+ 件名 MessageSource(messages/messages_ja、fallback-to-system-locale 無効化)
+- [x] 5-2: テンプレート 4 種 × ja/en(registration-confirm / user-approved / user-rejected / security-alert)— インライン CSS・属性ダブルクォート規約・リンクは {{{...}}}
+- [x] 5-3: 各サービスへの送信接続(UserMailNotifications = UserNotificationGateway 実装、MailSecurityAlertNotifier = SecurityAlertNotifier 実装)
+- [x] 5-4: テスト(Registry 5 件: 全テンプレート描画・HTML エスケープ・フォールバック・fail-fast、結合 5 件: 言語選択・件名・送信失敗時の応答不変 + MAIL_SEND_FAILED・アラート配信)
 
 ## Step 6: フロントエンド(認証基盤 + 画面)
 

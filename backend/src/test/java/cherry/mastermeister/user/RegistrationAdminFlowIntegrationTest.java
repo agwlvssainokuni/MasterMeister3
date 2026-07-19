@@ -53,7 +53,7 @@ class RegistrationAdminFlowIntegrationTest {
 
     private static final String PASSWORD = "new-user-password-1";
 
-    /** メール基盤の代わりに登録トークンを捕捉するテスト用ゲートウェイ。 */
+    /** メール基盤の代わりに登録トークンを捕捉するテスト用ゲートウェイ(実装 Bean より優先)。 */
     @TestConfiguration
     static class CapturingGatewayConfig {
 
@@ -61,6 +61,7 @@ class RegistrationAdminFlowIntegrationTest {
         static final AtomicReference<String> lastApprovedEmail = new AtomicReference<>();
 
         @Bean
+        @org.springframework.context.annotation.Primary
         UserNotificationGateway capturingGateway() {
             return new UserNotificationGateway() {
                 @Override

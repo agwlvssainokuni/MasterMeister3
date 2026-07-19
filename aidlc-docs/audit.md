@@ -871,3 +871,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 4
 
 ---
+
+## ユニット③ Code Generation Part 2 - Step 5(メール基盤)完了
+**Timestamp**: 2026-07-19T12:05:00Z
+**User Input**: (なし - Part 2 実行中)
+**AI Response**: "Step 5 完了: MailTemplateRegistry(起動時に classpath:mail/*.mustache.html を cherry.mustache で全件コンパイル・fail-fast・言語フォールバック en)、MailService(HTML メール・件名 MessageSource・送信失敗は MAIL_SEND_FAILED 監査記録で非伝播)、テンプレート 4 種 × ja/en、UserMailNotifications(UserNotificationGateway 実装)、MailSecurityAlertNotifier(管理者全員へ各自言語で送信)。テスト: Registry 5 件 + 結合 5 件(言語選択・送信失敗時の応答不変・アラート配信)。ハマり: JavaMailSender モック化で mail ヘルスチェックが破綻 → テストプロファイルで management.health.mail.enabled=false。バックエンド全テストグリーン。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 5
+
+---

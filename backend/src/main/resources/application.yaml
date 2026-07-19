@@ -33,6 +33,10 @@ spring:
     host: localhost
     port: 1025
 
+  # メール件名等のメッセージ解決で OS ロケールに引きずられないようにする
+  messages:
+    fallback-to-system-locale: false
+
 server:
   port: 8080
 

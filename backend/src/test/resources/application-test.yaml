@@ -21,6 +21,12 @@ spring:
     host: localhost
     port: 1025
 
+# JavaMailSender をモックに差し替えるテストで mail ヘルスチェックが破綻しないようにする
+management:
+  health:
+    mail:
+      enabled: false
+
 mm:
   app:
     jwt:

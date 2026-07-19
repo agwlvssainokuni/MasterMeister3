@@ -999,3 +999,19 @@
 **Context**: CONSTRUCTION - ユニット④ Functional Design 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット④ Functional Design - レビュー確認事項の提示
+**Timestamp**: 2026-07-19T18:25:00Z
+**User Input**: "確認すべき事項はある?"
+**AI Response**: "確認 5 点を提示: (1) db_type は作成後変更不可の推奨(取込メタデータ・方言前提との不整合防止)、(2) 接続テストは保存済み設定に対して実行(未保存フォーム値でのテストは提供しない)、(3) 孤児エントリは YAML エクスポートにも含まれる(Q2=A の保持方針と一貫)、(4) 権限ツリーは全件取得 + 折りたたみでページングなし(大規模スキーマ時は⑤以降で遅延読み込み検討)、(5) 実効権限プレビュー画面はストーリー外のため④では作らない。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ Functional Design。ユーザ承認待ち(GATE 継続)
+
+---
+
+## ユニット④ Functional Design - 確認事項への回答と設計修正
+**Timestamp**: 2026-07-19T18:35:00Z
+**User Input**: "1:OK. 2:保存前に試したい. 3:OK. 4:OK. 5:OK."
+**AI Response**: "確認 1(db_type 作成後変更不可)を設計書に明記。確認 2 の回答を受け、接続テストを『フォームの未保存値で実行可能』に設計変更: API を POST /api/admin/connections/test(接続パラメータをボディで受領、password 省略時は id 必須で保存済み資格情報を補完)に変更、テストはプール非経由の単発接続で検証、編集画面は保存不要でテスト可・db_type は編集時 disabled。確認 3〜5 は現設計どおり確定。修正を反映しコミットの上、ステージ承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ Functional Design。レビュー反映(GATE 継続)
+
+---

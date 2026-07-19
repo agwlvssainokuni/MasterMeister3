@@ -6,9 +6,10 @@
 
 - CRUD は ADMIN のみ。一覧・詳細応答にパスワードは**一切含めない**(暗号文も返さない)
 - 登録・更新: name 重複は 409(`CONNECTION_NAME_DUPLICATE`)。パスワードは登録時必須、**更新時は未入力(null)なら既存値を維持**(変更時のみ再暗号化 — 常に active 鍵で保存)
+- **db_type は作成後変更不可**(更新で変更が要求されたら 400 `CONNECTION_TYPE_IMMUTABLE`)。取込済みメタデータ・方言前提との不整合を防ぐ。種別を変えたい場合は新規接続を登録する(レビュー確認 1)
 - 暗号化: domain-entities §3 の形式(AES-256-GCM・鍵 ID 付き・環境変数鍵 — Q1=A/H-03)
 - プール(Q4=A): 接続 ID → DataSource を TargetDataSourceRegistry が遅延生成しキャッシュ。接続の更新・削除で当該プールを破棄(クローズ)。DriverManager 直接使用は不可(US-010)
-- 接続テスト(Q4=A): 保存とは独立の操作。登録済み接続に対して疎通確認(検証クエリ実行)を行い、成功/失敗 + 失敗理由(接続不可/認証失敗などのコード)を返す。結果は監査記録(CONNECTION_TESTED、outcome で成否)
+- 接続テスト(Q4=A + レビュー確認 2): **フォームの接続パラメータ(未保存値)に対して実行できる**(保存前・新規登録前でも可)。編集中でパスワード未入力の場合は id を伴い、保存済み資格情報で補完する。テストはプールを経由しない単発接続で疎通確認(検証クエリ実行)し、成功/失敗 + 失敗理由(接続不可/認証失敗などのコード)を返す。結果は監査記録(CONNECTION_TESTED、outcome で成否。保存済み接続へのテストは connection_id を設定、未保存パラメータのテストは detail に dbType / host を記録)
 - 削除: 取込メタデータ・権限エントリをカスケード削除(domain-entities §2)+ プール破棄 + 実効権限キャッシュ無効化。監査ログは残す
 - 変更系操作(作成・更新・削除)はすべて監査記録(US-011)。detail_json に接続 ID・name を含める(パスワード関連は記録しない)
 
@@ -85,7 +86,7 @@ groups:
 | event_type | connection_id | detail_json 例 |
 |---|---|---|
 | CONNECTION_CREATED / CONNECTION_UPDATED / CONNECTION_DELETED | 対象 | {"name": "..."}(資格情報は記録しない) |
-| CONNECTION_TESTED | 対象 | 失敗時 {"reason": "CONNECT_FAILED"\|"AUTH_FAILED"\|...} |
+| CONNECTION_TESTED | 対象(保存済みへのテスト時。未保存は NULL) | {"dbType": "...", "host": "..."} + 失敗時 {"reason": "CONNECT_FAILED"\|"AUTH_FAILED"\|...} |
 | SCHEMA_IMPORTED | 対象 | 成功 {"schemas": n, "tables": n, "columns": n} / 失敗 {"reason": "..."} |
 | PERMISSION_SET / PERMISSION_REMOVED | 対象 | {"principalType": "USER", "principalId": n, "scope": "sales.customers.name", "permission": "READ"}(補助は "auxType"/"granted") |
 | GROUP_CREATED / GROUP_DELETED | なし | {"groupId": n, "name": "..."} |

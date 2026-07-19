@@ -40,9 +40,9 @@ frontend/src/features/admin/
 - 「新規接続」ボタン → /admin/connections/new
 
 ### ConnectionEditPage
-- フォーム: name / dbType(Select: MySQL / MariaDB / PostgreSQL / H2)/ host / port / databaseName / username / password / options / poolMaxSize / poolTimeoutMs
+- フォーム: name / dbType(Select: MySQL / MariaDB / PostgreSQL / H2 — **編集時は変更不可(disabled)**)/ host / port / databaseName / username / password / options / poolMaxSize / poolTimeoutMs
 - パスワード: 新規は必須。**編集時は空欄 = 変更しない**(プレースホルダで明示)。入力値は表示専用マスク(②の PasswordInput)
-- 「接続テスト」ボタン(Q4=A): 保存済み接続に対して実行(未保存の変更がある場合は保存を促す)。結果を Alert(success / danger + 理由)で表示
+- 「接続テスト」ボタン(Q4=A + レビュー確認 2): **フォームの現在値で実行**(保存不要 — 新規登録前でも試せる)。編集中でパスワード空欄の場合は id を送り保存済みパスワードで補完。結果を Alert(success / danger + 理由)で表示
 - 「スキーマ取込」ボタン: ConfirmDialog(全置換の説明)→ 実行 → 結果(スキーマ/テーブル/カラム件数)を Toast + 画面に取込済みツリー(読み取り専用の概要)を表示
 - 409(名前重複)・502(取込失敗)は ApiError.code で文言分岐
 

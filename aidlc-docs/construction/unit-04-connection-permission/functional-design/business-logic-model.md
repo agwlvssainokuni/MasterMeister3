@@ -11,9 +11,9 @@
 | GET | /api/admin/connections | 一覧(パスワード非含有) | 200 [{id, name, dbType, host, port, databaseName, username, options, poolMaxSize, poolTimeoutMs, importedAt?}] |
 | POST | /api/admin/connections | 作成(password 必須) | 201 / 409(名前重複) |
 | GET | /api/admin/connections/{id} | 詳細(パスワード非含有) | 200 / 404 |
-| PUT | /api/admin/connections/{id} | 更新(password null = 維持) | 204 / 409 |
+| PUT | /api/admin/connections/{id} | 更新(password null = 維持、dbType 変更不可) | 204 / 409 / 400(種別変更) |
 | DELETE | /api/admin/connections/{id} | 削除(メタデータ・権限カスケード) | 204 |
-| POST | /api/admin/connections/{id}/test | 接続テスト(Q4=A) | 200 {success, reason?} |
+| POST | /api/admin/connections/test | 接続テスト(未保存のフォーム値で実行可 — レビュー確認 2)。ボディ {id?, dbType, host, port?, databaseName, username, password?, options?}。password 省略時は id 必須(保存済み資格情報で補完) | 200 {success, reason?} |
 
 ### スキーマ取込・メタデータ参照
 | メソッド | パス | 説明 | 主応答 |
@@ -44,7 +44,7 @@
 | DELETE | /api/admin/groups/{id}/members/{userId} | 削除 | 204 |
 
 ### エラーコード(③の code 体系に追加)
-`CONNECTION_NAME_DUPLICATE` / `CONNECTION_NOT_FOUND` / `CONNECTION_TEST_FAILED`(理由: `CONNECT_FAILED` / `AUTH_FAILED` / `TIMEOUT`)/ `SCHEMA_IMPORT_FAILED` / `PERMISSION_INVALID_SCOPE` / `PRINCIPAL_NOT_FOUND` / `GROUP_NAME_DUPLICATE` / `GROUP_NOT_FOUND` / `YAML_INVALID` / `YAML_DUPLICATE_ENTRY` / `YAML_UNKNOWN_PRINCIPAL`
+`CONNECTION_NAME_DUPLICATE` / `CONNECTION_TYPE_IMMUTABLE` / `CONNECTION_NOT_FOUND` / `CONNECTION_TEST_FAILED`(理由: `CONNECT_FAILED` / `AUTH_FAILED` / `TIMEOUT`)/ `SCHEMA_IMPORT_FAILED` / `PERMISSION_INVALID_SCOPE` / `PRINCIPAL_NOT_FOUND` / `GROUP_NAME_DUPLICATE` / `GROUP_NOT_FOUND` / `YAML_INVALID` / `YAML_DUPLICATE_ENTRY` / `YAML_UNKNOWN_PRINCIPAL`
 
 ## 2. サービス構成(パッケージ別)
 
@@ -72,7 +72,10 @@
 ## 3. 主要フロー(シーケンス概要)
 
 ### 接続作成/更新
-Controller → ConnectionService →(name 重複検査 → CredentialEncryptor.encrypt[active 鍵]→ 保存 → 旧プール破棄[更新時])→ AuditEventPublisher(CONNECTION_CREATED/UPDATED)
+Controller → ConnectionService →(name 重複検査・dbType 不変検査[更新時]→ CredentialEncryptor.encrypt[active 鍵]→ 保存 → 旧プール破棄[更新時])→ AuditEventPublisher(CONNECTION_CREATED/UPDATED)
+
+### 接続テスト
+Controller → ConnectionService.test(params) →(password 補完[id 指定時: 保存済みを復号]→ DbDialect で URL 組立 → プール非経由の単発接続 + 検証クエリ)→ AuditEventPublisher(CONNECTION_TESTED)→ 200 {success, reason?}
 
 ### スキーマ取込
 Controller → SchemaImportService →(TargetDataSourceRegistry から DataSource 取得 → メタデータ読取 → 単一 Tx で全置換)→ EffectivePermissionResolver.invalidateAll → AuditEventPublisher(SCHEMA_IMPORTED)。読取失敗は全ロールバック + FAILURE 監査 + 502

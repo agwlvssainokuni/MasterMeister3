@@ -943,3 +943,19 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応 3(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - 命名点検の指示
+**Timestamp**: 2026-07-19T17:15:00Z
+**User Input**: "名前付けの妥当性、統一性を点検。"
+**AI Response**: "バックエンド(クラス・DTO・定数・DB・プロパティ)とフロントエンド(ファイル・API 関数・型・i18n キー)の命名を体系的に点検し、結果を報告する。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。命名点検(GATE 継続)
+
+---
+
+## ユニット③ Code Generation - 命名点検の結果報告
+**Timestamp**: 2026-07-19T17:20:00Z
+**User Input**: (なし - 点検実施)
+**AI Response**: "統一性の指摘 3 点: (1) Controller DTO の接尾辞不統一 — RegistrationController.RequestBodyDto/CompleteBodyDto、UserPreferenceController.PreferencesBody が他の XxxRequest/XxxResponse 規約から外れる、(2) 通知アダプタの命名非対称 — UserMailNotifications vs MailSecurityAlertNotifier(Mail + インタフェース名への統一を推奨)、(3) frontend auth/api.ts の関数が loginRequest/logoutRequest/putPreferences と HTTP 寄りで、他 feature のドメイン動詞(listUsers/approveUser 等)と不統一。観察 4 点(現状維持推奨): AuditEvents.LOGOUT は規約外だが承認済みカタログどおり、登録系 i18n 文言が auth namespace(route /register と整合)、UserPayload と MeResponse の同一形状別名、AuditIndependenceTest の Integration サフィックス欠落。役割サフィックス・DB 制約 prefix・プロパティ・テンプレート・イベント定数の体系は一貫と確認。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。命名点検結果報告(GATE 継続)
+
+---

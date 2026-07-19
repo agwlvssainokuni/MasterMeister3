@@ -15,12 +15,24 @@
  */
 package cherry.mastermeister.metadata;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 public interface MetaSchemaRepository extends JpaRepository<MetaSchema, Long> {
+
+    interface ImportStatusRow {
+        Long getConnectionId();
+
+        LocalDateTime getImportedAt();
+    }
 
     List<MetaSchema> findByConnectionIdOrderByName(Long connectionId);
 
     void deleteByConnectionId(Long connectionId);
+
+    @Query("SELECT s.connectionId AS connectionId, MAX(s.importedAt) AS importedAt "
+            + "FROM MetaSchema s GROUP BY s.connectionId")
+    List<ImportStatusRow> findImportStatus();
 }

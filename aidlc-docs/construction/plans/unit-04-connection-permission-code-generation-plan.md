@@ -29,8 +29,8 @@
 
 ## Step 3: スキーマ取込(metadata)
 
-- [ ] 3-1: SchemaImportService(DatabaseMetaData 読取・方言差は DbDialect・全置換単一 Tx・saveAll・キャッシュ無効化・監査 SCHEMA_IMPORTED)+ MetadataQueryService(ツリー参照)+ MetadataController
-- [ ] 3-2: テスト(H2 ターゲット: テーブル/ビュー/PK/コメント/型の取込結果、再取込全置換、途中失敗ロールバック、未取込は空応答)
+- [x] 3-1: SchemaImportService(DatabaseMetaData 読取・方言差は DbDialect・全置換単一 Tx・saveAll・キャッシュ無効化・監査 SCHEMA_IMPORTED。プール初期生成失敗も 502 に分類)+ MetadataQueryService(ツリー 3 クエリ組立 + import-status)+ MetadataController(import / ツリー / 一覧用取込状況)
+- [x] 3-2: テスト 4 件(H2 ターゲット: テーブル/ビュー/複合 PK/コメント/NULL 可否の取込結果 + import-status、再取込全置換、失敗ロールバック[502 + FAILURE 監査 + 既存データ残存]、未取込は空応答)
 
 ## Step 4: 権限・グループ・YAML(permission)
 

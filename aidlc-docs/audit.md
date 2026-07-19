@@ -967,3 +967,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応 4(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - ステージ完了承認
+**Timestamp**: 2026-07-19T17:35:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "ユニット③ auth-user-audit の Code Generation ステージ完了を承認として記録。aidlc-state.md を更新(ユニット③ Code Generation [x]、Current Status をユニット④ connection-permission へ)し、コミットの上、ユニット④のステージ判定を開始する。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation 完了(GATE 通過)→ ユニット④ connection-permission 開始
+
+---

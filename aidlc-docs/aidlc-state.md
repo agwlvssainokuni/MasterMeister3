@@ -61,7 +61,7 @@
 - [x] NFR Requirements (2026-07-19 完了: Q1=A, Q2=C。ユーザ実装 cherry.mustache エンジンをレビュー(197 テスト全パス・PBT-02 充足)して取込。ユーザ承認済み)
 - [x] NFR Design (2026-07-19 完了: 確認 3 点(CSRF 無効 / en フォールバック / 監査同期)提示の上ユーザ承認済み)
 - [ ] Infrastructure Design - SKIP
-- [ ] Code Generation - EXECUTE(2026-07-19 Part 2 全 7 ステップ実装 + DoD 検証完了。ステージ完了承認待ち)
+- [x] Code Generation (2026-07-19 完了: Part 2 全 7 ステップ + DoD 検証(実機フロー 29 項目)。レビュー対応 4 件(feature ごとの api.ts 統一 / standalone.module.css を app 層へ / tokenStore を app 層へ / 命名統一(DTO 接尾辞・通知アダプタ・API 関数動詞))を反映の上ユーザ承認済み = ユニット③完了)
 
 #### ユニット④〜⑥
 - [ ] 各ユニット開始時にステージ判定の上、Functional Design / NFR Requirements / NFR Design / Code Generation を実施
@@ -74,6 +74,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット③ auth-user-audit — Code Generation Part 2 完了(承認待ち)
-- **Next Stage**: ステージ承認後、ユニット④ connection-permission
-- **Status**: ユニット③ 実装 + DoD 検証完了(2026-07-19)。全テストグリーン・実機フロー 29 項目 OK
+- **Current Stage**: ユニット④ connection-permission — ステージ判定
+- **Next Stage**: ステージ判定後、Functional Design(判定結果による)
+- **Status**: ユニット③完了承認(2026-07-19)。ユニット④(DB 接続管理・権限管理)開始

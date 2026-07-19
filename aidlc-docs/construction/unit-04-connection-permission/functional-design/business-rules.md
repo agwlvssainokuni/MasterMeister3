@@ -8,7 +8,7 @@
 - 登録・更新: name 重複は 409(`CONNECTION_NAME_DUPLICATE`)。パスワードは登録時必須、**更新時は未入力(null)なら既存値を維持**(変更時のみ再暗号化 — 常に active 鍵で保存)
 - **db_type は作成後変更不可**(更新で変更が要求されたら 400 `CONNECTION_TYPE_IMMUTABLE`)。取込済みメタデータ・方言前提との不整合を防ぐ。種別を変えたい場合は新規接続を登録する(レビュー確認 1)
 - 暗号化: domain-entities §3 の形式(AES-256-GCM・鍵 ID 付き・環境変数鍵 — Q1=A/H-03)
-- プール(Q4=A): 接続 ID → DataSource を TargetDataSourceRegistry が遅延生成しキャッシュ。接続の更新・削除で当該プールを破棄(クローズ)。DriverManager 直接使用は不可(US-010)
+- プール(Q4=A): 接続 ID → DataSource を TargetDataSourceRegistry が遅延生成しキャッシュ。接続の更新・削除で当該プールを破棄(クローズ)。DriverManager 直接使用は不可(US-010)。設定項目は pool_max_size / pool_timeout_ms の 2 つのみ(他パラメータは実装既定値 — レビュー確認)
 - 接続テスト(Q4=A + レビュー確認 2): **フォームの接続パラメータ(未保存値)に対して実行できる**(保存前・新規登録前でも可)。編集中でパスワード未入力の場合は id を伴い、保存済み資格情報で補完する。テストはプールを経由しない単発接続で疎通確認(検証クエリ実行)し、成功/失敗 + 失敗理由(接続不可/認証失敗などのコード)を返す。結果は監査記録(CONNECTION_TESTED、outcome で成否。保存済み接続へのテストは connection_id を設定、未保存パラメータのテストは detail に dbType / host を記録)
 - 削除: 取込メタデータ・権限エントリをカスケード削除(domain-entities §2)+ プール破棄 + 実効権限キャッシュ無効化。監査ログは残す
 - 変更系操作(作成・更新・削除)はすべて監査記録(US-011)。detail_json に接続 ID・name を含める(パスワード関連は記録しない)
@@ -24,7 +24,7 @@
 
 - 主権限: スキーマ(table_name='')/テーブル(column_name='')/カラムの 3 階層に `NONE` / `READ` / `UPDATE` を設定。**「エントリ削除 = 未設定に戻す」と「明示的 NONE の設定」は別操作**(D-18)
 - 補助権限: スキーマ/テーブル単位の `CREATE` / `DELETE` × granted 真偽値。行なし = 未設定
-- 検証: permission / aux_type / principal の存在(app_user・user_group)、column 指定時は table 必須。**スコープ物理名のメタデータ存在は検証しない**(孤児許容 — Q2=A と一貫。UI はツリー選択のみを提供するため通常は存在する名前になる)
+- 検証: permission / aux_type / principal の存在(app_user・user_group)、column 指定時は table 必須。対象ユーザは**ステータス不問**(承認前・無効化済みにも事前設定可 — ログイン不可のため実害なし。レビュー確認)。**スコープ物理名のメタデータ存在は検証しない**(孤児許容 — Q2=A と一貫。UI はツリー選択のみを提供するため通常は存在する名前になる)
 - 変更(設定・変更・削除)はすべて: 監査記録(PERMISSION_SET / PERMISSION_REMOVED)+ 実効権限キャッシュ無効化(US-013)
 
 ## 4. 実効権限解決(US-015、D-21)
@@ -56,7 +56,6 @@
 ### 形式(version 1)
 ```yaml
 version: 1
-connection: sales-db          # 参考情報(インポート時は URL の接続 ID が正。不一致は警告扱いにしない)
 users:
   - email: user@example.com   # プリンシパルは email で表現(Q3=A)
     main:
@@ -68,6 +67,8 @@ groups:
     main: [...]
     aux: [...]
 ```
+
+- **接続情報は YAML に含めない**(レビュー確認: 対象接続の対応付けは API URL の接続 ID のみ。環境間で接続名が異なっても YAML はそのまま使える)
 
 ### エクスポート(US-016)
 - 接続単位の全権限エントリ(主 + 補助)を上記形式で出力。**正規順序**(users は email 昇順、groups は name 昇順、エントリは schema/table/column/aux_type 昇順)で出力し、ラウンドトリップの同一性を保証

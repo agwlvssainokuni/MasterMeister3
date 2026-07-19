@@ -47,7 +47,7 @@ frontend/src/features/admin/
 - 409(名前重複)・502(取込失敗)は ApiError.code で文言分岐
 
 ### PermissionPage(Q5=A: プリンシパル軸ツリー)
-- 上部: プリンシパル選択(種別トグル USER / GROUP + 検索付き Select — ユーザは email、グループは name)
+- 上部: プリンシパル選択(種別トグル USER / GROUP + 検索付き Select — ユーザは email、グループは name)。ユーザは**ステータス不問で全員を選択可**(ステータス Badge 併記 — 承認前の事前設定を許容。レビュー確認)
 - 本体: スキーマ → テーブル → カラムの展開ツリー(取込済みメタデータ)。各行に:
   - 主権限: 4 値 Select(未設定 / NONE / READ / UPDATE)。「未設定」選択 = エントリ削除(D-18 の 2 操作を UI 上は 1 つの Select で表現し、API では PUT / DELETE に振り分け)
   - 補助権限(スキーマ・テーブル行のみ): CREATE / DELETE の 3 状態(未設定 / 許可 / 不許可)

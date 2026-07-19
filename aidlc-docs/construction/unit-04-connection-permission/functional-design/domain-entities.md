@@ -9,7 +9,7 @@
 | カラム | 型 | 制約 | 説明 |
 |---|---|---|---|
 | id | BIGINT | PK, IDENTITY | 接続 ID(取込スキーマ・権限・監査の分離単位 — US-011) |
-| name | VARCHAR(100) | UNIQUE, NOT NULL | 表示名(YAML の参考情報にも使用) |
+| name | VARCHAR(100) | UNIQUE, NOT NULL | 表示名 |
 | db_type | VARCHAR(20) | NOT NULL | `MYSQL` / `MARIADB` / `POSTGRESQL` / `H2` |
 | host | VARCHAR(255) | NOT NULL | H2 は TCP サーバモードのホストまたはファイルパス表現(§4) |
 | port | INT | NULL | H2 ファイルモードでは未使用 |

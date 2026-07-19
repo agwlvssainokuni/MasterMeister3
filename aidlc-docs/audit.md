@@ -1015,3 +1015,19 @@
 **Context**: CONSTRUCTION - ユニット④ Functional Design。レビュー反映(GATE 継続)
 
 ---
+
+## ユニット④ Functional Design - 追加確認事項の提示
+**Timestamp**: 2026-07-19T18:45:00Z
+**User Input**: "確認すべき事項はある?"
+**AI Response**: "追加確認 4 点を提示: (1) 未保存値での接続テストは任意ホストへの接続試行を許す(ADMIN 限定 + 監査記録でリスク受容の推奨)、(2) プール設定は pool_max_size / pool_timeout_ms の 2 項目のみ(他は既定値)、(3) YAML の connection: name はインポート時に検証しない参考情報(不一致でも拒否しない)— 拒否に変えるか、(4) 権限設定のプリンシパル選択はステータス不問で全ユーザを対象とするか ACTIVE のみか(推奨: 選択肢は ACTIVE + ロック中、既存エントリは全て表示)。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ Functional Design。ユーザ承認待ち(GATE 継続)
+
+---
+
+## ユニット④ Functional Design - 追加確認への回答と設計修正
+**Timestamp**: 2026-07-19T18:55:00Z
+**User Input**: "1:OK. 2:OK. 3:そもそもconnectionはYAMLに無くても良いのでは？ 4:OK."
+**AI Response**: "確認 3 の回答を受け、YAML 形式から connection: フィールドを削除(エクスポートに含めず、インポートでも扱わない — 接続の対応付けは URL の接続 ID のみ)。確認 1(未保存テストの受容)・2(プール設定 2 項目)・4(プリンシパル選択は全ユーザ + ステータス表示)を設計書に明記。修正をコミットの上、ステージ承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ Functional Design。レビュー反映 2(GATE 継続)
+
+---

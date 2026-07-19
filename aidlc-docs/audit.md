@@ -1151,3 +1151,19 @@
 **Context**: CONSTRUCTION - ユニット④ NFR Design。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット④ NFR Design - ステージ承認(GATE 通過)
+**Timestamp**: 2026-07-20T00:25:00Z
+**User Input**: "Continue to Next Stage"
+**AI Response**: "ユニット④ NFR Design を承認として記録(完全実施 Q1〜Q5 + 復号失敗時の補強)。aidlc-state.md を更新し、Code Generation Part 1(プラン作成)を開始する。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design 完了。Code Generation 開始
+
+---
+
+## ユニット④ Code Generation - Part 1(プラン提示・承認依頼)
+**Timestamp**: 2026-07-20T00:40:00Z
+**User Input**: (なし - プラン作成)
+**AI Response**: "Code Generation プランを作成(7 ステップ・28 項目): Step 1 基盤(依存昇格・V3・AppProperties 鍵検証・エンティティ 8 種)、Step 2 接続管理(Encryptor・DbDialect 4 実装・Registry・CRUD + 接続テスト)、Step 3 スキーマ取込、Step 4 権限・グループ・YAML(D-21 Resolver・PBT-03/02)、Step 5 Testcontainers 6 テスト、Step 6 フロントエンド 3 feature、Step 7 DoD 実機検証(US-015 確定例再現含む)。プラン承認を依頼。"
+**Context**: CONSTRUCTION - ユニット④ Code Generation Part 1。プラン承認待ち(GATE)
+
+---

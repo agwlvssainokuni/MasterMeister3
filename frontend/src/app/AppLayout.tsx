@@ -50,6 +50,20 @@ export function AppLayout() {
             active: location.pathname.startsWith("/admin/users"),
             onSelect: () => navigate("/admin/users"),
           },
+          {
+            key: "connections",
+            label: t("nav.connections"),
+            icon: "🔌",
+            active: location.pathname.startsWith("/admin/connections"),
+            onSelect: () => navigate("/admin/connections"),
+          },
+          {
+            key: "groups",
+            label: t("nav.groups"),
+            icon: "🗂️",
+            active: location.pathname.startsWith("/admin/groups"),
+            onSelect: () => navigate("/admin/groups"),
+          },
         ]
       : []),
   ];

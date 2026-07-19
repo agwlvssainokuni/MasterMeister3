@@ -45,5 +45,165 @@
       "mailFailed": "通知メールの送信に失敗しました(操作は完了しています)",
       "failed": "操作に失敗しました"
     }
+  },
+  "connections": {
+    "title": "接続管理",
+    "createTitle": "接続の新規登録",
+    "editTitle": "接続の編集",
+    "notImported": "未取込",
+    "dbTypeImmutable": "DB 種別は作成後に変更できません",
+    "passwordKeep": "空欄のままにすると現在のパスワードを維持します",
+    "column": {
+      "name": "接続名",
+      "dbType": "DB 種別",
+      "host": "ホスト",
+      "databaseName": "データベース",
+      "importedAt": "スキーマ取込",
+      "actions": "操作"
+    },
+    "field": {
+      "name": "接続名",
+      "dbType": "DB 種別",
+      "host": "ホスト",
+      "port": "ポート",
+      "databaseName": "データベース名",
+      "username": "接続ユーザ",
+      "password": "パスワード",
+      "options": "追加オプション",
+      "poolMaxSize": "プール最大接続数",
+      "poolTimeoutMs": "接続タイムアウト (ミリ秒)"
+    },
+    "action": {
+      "create": "新規接続",
+      "save": "保存",
+      "edit": "編集",
+      "permissions": "権限設定",
+      "delete": "削除",
+      "test": "接続テスト",
+      "import": "スキーマ取込",
+      "back": "一覧へ戻る"
+    },
+    "test": {
+      "success": "接続に成功しました",
+      "AUTH_FAILED": "認証に失敗しました(ユーザ名またはパスワードを確認してください)",
+      "TIMEOUT": "接続がタイムアウトしました",
+      "CONNECT_FAILED": "接続できませんでした(ホスト・ポート・データベース名を確認してください)",
+      "CONNECTION_PASSWORD_REQUIRED": "パスワードを入力してください(未保存の接続はパスワード必須です)",
+      "CREDENTIAL_DECRYPT_FAILED": "保存済みパスワードを復号できません(暗号鍵の設定を確認し、パスワードを再入力してください)"
+    },
+    "error": {
+      "CONNECTION_NAME_DUPLICATE": "同じ接続名が既に存在します",
+      "CONNECTION_TYPE_IMMUTABLE": "DB 種別は変更できません",
+      "VALIDATION_ERROR": "入力内容を確認してください"
+    },
+    "importError": {
+      "SCHEMA_IMPORT_FAILED": "スキーマ取込に失敗しました(接続先を確認してください)",
+      "TARGET_DB_BUSY": "接続が混み合っています。しばらくして再試行してください",
+      "CREDENTIAL_DECRYPT_FAILED": "保存済みパスワードを復号できません(暗号鍵の設定を確認してください)"
+    },
+    "schema": {
+      "title": "取込済みスキーマ",
+      "importedAt": "取込日時: {{at}}",
+      "view": "ビュー",
+      "columns": "{{count}} カラム"
+    },
+    "confirm": {
+      "deleteTitle": "接続を削除",
+      "deleteMessage": "{{name}} を削除します。取込済みスキーマと権限設定もあわせて削除されます(監査ログは残ります)。よろしいですか?",
+      "importTitle": "スキーマを取込",
+      "importMessage": "接続先の現在の構造で全置換します(既存の取込内容は上書き)。権限エントリは保持されます。よろしいですか?"
+    },
+    "toast": {
+      "created": "接続を登録しました",
+      "updated": "接続を保存しました",
+      "deleted": "接続を削除しました",
+      "imported": "スキーマを取り込みました(スキーマ {{schemas}} / テーブル {{tables}} / カラム {{columns}})",
+      "failed": "操作に失敗しました"
+    }
+  },
+  "permissions": {
+    "title": "権限設定",
+    "principalType": "対象種別",
+    "principal": "対象",
+    "selectPrincipal": "選択してください",
+    "selectHint": "権限を設定するユーザまたはグループを選択してください",
+    "notImported": "スキーマが未取込です。先に接続画面からスキーマ取込を実行してください",
+    "main": "主権限",
+    "view": "ビュー",
+    "granted": "許可",
+    "denied": "不許可",
+    "type": {
+      "USER": "ユーザ",
+      "GROUP": "グループ"
+    },
+    "level": {
+      "UNSET": "未設定",
+      "NONE": "NONE (明示的に拒否)",
+      "READ": "READ",
+      "UPDATE": "UPDATE"
+    },
+    "aux": {
+      "CREATE": "作成 (CREATE)",
+      "DELETE": "削除 (DELETE)"
+    },
+    "action": {
+      "export": "YAML エクスポート",
+      "import": "YAML インポート",
+      "removeEntry": "エントリ削除"
+    },
+    "orphan": {
+      "title": "対象なしのエントリ",
+      "badge": "対象なし",
+      "description": "取込済みスキーマに存在しない対象を参照するエントリです(再取込で対象が復活すれば再び有効になります)。不要な場合は削除してください。"
+    },
+    "confirm": {
+      "importTitle": "YAML をインポート",
+      "importMessage": "この接続の既存の権限設定をすべて削除し、YAML の内容で置き換えます(全置換)。よろしいですか?"
+    },
+    "yamlError": {
+      "YAML_INVALID": "YAML の内容が不正です",
+      "YAML_DUPLICATE_ENTRY": "重複するエントリがあります",
+      "YAML_UNKNOWN_PRINCIPAL": "存在しないユーザまたはグループが指定されています",
+      "YAML_TOO_LARGE": "ファイルサイズの上限(1 MB)を超えています"
+    },
+    "toast": {
+      "imported": "{{count}} 件の権限設定をインポートしました",
+      "failed": "操作に失敗しました"
+    }
+  },
+  "groups": {
+    "title": "グループ管理",
+    "createTitle": "グループを作成",
+    "renameTitle": "グループ名を変更",
+    "namePlaceholder": "グループ名",
+    "membersTitle": "{{name}} のメンバー",
+    "noMembers": "メンバーはいません",
+    "searchPlaceholder": "メールアドレスで検索",
+    "column": {
+      "name": "グループ名",
+      "memberCount": "メンバー数",
+      "actions": "操作"
+    },
+    "action": {
+      "create": "グループ作成",
+      "rename": "改名",
+      "delete": "削除",
+      "members": "メンバー",
+      "addMember": "追加",
+      "removeMember": "削除"
+    },
+    "error": {
+      "duplicate": "同じグループ名が既に存在します"
+    },
+    "confirm": {
+      "deleteTitle": "グループを削除",
+      "deleteMessage": "{{name}} を削除します。所属メンバーとこのグループの権限設定もあわせて削除されます。よろしいですか?"
+    },
+    "toast": {
+      "created": "グループを作成しました",
+      "renamed": "グループ名を変更しました",
+      "deleted": "グループを削除しました",
+      "failed": "操作に失敗しました"
+    }
   }
 }

@@ -45,5 +45,165 @@
       "mailFailed": "Failed to send the notification email (the operation itself succeeded)",
       "failed": "Operation failed"
     }
+  },
+  "connections": {
+    "title": "Connections",
+    "createTitle": "New Connection",
+    "editTitle": "Edit Connection",
+    "notImported": "Not imported",
+    "dbTypeImmutable": "Database type cannot be changed after creation",
+    "passwordKeep": "Leave blank to keep the current password",
+    "column": {
+      "name": "Name",
+      "dbType": "Type",
+      "host": "Host",
+      "databaseName": "Database",
+      "importedAt": "Schema import",
+      "actions": "Actions"
+    },
+    "field": {
+      "name": "Name",
+      "dbType": "Database type",
+      "host": "Host",
+      "port": "Port",
+      "databaseName": "Database name",
+      "username": "Username",
+      "password": "Password",
+      "options": "Extra options",
+      "poolMaxSize": "Pool max size",
+      "poolTimeoutMs": "Connection timeout (ms)"
+    },
+    "action": {
+      "create": "New connection",
+      "save": "Save",
+      "edit": "Edit",
+      "permissions": "Permissions",
+      "delete": "Delete",
+      "test": "Test connection",
+      "import": "Import schema",
+      "back": "Back to list"
+    },
+    "test": {
+      "success": "Connection succeeded",
+      "AUTH_FAILED": "Authentication failed (check username and password)",
+      "TIMEOUT": "Connection timed out",
+      "CONNECT_FAILED": "Could not connect (check host, port, and database name)",
+      "CONNECTION_PASSWORD_REQUIRED": "Password is required for an unsaved connection",
+      "CREDENTIAL_DECRYPT_FAILED": "Stored password cannot be decrypted (check encryption keys and re-enter the password)"
+    },
+    "error": {
+      "CONNECTION_NAME_DUPLICATE": "A connection with the same name already exists",
+      "CONNECTION_TYPE_IMMUTABLE": "Database type cannot be changed",
+      "VALIDATION_ERROR": "Please check the input values"
+    },
+    "importError": {
+      "SCHEMA_IMPORT_FAILED": "Schema import failed (check the target database)",
+      "TARGET_DB_BUSY": "The connection is busy. Please retry later",
+      "CREDENTIAL_DECRYPT_FAILED": "Stored password cannot be decrypted (check encryption keys)"
+    },
+    "schema": {
+      "title": "Imported schema",
+      "importedAt": "Imported at: {{at}}",
+      "view": "view",
+      "columns": "{{count}} columns"
+    },
+    "confirm": {
+      "deleteTitle": "Delete connection",
+      "deleteMessage": "Delete {{name}}? Imported schema and permission settings will also be deleted (audit logs are kept).",
+      "importTitle": "Import schema",
+      "importMessage": "Replace the imported structure with the current structure of the target database. Permission entries are kept. Continue?"
+    },
+    "toast": {
+      "created": "Connection created",
+      "updated": "Connection saved",
+      "deleted": "Connection deleted",
+      "imported": "Schema imported ({{schemas}} schemas / {{tables}} tables / {{columns}} columns)",
+      "failed": "Operation failed"
+    }
+  },
+  "permissions": {
+    "title": "Permissions",
+    "principalType": "Principal type",
+    "principal": "Principal",
+    "selectPrincipal": "Select...",
+    "selectHint": "Select a user or group to edit permissions",
+    "notImported": "Schema is not imported yet. Import it from the connection page first",
+    "main": "Main",
+    "view": "view",
+    "granted": "Granted",
+    "denied": "Denied",
+    "type": {
+      "USER": "User",
+      "GROUP": "Group"
+    },
+    "level": {
+      "UNSET": "Unset",
+      "NONE": "NONE (explicit deny)",
+      "READ": "READ",
+      "UPDATE": "UPDATE"
+    },
+    "aux": {
+      "CREATE": "CREATE",
+      "DELETE": "DELETE"
+    },
+    "action": {
+      "export": "Export YAML",
+      "import": "Import YAML",
+      "removeEntry": "Remove entry"
+    },
+    "orphan": {
+      "title": "Entries without target",
+      "badge": "No target",
+      "description": "These entries reference objects that no longer exist in the imported schema (they become effective again if re-import restores the target). Remove them if no longer needed."
+    },
+    "confirm": {
+      "importTitle": "Import YAML",
+      "importMessage": "All existing permission settings of this connection will be deleted and replaced by the YAML content. Continue?"
+    },
+    "yamlError": {
+      "YAML_INVALID": "The YAML content is invalid",
+      "YAML_DUPLICATE_ENTRY": "Duplicate entries found",
+      "YAML_UNKNOWN_PRINCIPAL": "Unknown user or group referenced",
+      "YAML_TOO_LARGE": "File exceeds the size limit (1 MB)"
+    },
+    "toast": {
+      "imported": "Imported {{count}} permission entries",
+      "failed": "Operation failed"
+    }
+  },
+  "groups": {
+    "title": "Groups",
+    "createTitle": "Create group",
+    "renameTitle": "Rename group",
+    "namePlaceholder": "Group name",
+    "membersTitle": "Members of {{name}}",
+    "noMembers": "No members",
+    "searchPlaceholder": "Search by email",
+    "column": {
+      "name": "Name",
+      "memberCount": "Members",
+      "actions": "Actions"
+    },
+    "action": {
+      "create": "Create group",
+      "rename": "Rename",
+      "delete": "Delete",
+      "members": "Members",
+      "addMember": "Add",
+      "removeMember": "Remove"
+    },
+    "error": {
+      "duplicate": "A group with the same name already exists"
+    },
+    "confirm": {
+      "deleteTitle": "Delete group",
+      "deleteMessage": "Delete {{name}}? Memberships and permission settings of this group will also be deleted."
+    },
+    "toast": {
+      "created": "Group created",
+      "renamed": "Group renamed",
+      "deleted": "Group deleted",
+      "failed": "Operation failed"
+    }
   }
 }

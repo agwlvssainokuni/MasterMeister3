@@ -71,6 +71,22 @@ async function parseError(response: Response): Promise<ApiError> {
           )
           .map((p) => ({ name: p.name, reason: p.reason }));
       }
+      // YAML インポート拒否等の理由一覧({path, reason}[])も invalidParams として扱う
+      const errors = problem.errors;
+      if (Array.isArray(errors)) {
+        invalidParams = [
+          ...invalidParams,
+          ...errors
+            .filter(
+              (e): e is { path: string; reason: string } =>
+                typeof e === "object" &&
+                e !== null &&
+                typeof (e as Record<string, unknown>).path === "string" &&
+                typeof (e as Record<string, unknown>).reason === "string",
+            )
+            .map((e) => ({ name: e.path, reason: e.reason })),
+        ];
+      }
     }
   } catch {
     /* 非 JSON 応答は UNKNOWN_ERROR のまま */
@@ -116,15 +132,19 @@ export interface RequestOptions {
   body?: unknown;
   /** false: 認証不要 API(Bearer 付与も 401 リフレッシュもしない) */
   auth?: boolean;
+  /** body の Content-Type(指定時は body を文字列のまま送る — YAML 等)。既定は JSON */
+  contentType?: string;
+  /** "text": 応答を文字列で返す(YAML エクスポート等)。既定は JSON */
+  responseType?: "json" | "text";
 }
 
 export async function apiFetch<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { method = "GET", body, auth = true } = options;
+  const { method = "GET", body, auth = true, contentType, responseType = "json" } = options;
 
   const doFetch = () => {
     const headers: Record<string, string> = {};
     if (body !== undefined) {
-      headers["Content-Type"] = "application/json";
+      headers["Content-Type"] = contentType ?? "application/json";
     }
     if (auth) {
       const accessToken = tokenStore.getAccessToken();
@@ -135,7 +155,8 @@ export async function apiFetch<T>(path: string, options: RequestOptions = {}): P
     return fetch(path, {
       method,
       headers,
-      body: body === undefined ? undefined : JSON.stringify(body),
+      body:
+        body === undefined ? undefined : contentType ? (body as string) : JSON.stringify(body),
     });
   };
 
@@ -156,6 +177,9 @@ export async function apiFetch<T>(path: string, options: RequestOptions = {}): P
   }
   if (response.status === 204) {
     return undefined as T;
+  }
+  if (responseType === "text") {
+    return (await response.text()) as T;
   }
   return (await response.json()) as T;
 }

@@ -1,0 +1,70 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--mm-font-size-xl);
+  font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actionsCell {
+  display: inline-flex;
+  gap: var(--mm-space-2);
+}
+
+.memberRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mm-space-2);
+  padding: var(--mm-space-1) 0;
+}
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-1);
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.addRow {
+  display: flex;
+  gap: var(--mm-space-2);
+  align-items: center;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-3);
+}
+
+.muted {
+  color: var(--mm-color-text-muted);
+  font-size: var(--mm-font-size-sm);
+}

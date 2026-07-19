@@ -47,11 +47,11 @@
 
 ## Step 6: フロントエンド(3 feature + 統合)
 
-- [ ] 6-1: features/admin/connections(api.ts + ConnectionListPage + ConnectionEditPage — 接続テスト[フォーム現在値]・スキーマ取込・db_type 編集 disabled・password 空欄維持)
-- [ ] 6-2: features/admin/permissions(api.ts + PermissionPage — プリンシパル軸ツリー・4 値 Select で D-18 表現・補助権限 3 状態・孤児セクション・YAML export/import)
-- [ ] 6-3: features/admin/groups(api.ts + GroupListPage — CRUD・メンバー管理・削除警告)
-- [ ] 6-4: routes 4 ルート追加 + AppLayout ナビ(接続管理・グループ管理)+ i18n 辞書(admin ns に connections/permissions/groups、ja/en)
-- [ ] 6-5: RTL テスト(ConnectionListPage・ConnectionEditPage[テスト実行・エラー分類表示]・PermissionPage[ツリー設定・孤児表示]・GroupListPage)
+- [x] 6-1: features/admin/connections(api.ts + ConnectionListPage + ConnectionEditPage — 接続テスト[フォーム現在値]・スキーマ取込 + ツリー概要・db_type 編集 disabled・password 空欄維持。apiClient に contentType / responseType / errors 解釈を拡張)
+- [x] 6-2: features/admin/permissions(api.ts + PermissionPage — プリンシパル軸ツリー[details 折りたたみ]・4 値 Select で D-18 表現・補助権限 3 状態・孤児セクション + 明示削除・YAML export[Blob DL]/import[ファイル選択 + 全置換確認 + 理由一覧表示])
+- [x] 6-3: features/admin/groups(api.ts + GroupListPage — CRUD モーダル・メンバー管理モーダル[検索追加/削除]・カスケード削除警告)
+- [x] 6-4: routes 5 ルート追加 + AppLayout ナビ(接続管理 🔌・グループ管理 🗂️)+ i18n 辞書(admin ns に connections/permissions/groups、auth ns に nav 2 件、ja/en)
+- [x] 6-5: RTL テスト 8 件(ConnectionListPage 2[一覧 + 取込状況・削除 DELETE]・ConnectionEditPage 2[フォーム現在値テスト・AUTH_FAILED 文言]・PermissionPage 2[ツリー設定 PUT・孤児表示 + 削除]・GroupListPage 2[作成 POST・メンバー追加/削除])— 全 48 テストパス・check クリーン
 
 ## Step 7: DoD 検証と文書化
 

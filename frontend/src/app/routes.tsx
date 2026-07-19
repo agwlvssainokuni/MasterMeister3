@@ -15,6 +15,10 @@
  */
 
 import { Navigate, Route, Routes } from "react-router-dom";
+import { ConnectionEditPage } from "../features/admin/connections/ConnectionEditPage";
+import { ConnectionListPage } from "../features/admin/connections/ConnectionListPage";
+import { GroupListPage } from "../features/admin/groups/GroupListPage";
+import { PermissionPage } from "../features/admin/permissions/PermissionPage";
 import { UserListPage } from "../features/admin/users/UserListPage";
 import { LoginPage } from "../features/auth/LoginPage";
 import { RequireAdmin, RequireAuth } from "../features/auth/guards";
@@ -24,7 +28,7 @@ import { AppLayout } from "./AppLayout";
 import { HomePage } from "./HomePage";
 
 /**
- * ルート構成(ユニット③)。
+ * ルート構成(ユニット③④)。
  * 公開: /login, /register, /register/complete。認証必須: / 以下(AppLayout)。
  * /admin/** は ADMIN のみ。モックカタログ(/mock)は main.tsx で dev 専用に追加される。
  */
@@ -39,6 +43,11 @@ export function AppRoutes({ extraRoutes }: { extraRoutes?: React.ReactNode }) {
           <Route path="/" element={<HomePage />} />
           <Route element={<RequireAdmin />}>
             <Route path="/admin/users" element={<UserListPage />} />
+            <Route path="/admin/connections" element={<ConnectionListPage />} />
+            <Route path="/admin/connections/new" element={<ConnectionEditPage />} />
+            <Route path="/admin/connections/:id" element={<ConnectionEditPage />} />
+            <Route path="/admin/connections/:id/permissions" element={<PermissionPage />} />
+            <Route path="/admin/groups" element={<GroupListPage />} />
           </Route>
         </Route>
       </Route>

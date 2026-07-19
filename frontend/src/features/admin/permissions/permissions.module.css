@@ -1,0 +1,104 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--mm-font-size-xl);
+  font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--mm-space-3);
+}
+
+.toolbarLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-1);
+  font-size: var(--mm-font-size-sm);
+  color: var(--mm-color-text-muted);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-2);
+}
+
+.schemaBlock {
+  border: 1px solid var(--mm-color-border);
+  border-radius: var(--mm-radius-md);
+  padding: var(--mm-space-2) var(--mm-space-3);
+}
+
+.nodeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mm-space-2);
+  padding: var(--mm-space-1) 0;
+}
+
+.nodeName {
+  font-weight: 600;
+}
+
+.columnRow {
+  composes: nodeRow;
+  padding-left: var(--mm-space-5);
+}
+
+.tableBlock {
+  padding-left: var(--mm-space-4);
+}
+
+.permissionControl {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mm-space-1);
+  font-size: var(--mm-font-size-sm);
+  color: var(--mm-color-text-muted);
+}
+
+.orphanSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-2);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--mm-font-size-lg);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--mm-color-text-muted);
+  font-size: var(--mm-font-size-sm);
+}

@@ -19,8 +19,8 @@ import type { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Alert, Button, Card, FormField, TextInput } from "../../design-system/components";
-import { requestRegistration } from "../auth/api";
 import styles from "../auth/auth.module.css";
+import { requestRegistration } from "./api";
 
 /**
  * ユーザ登録申請(US-001)。

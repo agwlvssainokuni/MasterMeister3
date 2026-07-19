@@ -56,23 +56,3 @@ export function putPreferences(language: string, theme: string): Promise<void> {
     body: { language, theme },
   });
 }
-
-export function requestRegistration(email: string, language: string): Promise<void> {
-  return apiFetch<void>("/api/registration/request", {
-    method: "POST",
-    body: { email, language },
-    auth: false,
-  });
-}
-
-export function completeRegistration(
-  token: string,
-  password: string,
-  displayName: string | undefined,
-): Promise<void> {
-  return apiFetch<void>("/api/registration/complete", {
-    method: "POST",
-    body: { token, password, displayName },
-    auth: false,
-  });
-}

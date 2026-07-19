@@ -895,3 +895,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット③ Code Generation - レビュー指摘(Request Changes)
+**Timestamp**: 2026-07-19T12:45:00Z
+**User Input**: "レビュー指摘。frontend の API 呼び出しのコーディングについて、api.ts は auth のみに存在し、registration は feature を跨いでこれを参照、auth は apiClient を直接呼び出している。実装方式は揃えて欲しい。"
+**AI Response**: "指摘を受領。各 feature に api.ts を置く方式に統一: (1) features/registration/api.ts を新設し requestRegistration / completeRegistration を auth/api.ts から移動(feature 跨ぎ参照を解消)、(2) features/admin/users/api.ts を新設し UserListPage の apiFetch 直接呼び出しを API 関数 + 型定義に集約。修正後にテスト・check を再実行してコミット。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応(GATE 継続)
+
+---

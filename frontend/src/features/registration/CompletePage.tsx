@@ -27,8 +27,8 @@ import {
   PasswordInput,
   TextInput,
 } from "../../design-system/components";
-import { completeRegistration } from "../auth/api";
 import styles from "../auth/auth.module.css";
+import { completeRegistration } from "./api";
 
 /**
  * 登録完了 = パスワード設定(US-002)。

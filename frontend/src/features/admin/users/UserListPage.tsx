@@ -17,7 +17,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { apiFetch } from "../../../app/apiClient";
 import {
   Badge,
   Button,
@@ -30,32 +29,9 @@ import {
   useToast,
 } from "../../../design-system/components";
 import type { BadgeTone, TableColumn } from "../../../design-system/components";
+import { approveUser, listUsers, rejectUser, unlockUser } from "./api";
+import type { UserSummary } from "./api";
 import styles from "./users.module.css";
-
-interface UserSummary {
-  id: number;
-  email: string;
-  displayName: string | null;
-  role: "ADMIN" | "USER";
-  status: "PENDING_APPROVAL" | "ACTIVE" | "REJECTED" | "DISABLED";
-  language: string;
-  lockedUntil: string | null;
-  failedLoginCount: number;
-  createdAt: string;
-}
-
-interface UserListResponse {
-  items: UserSummary[];
-  page: number;
-  size: number;
-  totalElements: number;
-  totalPages: number;
-}
-
-interface UserActionResponse {
-  user: UserSummary;
-  mailSent: boolean;
-}
 
 type ActionKind = "approve" | "reject" | "unlock";
 
@@ -94,16 +70,12 @@ export function UserListPage() {
   const load = useCallback(async () => {
     setLoading(true);
     try {
-      const params = new URLSearchParams();
-      params.set("page", String(page));
-      params.set("size", String(PAGE_SIZE));
-      if (status !== "") {
-        params.set("status", status);
-      }
-      if (keyword !== "") {
-        params.set("q", keyword);
-      }
-      const result = await apiFetch<UserListResponse>(`/api/admin/users?${params.toString()}`);
+      const result = await listUsers({
+        page,
+        size: PAGE_SIZE,
+        status: status === "" ? undefined : status,
+        keyword: keyword === "" ? undefined : keyword,
+      });
       setItems(result.items);
       setTotalPages(result.totalPages);
     } catch {
@@ -131,15 +103,13 @@ export function UserListPage() {
     setProcessing(true);
     try {
       if (confirm.kind === "unlock") {
-        await apiFetch<UserSummary>(`/api/admin/users/${confirm.user.id}/unlock`, {
-          method: "POST",
-        });
+        await unlockUser(confirm.user.id);
         showToast("success", t("users.toast.unlocked"));
       } else {
-        const result = await apiFetch<UserActionResponse>(
-          `/api/admin/users/${confirm.user.id}/${confirm.kind}`,
-          { method: "POST" },
-        );
+        const result =
+          confirm.kind === "approve"
+            ? await approveUser(confirm.user.id)
+            : await rejectUser(confirm.user.id);
         showToast(
           "success",
           confirm.kind === "approve" ? t("users.toast.approved") : t("users.toast.rejected"),

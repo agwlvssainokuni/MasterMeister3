@@ -20,9 +20,11 @@
 | 配置 | 実装 |
 |---|---|
 | app | apiClient(Bearer・401 シングルフライトリフレッシュ・Problem Details 解釈)、AppLayout(AppShell 統合・ナビ・ユーザメニュー)、HomePage(プレースホルダ)、routes |
-| features/auth | tokenStore(sessionStorage 集約)、AuthProvider(復元・ログイン・ログアウト・サーバ設定適用)、guards(RequireAuth/RequireAdmin)、usePreferences(サーバ保存)、LoginPage |
-| features/registration | RequestPage、CompletePage |
-| features/admin/users | UserListPage(サーバページング・フィルタ・承認/却下/ロック解除) |
+| features/auth | api.ts(login/logout/me/preferences)、tokenStore(sessionStorage 集約)、AuthProvider(復元・ログイン・ログアウト・サーバ設定適用)、guards(RequireAuth/RequireAdmin)、usePreferences(サーバ保存)、LoginPage |
+| features/registration | api.ts(request/complete)、RequestPage、CompletePage |
+| features/admin/users | api.ts(list/approve/reject/unlock + 型定義)、UserListPage(サーバページング・フィルタ・承認/却下/ロック解除) |
+
+- API 呼び出し規約: 各 feature が自前の `api.ts` に API 関数と型を集約し、画面は apiClient を直接呼ばない(レビュー指摘 2026-07-19 反映)
 | i18n | 辞書 auth / admin(ja/en) |
 
 ## テスト

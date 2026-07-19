@@ -15,6 +15,8 @@
 - 生成時設定: maximumPoolSize = pool_max_size、connectionTimeout = pool_timeout_ms、poolName = `mm-target-{id}`(ログで識別)
 - `evict(connectionId)`: マップから除去して close(接続の更新・削除時に ConnectionService から呼出)。アプリ終了時は @PreDestroy で全 close
 - 取込・(⑤⑥の)データアクセスはこのプール経由。**プール外の単発接続は接続テストのみ**(§6)
+- **リトライしない(Q1=A)**: 接続確立・操作の失敗は即時に理由コード付きで返す(fail-fast)。管理者の対話操作であり明示的な再実行が自然
+- **プール枯渇(Q2=B)**: pool_timeout_ms 内に接続を取得できない場合は **503 + Retry-After ヘッダー**(理由コード `TARGET_DB_BUSY`)。上流 DB 障害(502)と区別する。この規約は⑤⑥のデータアクセスにも適用
 
 ## 3. 実効権限キャッシュ(NFR-U4-03)
 
@@ -25,7 +27,7 @@
 ## 4. スキーマ取込(NFR-U4-05)
 
 - 読取: プールから 1 Connection を取得し `DatabaseMetaData`(getTables / getColumns / getPrimaryKeys)。方言差(カタログ/スキーマの使い分け)は `DbDialect` が吸収(MySQL/MariaDB = catalog、PostgreSQL/H2 = schema)
-- 保存: JPA エンティティの saveAll + Hibernate バッチ(`hibernate.jdbc.batch_size=100`、order_inserts=true — application.yaml に追加)。1 カラム 1 INSERT を回避
+- 保存: **シンプルに JPA saveAll(バッチ最適化なし — Q4=C)**。PK が IDENTITY 採番のため Hibernate の JDBC バッチはどのみち効かず、内部 H2 は同一プロセスで往復コストがない。取込は低頻度の管理者操作であり数秒の応答を許容。実測で問題が出た場合に SEQUENCE 採番 + バッチ化を検討
 - 単一 @Transactional で「全削除 → 再挿入」。例外は全ロールバック + SCHEMA_IMPORTED(FAILURE)発行(発行は catch 側 = ロールバック外)
 
 ## 5. YAML(NFR-U4-04)
@@ -41,8 +43,8 @@
 
 ## 7. Testcontainers 結合テスト(NFR-U4-07)
 
-- ①の実エンジンスモークテスト基盤(方言別抽象基底・disabledWithoutDocker・colima 対応)を拡張
-- 各エンジン(MySQL / MariaDB / PostgreSQL)× 2 系統: (a) 接続テストが成功する、(b) サンプルスキーマ(テーブル・ビュー・PK・コメント)を取込み meta_* が期待どおり
+- ①の実エンジンスモークテスト基盤(方言別抽象基底・disabledWithoutDocker・colima 対応)を拡張。コンテナはエンジンごと 1 個(クラス単位で起動・破棄)・計 3 個
+- 各エンジン(MySQL / MariaDB / PostgreSQL)× 2 系統 = **6 テスト(Q5=A)**: (a) 接続テストが成功する(+ 誤資格情報で AUTH_FAILED)、(b) サンプルスキーマ(テーブル・ビュー・PK・コメント)を取込み meta_* が期待どおり
 - H2 ターゲットの結合テスト(取込 → 権限設定 → 解決 → YAML 往復)は Docker 不要で常時実行
 
 ## 8. PBT 構成(PBT-02/03 — ブロッキング)

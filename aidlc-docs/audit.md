@@ -1095,3 +1095,51 @@
 **Context**: CONSTRUCTION - ユニット④ NFR Design Part A(完全実施・質問提示)。回答待ち
 
 ---
+
+## ユニット④ NFR Design - Q1 回答受領(Q2〜Q5 回答待ち)
+**Timestamp**: 2026-07-19T20:25:00Z
+**User Input**: "Q1=A. リトライせず即エラーとします。"
+**AI Response**: "Q1=A(リトライなし・fail-fast)をプランに記録。Q2〜Q5 が未回答のため、回答を依頼して待機。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design Part A。Q2〜Q5 回答待ち
+
+---
+
+## ユニット④ NFR Design - Q2 回答受領(Q3〜Q5 回答待ち)
+**Timestamp**: 2026-07-19T20:30:00Z
+**User Input**: "Q2=B"
+**AI Response**: "Q2=B(プール枯渇は 503 + Retry-After — 一時的混雑として 502 系の上流障害と区別)をプランに記録。Q3〜Q5 が未回答のため、回答を依頼して待機。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design Part A。Q3〜Q5 回答待ち
+
+---
+
+## ユニット④ NFR Design - Q3 回答受領(Q4〜Q5 回答待ち)
+**Timestamp**: 2026-07-19T20:35:00Z
+**User Input**: "Q3=A"
+**AI Response**: "Q3=A(接続数の上限なし — 運用判断)をプランに記録。Q4〜Q5 が未回答のため、回答を依頼して待機。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design Part A。Q4〜Q5 回答待ち
+
+---
+
+## ユニット④ NFR Design - Q4 検討(シンプル save 提案)と確定、Q5 の説明依頼
+**Timestamp**: 2026-07-19T20:45:00Z
+**User Input**: "Q4: バッチとかバルク更新とか考えずに、シンプルに1エンティティずつsave()でも良いのかなと思いますが、そうでもない？"(前턴)→ "Q4=C で良い。Q5について。Aの3エンジンがMySQL, MariaDB, PostgreSQLなのは分かるとして、2系統とは？"
+**AI Response**: "Q4=C(シンプル saveAll・バッチ最適化なし)を確定。根拠: PK が IDENTITY のため Hibernate バッチは効かず、内部 H2 は同一プロセスで往復コストなし、取込は低頻度の管理者操作。NFR-U4-05 のバッチ記述は改訂予定。Q5 の『2 系統』はエンジンごとのテストシナリオ 2 種((a) 接続テストの成功検証、(b) サンプルスキーマ取込の結果検証)であることを説明し、回答待ち。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design Part A。Q5 回答待ち(→ 20:55 コンテナ数の確認を挟んで回答受領)
+
+---
+
+## ユニット④ NFR Design - Q5 の追加確認(コンテナ数)
+**Timestamp**: 2026-07-19T20:55:00Z
+**User Input**: "テスト数が6になるという意図であり、コンテナを5個設けるわけではない、という理解でOK？"
+**AI Response**: "その理解で正しいと回答: コンテナはエンジンごとに 1 個・計 3 個(クラス単位で起動・破棄)。各コンテナ上で 2 シナリオを実行しテストケース数が 2×3=6。①のスモーク構成の拡張でコンテナ起動回数は増えない。Q5 回答待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design Part A。Q5 回答待ち
+
+---
+
+## ユニット④ NFR Design - Q5 回答受領、Part B 完了
+**Timestamp**: 2026-07-19T21:05:00Z
+**User Input**: "Q5＝A"
+**AI Response**: "全回答確定(Q1=A fail-fast / Q2=B 503 + Retry-After / Q3=A 上限なし / Q4=C シンプル saveAll / Q5=A 6 テスト)。成果物へ反映: nfr-design-patterns.md(§2 にリトライなし・TARGET_DB_BUSY 503 追記、§4 をシンプル saveAll に改訂、§7 に 6 テスト・コンテナ 3 個を明記)、nfr-requirements.md NFR-U4-05 のバッチ記述を改訂(Q4=C 理由付き)、business-logic-model.md のエラーコードに TARGET_DB_BUSY 追加。完了メッセージを提示しステージ承認待ち。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design 完了(完全実施)。ユーザ承認待ち(GATE)
+
+---

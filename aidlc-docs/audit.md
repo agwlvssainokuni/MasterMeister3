@@ -975,3 +975,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation 完了(GATE 通過)→ ユニット④ connection-permission 開始
 
 ---
+
+## ユニット④ connection-permission - ステージ判定と Functional Design プラン作成
+**Timestamp**: 2026-07-19T17:45:00Z
+**User Input**: "(ユニット④開始に伴う AI 主導のステージ判定。新規ユーザ入力なし)"
+**AI Response**: "ステージ判定: Functional Design / NFR Requirements / NFR Design / Code Generation すべて実施、Infrastructure Design スキップ(unit-of-work.md §3 の見込みどおり)。担当 11 ストーリー(US-010〜019, 043)を分析し、Functional Design プラン(設計 8 ステップ + 確認事項 Q1〜Q5: 暗号化方式と鍵ローテーション範囲 / 再取込時の孤児権限エントリの扱い / YAML プリンシパル表現と未知時の扱い / プールライフサイクルと接続テスト / 権限設定 UI の編集軸)を作成。回答待ち。"
+**Context**: CONSTRUCTION - ユニット④ Functional Design Part 1(プラン+質問)。回答待ち
+
+---

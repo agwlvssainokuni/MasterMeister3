@@ -919,3 +919,19 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。ユーザ承認待ち(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - 依存関係の点検指示
+**Timestamp**: 2026-07-19T16:55:00Z
+**User Input**: "この中に変更が必要なものはない。これらとは別に、観点を指定するので、点検してほしい。先ほど指摘したように、不適切な他機能・パッケージの参照はないか、参照関係が循環していないか。"
+**AI Response**: "確認事項 4 点は現状どおり確定。指定観点(不適切な参照・循環参照)でフロントエンド(モジュール import グラフ)とバックエンド(パッケージ間依存)を機械的に点検し、結果を報告する。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。依存関係点検(GATE 継続)
+
+---
+
+## ユニット③ Code Generation - 依存関係点検の結果報告
+**Timestamp**: 2026-07-19T17:00:00Z
+**User Input**: (なし - 点検実施)
+**AI Response**: "import グラフを機械解析。フロントエンド: design-system は純粋(外部レイヤ参照ゼロ)、feature 間参照なし、ファイル単位の循環なし。app→features は合成系(routes/AppLayout/HomePage)の一方向参照で許容だが、app/apiClient.ts → features/auth/tokenStore.ts のみ基盤→feature の逆向き参照を検出(要対応候補: tokenStore を app/ へ移動を推奨)。バックエンド: cherry.mastermeister.* に循環なし。auth→user は設計どおり一方向。common.mail→user/audit はポート&アダプタ(インタフェースを利用側、実装をメール側に置く)による意図的な向きで、逆にすると audit⇄mail の循環が生じるため現状が正。cherry.mustache 内部のサブパッケージ相互参照は単一ライブラリ内の凝集(取込方針どおり変更対象外)。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。点検結果報告(GATE 継続)
+
+---

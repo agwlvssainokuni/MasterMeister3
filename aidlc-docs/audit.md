@@ -1087,3 +1087,11 @@
 **Context**: CONSTRUCTION - ユニット④ NFR Design 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット④ NFR Design - 簡略実施の見直し指示
+**Timestamp**: 2026-07-19T20:15:00Z
+**User Input**: "ユニット4からは簡略実施でなくて良いのでは？"
+**AI Response**: "指摘を受け、NFR Design をルール定義どおりの完全実施でやり直す: 全カテゴリ(Resilience / Scalability / Performance / Security / Logical Components)を評価した質問 Q1〜Q5 を含むプランに改訂し、回答を得てから成果物を確定する。既生成の成果物 2 点は回答反映後に改訂する。以降のユニット⑤⑥も簡略実施にしない方針をメモリに記録。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design Part A(完全実施・質問提示)。回答待ち
+
+---

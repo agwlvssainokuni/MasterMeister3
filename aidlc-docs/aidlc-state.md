@@ -65,7 +65,7 @@
 
 #### ユニット④ connection-permission(接続・スキーマ取込・権限)
 - [x] Functional Design (2026-07-19 完了: Q1〜Q5 = A(鍵 ID 付き複数鍵暗号化 / 孤児エントリ保持 / YAML は email・グループ名 / プール遅延生成 + 接続テスト / プリンシパル軸ツリー)。レビュー反映 2 回(接続テスト未保存値実行・db_type 不変、YAML connection フィールド削除ほか確認 4 点明記)の上ユーザ承認済み)
-- [ ] NFR Requirements - EXECUTE
+- [x] NFR Requirements (2026-07-19 完了: Q1=B(公式 JDBC ドライバ・D-17 一致)/ Q2=A(jackson-dataformat-yaml)/ Q3=A(キャッシュ TTL 併用)。NFR-U4-01〜08 + 設定プロパティ 4 件。Testcontainers 不採用記載をユーザ指摘で訂正(①導入済み基盤を拡張)の上ユーザ承認済み)
 - [ ] NFR Design - EXECUTE
 - [ ] Infrastructure Design - SKIP
 - [ ] Code Generation - EXECUTE
@@ -81,6 +81,6 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: ユニット④ connection-permission — NFR Requirements
-- **Next Stage**: NFR Design
-- **Status**: ユニット④ Functional Design 承認済み(2026-07-19)。NFR Requirements 実施中
+- **Current Stage**: ユニット④ connection-permission — NFR Design
+- **Next Stage**: Code Generation
+- **Status**: ユニット④ NFR Requirements 承認済み(2026-07-19)。NFR Design 実施中

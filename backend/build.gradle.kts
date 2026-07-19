@@ -58,6 +58,8 @@ dependencies {
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat-runtime")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // Boot 4 では MockMvc の自動構成(@AutoConfigureMockMvc)が webmvc-test に分離されている
+    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
     testImplementation("org.springframework.security:spring-security-test")
 
     // PBT(PBT-09: jqwik)

@@ -1,0 +1,82 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package cherry.mastermeister.auth;
+
+import cherry.mastermeister.common.config.AppProperties;
+import cherry.mastermeister.user.AppUser;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.time.Clock;
+import java.time.Instant;
+import java.util.Base64;
+import java.util.HexFormat;
+import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
+import org.springframework.security.oauth2.jwt.JwsHeader;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.stereotype.Service;
+
+/**
+ * トークン生成・ハッシュ(US-005/007)。
+ * アクセストークン: JWT HS256(sub=userId, email, role, exp)。
+ * リフレッシュトークン: ランダム 256bit URL-safe Base64。DB には SHA-256 ハッシュのみ渡す。
+ */
+@Service
+public class TokenService {
+
+    private static final SecureRandom RANDOM = new SecureRandom();
+
+    private final JwtEncoder jwtEncoder;
+    private final AppProperties properties;
+    private final Clock clock;
+
+    public TokenService(JwtEncoder jwtEncoder, AppProperties properties, Clock clock) {
+        this.jwtEncoder = jwtEncoder;
+        this.properties = properties;
+        this.clock = clock;
+    }
+
+    public String issueAccessToken(AppUser user) {
+        Instant now = clock.instant();
+        JwtClaimsSet claims = JwtClaimsSet.builder()
+                .subject(String.valueOf(user.getId()))
+                .claim("email", user.getEmail())
+                .claim("role", user.getRole().name())
+                .issuedAt(now)
+                .expiresAt(now.plus(properties.jwt().accessTokenExpiry()))
+                .build();
+        JwsHeader header = JwsHeader.with(MacAlgorithm.HS256).build();
+        return jwtEncoder.encode(JwtEncoderParameters.from(header, claims)).getTokenValue();
+    }
+
+    public String generateRefreshToken() {
+        byte[] bytes = new byte[32];
+        RANDOM.nextBytes(bytes);
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
+    }
+
+    public String hash(String token) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            return HexFormat.of().formatHex(digest.digest(token.getBytes(StandardCharsets.UTF_8)));
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException("SHA-256 not available", e);
+        }
+    }
+}

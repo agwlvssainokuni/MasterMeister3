@@ -22,11 +22,11 @@
 
 ## Step 3: セキュリティ構成 + 認証(auth)
 
-- [ ] 3-1: SecurityConfig(FilterChain・oauth2ResourceServer・CSP ヘッダー・Problem Details の 401/403・BCrypt)
-- [ ] 3-2: TokenService(JWT 発行/検証、リフレッシュトークン生成 + SHA-256)+ RefreshTokenStore(原子的ローテーション・ファミリ失効)
-- [ ] 3-3: AuthService + LoginAttemptService(判定順序・ロックアウト)+ AuthController(login / refresh / logout)
-- [ ] 3-4: GlobalExceptionHandler(Problem Details 共通変換)
-- [ ] 3-5: テスト(ログイン成功/失敗/ロック、リフレッシュ ローテーション/再利用検知/二重リフレッシュ、ログアウト、ヘッダー検証)
+- [x] 3-1: SecurityConfig(FilterChain・oauth2ResourceServer・CSP ヘッダー・Problem Details の 401/403・BCrypt)
+- [x] 3-2: TokenService(JWT 発行/検証、リフレッシュトークン生成 + SHA-256)+ RefreshTokenStore(原子的ローテーション・ファミリ失効)
+- [x] 3-3: AuthService + LoginAttemptService(判定順序・ロックアウト)+ AuthController(login / refresh / logout)
+- [x] 3-4: GlobalExceptionHandler(Problem Details 共通変換)+ ApiException 階層(401/423/400/409)
+- [x] 3-5: テスト(結合 10 件: ログイン成功/失敗/ロック、リフレッシュ ローテーション/再利用検知/二重リフレッシュ、ログアウト、認可、ヘッダー、列挙対策の応答同一性、バリデーション)※ @AutoConfigureMockMvc は Boot 4 で spring-boot-starter-webmvc-test に分離 → 依存追加
 
 ## Step 4: 登録・ユーザ管理(user)
 

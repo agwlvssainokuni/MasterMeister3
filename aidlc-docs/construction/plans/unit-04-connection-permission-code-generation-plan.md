@@ -43,7 +43,7 @@
 
 ## Step 5: Testcontainers 実エンジンテスト(Q5=A)
 
-- [ ] 5-1: ①の方言別抽象基底を拡張し 3 エンジン × 2 系統 = 6 テスト(接続テスト成功 + 誤資格情報 AUTH_FAILED / サンプルスキーマ取込の meta_* 検証)。disabledWithoutDocker 維持
+- [x] 5-1: ①の方言別抽象基底を拡張し 3 エンジン × 2 系統 = 6 テスト(接続テスト成功 + 誤資格情報 AUTH_FAILED / サンプルスキーマ取込の meta_* 検証 — テーブル・ビュー・PK・NULL 可否)。disabledWithoutDocker 維持。実エンジン(MySQL 8.4 / MariaDB 11.8 / PostgreSQL 18)で 6 件全パスを確認(2026-07-20)
 
 ## Step 6: フロントエンド(3 feature + 統合)
 

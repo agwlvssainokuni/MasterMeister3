@@ -34,12 +34,12 @@
 
 ## Step 4: 権限・グループ・YAML(permission)
 
-- [ ] 4-1: PermissionService + PermissionController(エントリ設定/削除の 2 操作 — D-18、孤児許容、プリンシパル検証、監査 PERMISSION_SET/REMOVED + 無効化)
-- [ ] 4-2: GroupService + GroupController(CRUD・改名 409・削除カスケード[所属 + 権限エントリ]・メンバー管理冪等・監査 GROUP_* 5 種 + 無効化)
-- [ ] 4-3: EffectivePermissionResolver(D-21 個別優先 → グループ合成 → デフォルト拒否、操作可否合成[US-014 + D-15]、Caffeine maximumSize + TTL、invalidateAll)
-- [ ] 4-4: テスト(US-015 確定例 2 件の受け入れテスト、PBT-03 = jqwik 4 プロパティ[個別優先・グループ単調性・キャッシュ透過性・メタデータ交差]、無効化トリガ結合)
-- [ ] 4-5: PermissionYamlService(export 正規順序 / importReplace 全置換・全体拒否 5 条件[構文・スキーマ・重複・未知プリンシパル・不正値])+ YAML API(1 MB アプリ内検証)+ 監査 PERMISSION_EXPORTED/IMPORTED
-- [ ] 4-6: テスト(PBT-02 = export→import→export 同一性 + DB 状態一致、拒否 5 条件の全体拒否、Problem Details 理由一覧)
+- [x] 4-1: PermissionService + PermissionController(エントリ設定/削除の 2 操作 — D-18、孤児許容 + orphan フラグ、プリンシパル検証、監査 PERMISSION_SET/REMOVED + 無効化)
+- [x] 4-2: GroupService + GroupController(CRUD・改名 409・削除カスケード[所属 + 権限エントリ]・メンバー管理冪等・監査 GROUP_* 5 種 + 無効化)
+- [x] 4-3: EffectivePermissionResolver(D-21 個別優先 → グループ合成 → デフォルト拒否、操作可否合成[US-014 + D-15]、Caffeine maximumSize + TTL、invalidateAll + PermissionCacheInvalidated リスナー。解決コアを純粋関数 compute に抽出 — PBT のシーム)
+- [x] 4-4: テスト 9 件(US-015 確定例 2 件・操作可否合成・補助権限の個別 false 優先・キャッシュ透過性[P3 決定的検証]・無効化トリガの結合 6 件 + PBT-03 jqwik 3 プロパティ[P1 個別優先・P2 グループ単調性・P4 メタデータ交差。P3 は結合テストで担保 — 純粋関数化の範囲に合わせた調整])
+- [x] 4-5: PermissionYamlService(export 正規順序 / importReplace 全置換・全体拒否 5 条件[構文・スキーマ・重複・未知プリンシパル・不正値]、厳格バインド FAIL_ON_UNKNOWN_PROPERTIES)+ YAML API(1 MB アプリ内検証・controller 局所 @ExceptionHandler で理由一覧応答)+ 監査 PERMISSION_EXPORTED/IMPORTED
+- [x] 4-6: テスト 11 件(PBT-02 ラウンドトリップ[export→import→export 文字列一致 + DB 状態一致]・全置換・拒否 5 条件[構文/未知プロパティ/重複 + path/未知プリンシパル/不正値]・API 結合 4 件[孤児フラグ・404・400・グループカスケード])
 
 ## Step 5: Testcontainers 実エンジンテスト(Q5=A)
 

@@ -1063,3 +1063,11 @@
 **Context**: CONSTRUCTION - ユニット④ NFR Requirements 完了。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット④ NFR Requirements - Testcontainers 方針の訂正
+**Timestamp**: 2026-07-19T19:45:00Z
+**User Input**: "確認すべき事項はある？ あとユニット3でTestcontainersを導入していたけれど、それとは別の話？"
+**AI Response**: "指摘を受けて確認した結果、Testcontainers はユニット①で導入済み(NFR Requirements Q3=A で承認、build.gradle.kts に依存 + 実エンジン 3 種スモークテスト作成済み、JDBC ドライバ 3 種も testRuntimeOnly で導入済み、D-17 で MySQL Connector/J 同梱も決定済み)であり、④ NFR-U4-07 の『Testcontainers 不採用』は①の確立済み決定と矛盾する誤りだったと訂正。NFR-U4-07 を『方言依存部(接続・取込・DbDialect)は①導入済みの Testcontainers 実エンジンテストで自動化、devenv は DoD 実機フロー用』に修正、tech-stack-decisions もドライバのスコープ昇格(testRuntimeOnly → runtimeOnly)として記載修正。その他の確認事項はなし。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ NFR Requirements。訂正反映(GATE 継続)
+
+---

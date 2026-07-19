@@ -1143,3 +1143,11 @@
 **Context**: CONSTRUCTION - ユニット④ NFR Design 完了(完全実施)。ユーザ承認待ち(GATE)
 
 ---
+
+## ユニット④ NFR Design - レビュー確認事項の確認
+**Timestamp**: 2026-07-20T00:10:00Z
+**User Input**: "確認すべき事項はある？"
+**AI Response**: "ユーザ判断を要する確認事項はなしと回答(主要な判断は Q1〜Q5 で確定済み)。設計の隙間 1 点を補強: 資格情報の復号失敗(鍵ローテーションで旧鍵を早く除去した場合)は接続利用時に理由コード CREDENTIAL_DECRYPT_FAILED(500 系ではなく明確なコード)を返し監査記録する — nfr-design-patterns.md §1 に追記。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット④ NFR Design。ユーザ承認待ち(GATE 継続)
+
+---

@@ -8,6 +8,7 @@
 - `AppProperties` に `credential(Map<String, String> keys, String activeKeyId)` を追加。コンパクトコンストラクタで検証: keys 非空・全値が Base64 復号で 32 バイト・activeKeyId が keys に存在。不備は起動失敗(③ jwt.secret と同じ方針)
 - `CredentialEncryptor`: `Cipher("AES/GCM/NoPadding")`、IV は SecureRandom 12 バイト・タグ 128 ビット。encrypt は常に active 鍵、decrypt は保存形式の keyId で鍵選択(未知 keyId は復号エラー = 設定から鍵を早く消しすぎた運用ミスを明示)
 - 平文の非露出: ConnectionService の DTO 変換でパスワード項目を持たない(応答型に存在しない)。toString/ログ出力にも含めない(record の項目から除外)
+- 復号失敗時(鍵ローテーションで旧鍵を早く除去した等): 接続の利用時(テスト・取込・プール生成)に理由コード `CREDENTIAL_DECRYPT_FAILED`(400 系。汎用 500 にしない — 運用ミスを明確に指す)を返し監査記録。復旧手段はパスワード再入力(active 鍵で再暗号化)
 
 ## 2. 接続別プール(NFR-U4-02)
 

@@ -26,12 +26,12 @@ import org.springframework.stereotype.Component;
  * リンク URL はサーバ側で組み立て済みの値のみをテンプレートへ渡す({{{...}}} 規約)。
  */
 @Component
-public class UserMailNotifications implements UserNotificationGateway {
+public class MailUserNotificationGateway implements UserNotificationGateway {
 
     private final MailService mailService;
     private final AppProperties properties;
 
-    public UserMailNotifications(MailService mailService, AppProperties properties) {
+    public MailUserNotificationGateway(MailService mailService, AppProperties properties) {
         this.mailService = mailService;
         this.properties = properties;
     }

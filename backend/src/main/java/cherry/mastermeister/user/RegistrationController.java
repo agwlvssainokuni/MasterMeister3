@@ -34,12 +34,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/registration")
 public class RegistrationController {
 
-    public record RequestBodyDto(
+    public record RegistrationRequest(
             @NotBlank @Email String email,
             @NotBlank @Pattern(regexp = "ja|en") String language) {
     }
 
-    public record CompleteBodyDto(
+    public record RegistrationCompleteRequest(
             @NotBlank String token,
             @NotBlank @Size(min = 8, max = 200) String password,
             @Size(max = 100) String displayName) {
@@ -53,13 +53,13 @@ public class RegistrationController {
 
     @PostMapping("/request")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void request(@Valid @RequestBody RequestBodyDto body) {
+    public void request(@Valid @RequestBody RegistrationRequest body) {
         registrationService.request(body.email(), body.language());
     }
 
     @PostMapping("/complete")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void complete(@Valid @RequestBody CompleteBodyDto body) {
+    public void complete(@Valid @RequestBody RegistrationCompleteRequest body) {
         registrationService.complete(body.token(), body.password(), body.displayName());
     }
 }

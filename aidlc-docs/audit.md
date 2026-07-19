@@ -959,3 +959,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。命名点検結果報告(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - 命名修正の承認(Request Changes)
+**Timestamp**: 2026-07-19T17:25:00Z
+**User Input**: "Request Changes"
+**AI Response**: "命名指摘 3 点を修正: (1) RegistrationController の DTO を RegistrationRequest / RegistrationCompleteRequest に、UserPreferenceController の PreferencesBody を PreferencesRequest に改名、(2) UserMailNotifications を MailUserNotificationGateway に改名(Mail + インタフェース名の対称性)、(3) frontend auth/api.ts の loginRequest/logoutRequest/putPreferences を login/logout/updatePreferences に改名し呼び出し元を追随。テスト・check 再実行してコミット。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応 4(GATE 継続)
+
+---

@@ -30,7 +30,7 @@ export interface LoginResult {
   user: UserInfo;
 }
 
-export function loginRequest(email: string, password: string): Promise<LoginResult> {
+export function login(email: string, password: string): Promise<LoginResult> {
   return apiFetch<LoginResult>("/api/auth/login", {
     method: "POST",
     body: { email, password },
@@ -38,7 +38,7 @@ export function loginRequest(email: string, password: string): Promise<LoginResu
   });
 }
 
-export function logoutRequest(refreshToken: string): Promise<void> {
+export function logout(refreshToken: string): Promise<void> {
   return apiFetch<void>("/api/auth/logout", {
     method: "POST",
     body: { refreshToken },
@@ -50,7 +50,7 @@ export function fetchMe(): Promise<UserInfo> {
   return apiFetch<UserInfo>("/api/me");
 }
 
-export function putPreferences(language: string, theme: string): Promise<void> {
+export function updatePreferences(language: string, theme: string): Promise<void> {
   return apiFetch<void>("/api/me/preferences", {
     method: "PUT",
     body: { language, theme },

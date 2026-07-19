@@ -19,7 +19,7 @@ import type { ReactNode } from "react";
 import { refreshSession, setSessionExpiredHandler } from "../../app/apiClient";
 import { changeLanguage } from "../../design-system/i18n";
 import { useTheme } from "../../design-system/theme/ThemeProvider";
-import { fetchMe, loginRequest, logoutRequest } from "./api";
+import { fetchMe, login as loginApi, logout as logoutApi } from "./api";
 import type { UserInfo } from "./api";
 import { tokenStore } from "../../app/tokenStore";
 
@@ -91,7 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback(
     async (email: string, password: string) => {
-      const result = await loginRequest(email, password);
+      const result = await loginApi(email, password);
       tokenStore.save(result.accessToken, result.refreshToken);
       setUser(result.user);
       applyServerPreferences(result.user);
@@ -105,7 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
     if (refreshToken) {
       try {
-        await logoutRequest(refreshToken);
+        await logoutApi(refreshToken);
       } catch {
         /* ログアウトは冪等(US-009)— 失敗してもローカル状態は破棄済み */
       }

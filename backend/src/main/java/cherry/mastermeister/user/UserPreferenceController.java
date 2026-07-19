@@ -51,7 +51,7 @@ public class UserPreferenceController {
         }
     }
 
-    public record PreferencesBody(
+    public record PreferencesRequest(
             @NotBlank @Pattern(regexp = "ja|en") String language,
             @NotBlank @Pattern(regexp = "light|dark|system") String theme) {
     }
@@ -71,7 +71,7 @@ public class UserPreferenceController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Transactional
     public void updatePreferences(
-            @AuthenticationPrincipal Jwt jwt, @Valid @RequestBody PreferencesBody body) {
+            @AuthenticationPrincipal Jwt jwt, @Valid @RequestBody PreferencesRequest body) {
         AppUser user = currentUser(jwt);
         user.setLanguage(body.language());
         user.setTheme(body.theme());

@@ -17,7 +17,7 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../design-system/theme/ThemeProvider";
-import { putPreferences } from "./api";
+import { updatePreferences } from "./api";
 import { useAuth } from "./AuthProvider";
 
 /**
@@ -42,7 +42,7 @@ export function usePreferences(): void {
       return;
     }
     saving.current = true;
-    void putPreferences(language, theme)
+    void updatePreferences(language, theme)
       .then(() => {
         updateUser({ ...user, language, theme });
       })

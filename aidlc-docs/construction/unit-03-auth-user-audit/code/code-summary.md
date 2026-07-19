@@ -11,7 +11,7 @@
 | user | RegistrationController/Service(202 固定・列挙対策)、RegistrationTokenStore(REQUIRES_NEW 使用済み化)、UserAdminController/UserService(一覧・承認・却下・ロック解除、mailSent フラグ)、UserPreferenceController(/api/me)、AdminBootstrap(冪等)、AppUser/RegistrationToken エンティティ |
 | audit | AuditEvent(record)+ AuditEvents(14 種)、AuditEventPublisher、AuditLogListener(@EventListener・例外非伝播)、AuditLogService(REQUIRES_NEW)、SecurityAlertService(時間窓 + クールダウン、TOKEN_REUSE 即時)、SecurityAlertNotifier(IF)、AuditLog/SecurityAlertState エンティティ |
 | common.config | AppProperties(mm.app.* 型安全・secret 32 バイト起動時検証・既定値なし)、SecurityConfig(単一チェーン STATELESS・oauth2ResourceServer(jwt)・CSP 本則・401/403 Problem Details・BCrypt 10)、TimeConfig(Clock) |
-| common.mail | MailTemplateRegistry(起動時全件コンパイル fail-fast・言語フォールバック en)、MailService(HTML・件名 MessageSource・失敗時 MAIL_SEND_FAILED)、UserMailNotifications、MailSecurityAlertNotifier |
+| common.mail | MailTemplateRegistry(起動時全件コンパイル fail-fast・言語フォールバック en)、MailService(HTML・件名 MessageSource・失敗時 MAIL_SEND_FAILED)、MailUserNotificationGateway、MailSecurityAlertNotifier(アダプタは「Mail + インタフェース名」で命名) |
 | common.web | ApiException 階層(401/423/400/404/409)、GlobalExceptionHandler(Problem Details・invalid-params)、SecureTokens |
 | resources | V2__auth_user_audit.sql(5 テーブル)、mail/ テンプレート 4 種 × ja/en、messages(_ja).properties、application.yaml(既定値・MailPit 開発既定) |
 
@@ -27,6 +27,7 @@
 - API 呼び出し規約: 各 feature が自前の `api.ts` に API 関数と型を集約し、画面は apiClient を直接呼ばない(レビュー指摘 2026-07-19 反映)
 - feature 間参照の禁止: feature が別 feature の資産(api.ts・CSS 等)を参照しない。共有資産は app 層に置く(例: standalone.module.css — レビュー指摘 2 反映)
 - レイヤ方向の規約: app 層の基盤(apiClient / tokenStore)は features を参照しない。app→features の参照は合成系(routes / AppLayout / HomePage)のみ許容(依存関係点検 + レビュー指摘 3 で tokenStore を app/ へ移動して確立)
+- 命名規約(命名点検 + レビュー指摘 4 で確立): Controller の DTO は XxxRequest / XxxResponse、通知アダプタは「Mail + インタフェース名」、frontend の api.ts 関数はドメイン動詞(login / logout / fetchMe / updatePreferences / listUsers / approveUser 等)
 | i18n | 辞書 auth / admin(ja/en) |
 
 ## テスト

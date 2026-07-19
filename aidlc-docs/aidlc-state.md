@@ -83,4 +83,4 @@
 - **Lifecycle Phase**: CONSTRUCTION
 - **Current Stage**: ユニット④ connection-permission — Code Generation
 - **Next Stage**: Code Generation 完了後、ユニット⑤ record-maintenance
-- **Status**: ユニット④ Code Generation Part 1 承認済み(2026-07-20)。Part 2(生成実行)実施中
+- **Status**: ユニット④ Part 2 全 7 ステップ実装 + DoD 検証完了(2026-07-20)。全テストグリーン(バックエンド 315・フロントエンド 48)・実機フロー 38 項目 OK。ステージ完了承認待ち

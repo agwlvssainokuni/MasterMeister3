@@ -30,10 +30,10 @@
 
 ## Step 4: 登録・ユーザ管理(user)
 
-- [ ] 4-1: RegistrationService + RegistrationTokenStore + RegistrationController(申請 202 固定・完了)
-- [ ] 4-2: UserService + UserAdminController(一覧・承認・却下・ロック解除)+ UserPreferenceController(/api/me)
-- [ ] 4-3: AdminBootstrap(ApplicationRunner)
-- [ ] 4-4: テスト(列挙対策 = 登録済み/未登録の応答同一、トークン期限/使用済み、承認フロー、認可 ADMIN/USER、ブートストラップ冪等)
+- [x] 4-1: RegistrationService + RegistrationTokenStore + RegistrationController(申請 202 固定・完了)+ UserNotificationGateway インタフェース(メール接続は Step 5)
+- [x] 4-2: UserService + UserAdminController(一覧・承認・却下・ロック解除)+ UserPreferenceController(/api/me)
+- [x] 4-3: AdminBootstrap(ApplicationRunner)
+- [x] 4-4: テスト(結合 9 件: 列挙対策 = 登録済み/未登録の応答同一、トークン使用済み/不正、承認フロー + 409/404、却下、ロック解除、一覧フィルタ/ページング、/api/me、ブートストラップ冪等)
 
 ## Step 5: メール(common.mail)
 

@@ -863,3 +863,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 3
 
 ---
+
+## ユニット③ Code Generation Part 2 - Step 4(登録・ユーザ管理)完了
+**Timestamp**: 2026-07-19T11:55:00Z
+**User Input**: (なし - Part 2 実行中)
+**AI Response**: "Step 4 完了: RegistrationTokenStore(発行・検証順序・REQUIRES_NEW 使用済み化)、RegistrationService(202 固定・列挙対策・競合時の使用済み化)、RegistrationController、UserService(承認/却下 409 ガード・ロック解除・一覧検索)、UserAdminController(ページング・フィルタ)、UserPreferenceController(/api/me GET・PUT)、AdminBootstrap(冪等)、UserNotificationGateway インタフェース(メール実装は Step 5)、SecureTokens 共通化(TokenService もリファクタ)、NotFoundException 追加。結合テスト 9 件(応答同一性・平文トークン非保存・承認/却下/解除・一覧・/api/me・ブートストラップ冪等)全パス。バックエンド全テストグリーン。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 4
+
+---

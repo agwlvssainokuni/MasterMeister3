@@ -17,7 +17,11 @@ package cherry.mastermeister.user;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
@@ -26,4 +30,17 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
     boolean existsByEmail(String email);
 
     List<AppUser> findByRole(UserRole role);
+
+    /** 管理者向け一覧(status フィルタ + email/表示名キーワード。keyword は小文字前提)。 */
+    @Query("""
+            select u from AppUser u
+            where (:status is null or u.status = :status)
+              and (:keyword is null
+                   or lower(u.email) like concat('%', :keyword, '%')
+                   or lower(coalesce(u.displayName, '')) like concat('%', :keyword, '%'))
+            """)
+    Page<AppUser> search(
+            @Param("status") UserStatus status,
+            @Param("keyword") String keyword,
+            Pageable pageable);
 }

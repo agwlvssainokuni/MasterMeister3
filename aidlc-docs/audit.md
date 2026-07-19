@@ -887,3 +887,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 6
 
 ---
+
+## ユニット③ Code Generation Part 2 - Step 7(DoD 検証)完了、ステージ完了承認待ち
+**Timestamp**: 2026-07-19T12:35:00Z
+**User Input**: (なし - Part 2 実行中)
+**AI Response**: "Step 7 完了: (7-1) ./gradlew clean build 全パス。(7-2) WAR + MailPit 実機フロー 29 項目 OK — ブートストラップ管理者ログイン → 登録申請(確認メール受信・トークン抽出)→ パスワード設定 → 使用済みトークン 400 → 承認(承認メール)→ ログイン → リフレッシュ → 旧トークン再提示 401 + ファミリ失効 + 即時アラートメール → ログアウト → ロックアウト 423 → 解除 → バーストアラートメール(閾値 10)→ US-047/048 別セッション復元 → CSP 等ヘッダー実測(SPA/API 両面)→ USER の admin API 403。(7-3) audit_log 12 種別・detail_json はコードのみ(H-07)、トークンは SHA-256 hex のみ・パスワードは BCrypt($2a$10$)を確認。(7-5) code-summary.md 作成。aidlc-state.md 更新。ステージ完了の 2 択提示。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation 完了。ユーザ承認待ち(GATE)
+
+---

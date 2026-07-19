@@ -16,10 +16,12 @@
 
 import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { App } from "./App";
+import { BrowserRouter, Route } from "react-router-dom";
+import { AppRoutes } from "./app/routes";
+import { ToastProvider } from "./design-system/components";
 import { ThemeProvider } from "./design-system/theme/ThemeProvider";
-import "./design-system/i18n";
+import { AuthProvider } from "./features/auth/AuthProvider";
+import "./i18n";
 import "@fontsource/noto-sans-jp/400.css";
 import "@fontsource/noto-sans-jp/500.css";
 import "@fontsource/noto-sans-jp/700.css";
@@ -40,21 +42,26 @@ if (!rootElement) {
 createRoot(rootElement).render(
   <StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          {MockCatalog ? (
-            <Route
-              path="/mock/*"
-              element={
-                <Suspense fallback={null}>
-                  <MockCatalog />
-                </Suspense>
+      <ToastProvider>
+        <BrowserRouter>
+          <AuthProvider>
+            <AppRoutes
+              extraRoutes={
+                MockCatalog ? (
+                  <Route
+                    path="/mock/*"
+                    element={
+                      <Suspense fallback={null}>
+                        <MockCatalog />
+                      </Suspense>
+                    }
+                  />
+                ) : null
               }
             />
-          ) : null}
-        </Routes>
-      </BrowserRouter>
+          </AuthProvider>
+        </BrowserRouter>
+      </ToastProvider>
     </ThemeProvider>
   </StrictMode>,
 );

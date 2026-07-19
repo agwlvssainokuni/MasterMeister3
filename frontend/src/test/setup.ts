@@ -15,7 +15,13 @@
  */
 
 import "@testing-library/jest-dom/vitest";
-import { beforeAll, vi } from "vitest";
+import { cleanup } from "@testing-library/react";
+import { afterEach, beforeAll, vi } from "vitest";
+
+// テストごとに DOM を破棄する(蓄積すると重複要素でクエリが失敗する)
+afterEach(() => {
+  cleanup();
+});
 
 // jsdom は matchMedia 未実装のためスタブする(ThemeProvider が使用)
 if (typeof window !== "undefined" && !window.matchMedia) {
@@ -30,8 +36,9 @@ if (typeof window !== "undefined" && !window.matchMedia) {
     dispatchEvent: vi.fn(),
   }));
 }
-// コンポーネントが useTranslation を使うため、テストでも i18n を初期化する(ja 固定)
-import i18n from "../design-system/i18n";
+// コンポーネントが useTranslation を使うため、テストでも i18n を初期化する(ja 固定)。
+// アプリ辞書(auth / admin namespace)も ../i18n 経由で登録される。
+import i18n from "../i18n";
 
 beforeAll(async () => {
   await i18n.changeLanguage("ja");

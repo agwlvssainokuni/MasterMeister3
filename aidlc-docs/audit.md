@@ -879,3 +879,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 5
 
 ---
+
+## ユニット③ Code Generation Part 2 - Step 6(フロントエンド)完了
+**Timestamp**: 2026-07-19T12:25:00Z
+**User Input**: (なし - Part 2 実行中)
+**AI Response**: "Step 6 完了: tokenStore(sessionStorage 集約)、apiClient(Bearer・401 シングルフライトリフレッシュ・再試行 1 回・Problem Details 解釈)、AuthProvider(復元・ログイン・ログアウト・サーバ設定適用)、RequireAuth/RequireAdmin、usePreferences(言語・テーマのサーバ保存)、LoginPage/RequestPage/CompletePage(②モックの実装化)、AppLayout(AppShell 統合・ユーザメニュー)+ ホームプレースホルダ(①の動作確認ページを置換)、UserListPage(サーバページング・フィルタ・承認/却下/ロック解除・mailSent 警告)、i18n 辞書 auth/admin(ja/en)。RTL テスト 19 件を含む全 40 テストパス、production ビルドでモック除外を確認。ハマり: RTL 自動 cleanup 不発による DOM 蓄積 → setup.ts に明示的 cleanup、jsdom の window.localStorage 未定義 → オプショナルチェーン。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation Part 2 Step 6
+
+---

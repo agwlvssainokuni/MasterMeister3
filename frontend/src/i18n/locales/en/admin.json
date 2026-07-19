@@ -1,0 +1,49 @@
+{
+  "users": {
+    "title": "Users",
+    "filter": {
+      "status": "Status",
+      "all": "All",
+      "keyword": "Search by email or display name"
+    },
+    "column": {
+      "email": "Email",
+      "displayName": "Display name",
+      "role": "Role",
+      "status": "Status",
+      "createdAt": "Registered at",
+      "actions": "Actions"
+    },
+    "status": {
+      "PENDING_APPROVAL": "Pending",
+      "ACTIVE": "Active",
+      "REJECTED": "Rejected",
+      "DISABLED": "Disabled"
+    },
+    "role": {
+      "ADMIN": "Admin",
+      "USER": "User"
+    },
+    "locked": "Locked",
+    "action": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "unlock": "Unlock"
+    },
+    "confirm": {
+      "approveTitle": "Approve user",
+      "approveMessage": "Approve {{email}}. Are you sure?",
+      "rejectTitle": "Reject user",
+      "rejectMessage": "Reject the registration request from {{email}}. This cannot be undone. Are you sure?",
+      "unlockTitle": "Unlock account",
+      "unlockMessage": "Unlock the account of {{email}}. Are you sure?"
+    },
+    "toast": {
+      "approved": "User approved",
+      "rejected": "User rejected",
+      "unlocked": "Account unlocked",
+      "mailFailed": "Failed to send the notification email (the operation itself succeeded)",
+      "failed": "Operation failed"
+    }
+  }
+}

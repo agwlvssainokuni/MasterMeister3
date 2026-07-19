@@ -44,14 +44,14 @@
 
 ## Step 6: フロントエンド(認証基盤 + 画面)
 
-- [ ] 6-1: apiClient(Bearer 付与・401 シングルフライトリフレッシュ・Problem Details 解釈)+ tokenStore
-- [ ] 6-2: AuthProvider(復元・ログイン・ログアウト)+ RequireAuth / RequireAdmin + routes 再構成
-- [ ] 6-3: usePreferences(US-047/048 サーバ統合: ログイン後サーバ値適用・PUT 保存・localStorage 同期)
-- [ ] 6-4: LoginPage / RequestPage / CompletePage(②モックの実装化 + バリデーション)
-- [ ] 6-5: AppLayout(AppShell 統合・ナビ・ユーザメニュー)+ ホームプレースホルダ
-- [ ] 6-6: UserListPage(サーバページング・フィルタ・承認/却下/ロック解除)
-- [ ] 6-7: i18n 辞書 auth / admin(ja/en)
-- [ ] 6-8: RTL テスト(AuthProvider 復元・401 リフレッシュ、フォーム検証、UserList 操作)
+- [x] 6-1: apiClient(Bearer 付与・401 シングルフライトリフレッシュ・Problem Details 解釈)+ tokenStore
+- [x] 6-2: AuthProvider(復元・ログイン・ログアウト)+ RequireAuth / RequireAdmin + routes 再構成(①の動作確認ページ App.tsx は削除しログイン後ホームに置換)
+- [x] 6-3: usePreferences(US-047/048 サーバ統合: ログイン後サーバ値適用・PUT 保存・localStorage 同期)
+- [x] 6-4: LoginPage / RequestPage / CompletePage(②モックの実装化 + バリデーション)
+- [x] 6-5: AppLayout(AppShell 統合・ナビ・ユーザメニュー Dropdown)+ ホームプレースホルダ
+- [x] 6-6: UserListPage(サーバページング・フィルタ・承認/却下/ロック解除・mailSent 警告 Toast)
+- [x] 6-7: i18n 辞書 auth / admin(ja/en、src/i18n で addResourceBundle)
+- [x] 6-8: RTL テスト 19 件(apiClient シングルフライト 6・LoginPage 4・ガード/復元 2・CompletePage 4・UserListPage 3)+ setup.ts に明示的 cleanup 追加
 
 ## Step 7: DoD 検証と文書化
 

@@ -14,14 +14,20 @@
  * limitations under the License.
  */
 
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
-import { App } from "./App";
+/**
+ * アプリケーション辞書(namespace: auth / admin)。
+ * 基盤(common namespace・言語検出・切替)は design-system/i18n が提供する。
+ */
 
-describe("App", () => {
-  it("動作確認ページが表示される", () => {
-    render(<App />);
-    expect(screen.getByTestId("app-title")).toHaveTextContent("MasterMeister");
-    expect(screen.getByTestId("app-message")).toBeInTheDocument();
-  });
-});
+import i18n from "../design-system/i18n";
+import enAdmin from "./locales/en/admin.json";
+import enAuth from "./locales/en/auth.json";
+import jaAdmin from "./locales/ja/admin.json";
+import jaAuth from "./locales/ja/auth.json";
+
+i18n.addResourceBundle("ja", "auth", jaAuth);
+i18n.addResourceBundle("en", "auth", enAuth);
+i18n.addResourceBundle("ja", "admin", jaAdmin);
+i18n.addResourceBundle("en", "admin", enAdmin);
+
+export default i18n;

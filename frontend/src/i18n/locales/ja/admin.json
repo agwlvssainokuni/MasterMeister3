@@ -1,0 +1,49 @@
+{
+  "users": {
+    "title": "ユーザ管理",
+    "filter": {
+      "status": "状態",
+      "all": "すべて",
+      "keyword": "メール・表示名で検索"
+    },
+    "column": {
+      "email": "メールアドレス",
+      "displayName": "表示名",
+      "role": "役割",
+      "status": "状態",
+      "createdAt": "登録日時",
+      "actions": "操作"
+    },
+    "status": {
+      "PENDING_APPROVAL": "承認待ち",
+      "ACTIVE": "有効",
+      "REJECTED": "却下",
+      "DISABLED": "無効"
+    },
+    "role": {
+      "ADMIN": "管理者",
+      "USER": "利用者"
+    },
+    "locked": "ロック中",
+    "action": {
+      "approve": "承認",
+      "reject": "却下",
+      "unlock": "ロック解除"
+    },
+    "confirm": {
+      "approveTitle": "ユーザを承認",
+      "approveMessage": "{{email}} を承認します。よろしいですか?",
+      "rejectTitle": "ユーザを却下",
+      "rejectMessage": "{{email}} の登録申請を却下します。この操作は取り消せません。よろしいですか?",
+      "unlockTitle": "ロックを解除",
+      "unlockMessage": "{{email}} のアカウントロックを解除します。よろしいですか?"
+    },
+    "toast": {
+      "approved": "承認しました",
+      "rejected": "却下しました",
+      "unlocked": "ロックを解除しました",
+      "mailFailed": "通知メールの送信に失敗しました(操作は完了しています)",
+      "failed": "操作に失敗しました"
+    }
+  }
+}

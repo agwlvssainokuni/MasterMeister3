@@ -14,18 +14,39 @@
  * limitations under the License.
  */
 
-/**
- * ユニット①の動作確認ページ。
- * 本画面はビルドパイプライン(Vite ビルド → WAR 同梱配信)の貫通確認用であり、
- * 実画面はユニット②(design-system)以降で実装する。
- */
-export function App() {
-  return (
-    <main data-testid="app-main">
-      <h1 data-testid="app-title">MasterMeister</h1>
-      <p data-testid="app-message">
-        セットアップ確認ページ: このページが表示されていれば、フロントエンドのビルドと配信は正常です。
-      </p>
-    </main>
-  );
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--mm-font-size-xl);
+  font-weight: 700;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--mm-space-3);
+}
+
+.filterLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-1);
+  font-size: var(--mm-font-size-sm);
+  color: var(--mm-color-text-muted);
+}
+
+.statusCell {
+  display: inline-flex;
+  gap: var(--mm-space-1);
+}
+
+.actionsCell {
+  display: inline-flex;
+  gap: var(--mm-space-2);
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { tokenStore } from "../features/auth/tokenStore";
+import { tokenStore } from "./tokenStore";
 
 /**
  * API クライアント(nfr-design-patterns.md §7)。

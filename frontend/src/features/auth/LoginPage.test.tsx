@@ -19,7 +19,7 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { ToastProvider } from "../../design-system/components";
 import { ThemeProvider } from "../../design-system/theme/ThemeProvider";
-import { tokenStore } from "./tokenStore";
+import { tokenStore } from "../../app/tokenStore";
 import { AuthProvider } from "./AuthProvider";
 import { LoginPage } from "./LoginPage";
 

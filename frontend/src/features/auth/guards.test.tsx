@@ -21,7 +21,7 @@ import { ToastProvider } from "../../design-system/components";
 import { ThemeProvider } from "../../design-system/theme/ThemeProvider";
 import { AuthProvider } from "./AuthProvider";
 import { RequireAdmin, RequireAuth } from "./guards";
-import { tokenStore } from "./tokenStore";
+import { tokenStore } from "../../app/tokenStore";
 
 function jsonResponse(status: number, body: unknown): Response {
   return new Response(JSON.stringify(body), {

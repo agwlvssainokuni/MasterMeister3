@@ -21,7 +21,7 @@ import { changeLanguage } from "../../design-system/i18n";
 import { useTheme } from "../../design-system/theme/ThemeProvider";
 import { fetchMe, loginRequest, logoutRequest } from "./api";
 import type { UserInfo } from "./api";
-import { tokenStore } from "./tokenStore";
+import { tokenStore } from "../../app/tokenStore";
 
 /**
  * 認証状態(US-005/009、Q3=A)。

@@ -15,7 +15,7 @@
  */
 
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { tokenStore } from "../features/auth/tokenStore";
+import { tokenStore } from "./tokenStore";
 import { ApiError, apiFetch, setSessionExpiredHandler } from "./apiClient";
 
 function jsonResponse(status: number, body: unknown): Response {

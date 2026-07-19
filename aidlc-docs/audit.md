@@ -935,3 +935,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。点検結果報告(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - レビュー指摘 3(Request Changes)
+**Timestamp**: 2026-07-19T17:05:00Z
+**User Input**: "tokenStore を app/ へ移動してください。"
+**AI Response**: "tokenStore.ts を features/auth/ から src/app/ へ移動(git mv)。参照元(apiClient / AuthProvider / テスト 3 件)の import を差し替え、基盤→feature の逆向き参照を解消。check・全テスト再実行してコミット。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応 3(GATE 継続)
+
+---

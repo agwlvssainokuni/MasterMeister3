@@ -911,3 +911,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応 2(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - 追加確認事項の提示
+**Timestamp**: 2026-07-19T16:50:00Z
+**User Input**: "他に確認しておくべき事項はありますか?"
+**AI Response**: "実装判断・運用注意 4 点を提示: (1) ロック期限の自然経過後も failed_login_count は残るため 1 回の失敗で即再ロックされる(成功または管理者解除でリセット — 安全側の実装判断)、(2) TOKEN_REUSE_DETECTED の即時アラートにはクールダウンを適用していない(重大イベントは都度通知 — 仕様の文言どおり)、(3) 承認・却下のメールは業務処理内で同期送信のため SMTP 遅延が API 応答に乗る(Q4=A の帰結・Phase 1 では問題なし)、(4) 運用注意: mm.app.mail.base-url(既定 localhost:8080)は本番で上書き必須、プロジェクトルートの旧 data/ は .gitignore 済みで初回起動時に V1+V2 が適用される、DoD 検証で devenv(MailPit 等)を起動したまま。承認待ち継続。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。ユーザ承認待ち(GATE 継続)
+
+---

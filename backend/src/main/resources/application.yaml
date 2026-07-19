@@ -47,8 +47,11 @@ management:
         include: health
 
 # アプリケーション設定(mm.app.*)
-# jwt.secret のみ既定値なし(未設定は起動失敗)。環境変数 MM_APP_JWT_SECRET で
-# 32 バイト以上の値を設定する(開発手順は README 参照)
+# jwt.secret と credential.* は既定値なし(未設定は起動失敗)。
+#   - MM_APP_JWT_SECRET: 32 バイト以上の文字列
+#   - MM_APP_CREDENTIAL_KEYS_<keyId>: Base64 の 32 バイト鍵(例 MM_APP_CREDENTIAL_KEYS_K1)
+#   - MM_APP_CREDENTIAL_ACTIVEKEYID: 暗号化に使う鍵 ID(例 k1)
+# 開発手順は README 参照
 mm:
   app:
     jwt:
@@ -67,3 +70,6 @@ mm:
     mail:
       from: noreply@mastermeister.local
       base-url: http://localhost:8080
+    permission:
+      cache-ttl: 10m
+      cache-max-size: 1000

@@ -1,0 +1,39 @@
+/*
+ * Copyright 2026 agwlvssainokuni
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package cherry.mastermeister.permission;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PermissionEntryRepository extends JpaRepository<PermissionEntry, Long> {
+
+    Optional<PermissionEntry> findByConnectionIdAndPrincipalTypeAndPrincipalIdAndSchemaNameAndTableNameAndColumnName(
+            Long connectionId, PrincipalType principalType, Long principalId,
+            String schemaName, String tableName, String columnName);
+
+    List<PermissionEntry> findByConnectionIdAndPrincipalTypeAndPrincipalId(
+            Long connectionId, PrincipalType principalType, Long principalId);
+
+    List<PermissionEntry> findByConnectionIdAndPrincipalTypeAndPrincipalIdIn(
+            Long connectionId, PrincipalType principalType, List<Long> principalIds);
+
+    List<PermissionEntry> findByConnectionId(Long connectionId);
+
+    void deleteByConnectionId(Long connectionId);
+
+    void deleteByPrincipalTypeAndPrincipalId(PrincipalType principalType, Long principalId);
+}

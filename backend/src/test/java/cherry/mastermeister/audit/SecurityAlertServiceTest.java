@@ -67,11 +67,14 @@ class SecurityAlertServiceTest {
         AppProperties properties = new AppProperties(
                 new AppProperties.Jwt("0123456789abcdef0123456789abcdef",
                         Duration.ofMinutes(10), Duration.ofHours(24)),
+                new AppProperties.Credential(
+                        Map.of("k1", "QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUE="), "k1"),
                 new AppProperties.UserRegistration(Duration.ofHours(3)),
                 new AppProperties.Auth(new AppProperties.Auth.Lockout(5, Duration.ofMinutes(15))),
                 new AppProperties.SecurityAlert(Duration.ofMinutes(10), 10),
                 new AppProperties.Admin(new AppProperties.Admin.Bootstrap(null, null)),
-                new AppProperties.Mail("noreply@mastermeister.local", "http://localhost:8080"));
+                new AppProperties.Mail("noreply@mastermeister.local", "http://localhost:8080"),
+                new AppProperties.Permission(Duration.ofMinutes(10), 1000));
 
         service = new SecurityAlertService(
                 auditLogRepository, stateRepository, auditLogService, properties,
@@ -173,11 +176,14 @@ class SecurityAlertServiceTest {
         AppProperties properties = new AppProperties(
                 new AppProperties.Jwt("0123456789abcdef0123456789abcdef",
                         Duration.ofMinutes(10), Duration.ofHours(24)),
+                new AppProperties.Credential(
+                        Map.of("k1", "QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUE="), "k1"),
                 new AppProperties.UserRegistration(Duration.ofHours(3)),
                 new AppProperties.Auth(new AppProperties.Auth.Lockout(5, Duration.ofMinutes(15))),
                 new AppProperties.SecurityAlert(Duration.ofMinutes(10), 10),
                 new AppProperties.Admin(new AppProperties.Admin.Bootstrap(null, null)),
-                new AppProperties.Mail("noreply@mastermeister.local", "http://localhost:8080"));
+                new AppProperties.Mail("noreply@mastermeister.local", "http://localhost:8080"),
+                new AppProperties.Permission(Duration.ofMinutes(10), 1000));
         SecurityAlertService detached = new SecurityAlertService(
                 auditLogRepository, stateRepository, auditLogService, properties,
                 Clock.fixed(NOW, ZONE), emptyProvider);

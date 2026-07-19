@@ -31,6 +31,12 @@ mm:
   app:
     jwt:
       secret: test-secret-0123456789abcdef0123456789abcdef
+    credential:
+      # AES-256 テスト鍵(Base64 32 バイト)。k1 = 'A' x 32, k2 = 'B' x 32
+      keys:
+        k1: QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUE=
+        k2: QkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkI=
+      active-key-id: k1
       access-token-expiry: 10m
       refresh-token-expiry: 24h
     user-registration:

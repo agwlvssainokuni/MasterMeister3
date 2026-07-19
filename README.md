@@ -19,11 +19,13 @@
 
 ## 起動
 
-JWT 署名鍵(32 バイト以上)の設定が必須。未設定の場合は起動に失敗する(誤って既知の鍵のまま本番稼働する事故を防ぐため、既定値は用意していない)。
+JWT 署名鍵(32 バイト以上)と接続資格情報の暗号鍵(AES-256、Base64 の 32 バイト)の設定が必須。未設定の場合は起動に失敗する(誤って既知の鍵のまま本番稼働する事故を防ぐため、既定値は用意していない)。
 
 ```bash
 # 開発用の鍵を生成して環境変数に設定(例)
 export MM_APP_JWT_SECRET="$(openssl rand -base64 48)"
+export MM_APP_CREDENTIAL_KEYS_K1="$(openssl rand -base64 32)"
+export MM_APP_CREDENTIAL_ACTIVEKEYID=k1
 
 # 本番相当(実行可能 WAR)
 java -jar backend/build/libs/mastermeister-0.1.0-SNAPSHOT.war

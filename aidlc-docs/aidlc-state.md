@@ -83,4 +83,4 @@
 - **Lifecycle Phase**: CONSTRUCTION
 - **Current Stage**: ユニット④ connection-permission — Code Generation
 - **Next Stage**: Code Generation 完了後、ユニット⑤ record-maintenance
-- **Status**: ユニット④ NFR Design 承認済み(2026-07-20)。Code Generation Part 1(プラン作成)実施中
+- **Status**: ユニット④ Code Generation Part 1 承認済み(2026-07-20)。Part 2(生成実行)実施中

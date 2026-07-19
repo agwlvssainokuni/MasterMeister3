@@ -51,6 +51,17 @@ dependencies {
     implementation("org.flywaydb:flyway-core")
     runtimeOnly("com.h2database:h2")
 
+    // 対象 RDBMS の JDBC ドライバ(ユニット④で本番同梱へ昇格 — D-17)。
+    // MySQL Connector/J は GPLv2 + Universal FOSS 例外(Apache-2.0 との同梱可)
+    runtimeOnly("com.mysql:mysql-connector-j")
+    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+    runtimeOnly("org.postgresql:postgresql")
+
+    // 実効権限キャッシュ(NFR-U4-03)
+    implementation("com.github.ben-manes.caffeine:caffeine")
+    // 権限設定の YAML エクスポート/インポート(NFR-U4-04)
+    implementation("tools.jackson.dataformat:jackson-dataformat-yaml")
+
     // 実行可能 WAR: 同梱 Tomcat で起動しつつ、外部コンテナへの配備も可能にする。
     // Boot 4 では starter-tomcat を providedRuntime にすると Gradle が推移依存
     // (spring-web 等)ごと lib-provided へ退避してしまうため、Gradle 専用の
@@ -70,9 +81,6 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers-mysql")
     testImplementation("org.testcontainers:testcontainers-mariadb")
     testImplementation("org.testcontainers:testcontainers-postgresql")
-    testRuntimeOnly("com.mysql:mysql-connector-j")
-    testRuntimeOnly("org.mariadb.jdbc:mariadb-java-client")
-    testRuntimeOnly("org.postgresql:postgresql")
 }
 
 tasks.withType<JavaCompile>().configureEach {

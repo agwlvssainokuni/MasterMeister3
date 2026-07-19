@@ -27,6 +27,7 @@ import cherry.mastermeister.audit.AuditLogRepository;
 import cherry.mastermeister.auth.RefreshTokenRepository;
 import cherry.mastermeister.common.config.AppProperties;
 import java.time.Duration;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -349,12 +350,15 @@ class RegistrationAdminFlowIntegrationTest {
         AppProperties configured = new AppProperties(
                 new AppProperties.Jwt("0123456789abcdef0123456789abcdef",
                         Duration.ofMinutes(10), Duration.ofHours(24)),
+                new AppProperties.Credential(
+                        Map.of("k1", "QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUE="), "k1"),
                 new AppProperties.UserRegistration(Duration.ofHours(3)),
                 new AppProperties.Auth(new AppProperties.Auth.Lockout(5, Duration.ofMinutes(15))),
                 new AppProperties.SecurityAlert(Duration.ofMinutes(10), 10),
                 new AppProperties.Admin(new AppProperties.Admin.Bootstrap(
                         "Bootstrap@Example.com", "bootstrap-password-1")),
-                new AppProperties.Mail("noreply@mastermeister.local", "http://localhost:8080"));
+                new AppProperties.Mail("noreply@mastermeister.local", "http://localhost:8080"),
+                new AppProperties.Permission(Duration.ofMinutes(10), 1000));
         AdminBootstrap bootstrap = new AdminBootstrap(
                 configured, userRepository, passwordEncoder, auditEventPublisher);
 

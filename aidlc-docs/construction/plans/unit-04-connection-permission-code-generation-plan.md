@@ -13,11 +13,11 @@
 
 ## Step 1: 基盤(依存・設定・マイグレーション・エンティティ)
 
-- [ ] 1-1: backend 依存追加(JDBC ドライバ 3 種を testRuntimeOnly → runtimeOnly に昇格、caffeine、jackson-dataformat-yaml — すべて BOM 管理)
-- [ ] 1-2: `V3__connection_permission.sql`(7 テーブル + インデックス。permission 系は空文字表現の一意制約)
-- [ ] 1-3: AppProperties 拡張(credential.keys / active-key-id の起動時検証、permission.cache-ttl / cache-max-size)+ application.yaml / application-test.yaml + README(開発用鍵の手順)
-- [ ] 1-4: エンティティ + リポジトリ(DbConnection / MetaSchema / MetaTable / MetaColumn / PermissionEntry / PermissionAuxEntry / UserGroup / GroupMember)
-- [ ] 1-5: テスト(鍵検証の起動失敗系、Flyway V3 適用 + マッピング整合、一意制約の重複拒否)
+- [x] 1-1: backend 依存追加(JDBC ドライバ 3 種を testRuntimeOnly → runtimeOnly に昇格、caffeine、jackson-dataformat-yaml — すべて BOM 管理)
+- [x] 1-2: `V3__connection_permission.sql`(7 テーブル + インデックス。permission 系は空文字表現の一意制約)
+- [x] 1-3: AppProperties 拡張(credential.keys / active-key-id の起動時検証、permission.cache-ttl / cache-max-size)+ application.yaml / application-test.yaml + README(開発用鍵の手順)
+- [x] 1-4: エンティティ + リポジトリ(DbConnection / MetaSchema / MetaTable / MetaColumn / PermissionEntry / PermissionAuxEntry / UserGroup / GroupMember)
+- [x] 1-5: テスト(AppPropertiesTest に credential 検証 4 件追加、ConnectionPermissionPersistenceTest 3 件 — V3 適用・マッピング整合・一意制約重複拒否。③の AppProperties 直接生成テスト 2 件も追随修正)
 
 ## Step 2: 接続管理(connection + common.DbDialect)
 

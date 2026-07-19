@@ -18,8 +18,10 @@ package cherry.mastermeister.common.web;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -40,6 +42,16 @@ public class GlobalExceptionHandler {
         problem.setTitle(e.getStatus().getReasonPhrase());
         problem.setProperty("code", e.getCode());
         return problem;
+    }
+
+    @ExceptionHandler(ServiceUnavailableException.class)
+    public ResponseEntity<ProblemDetail> handleServiceUnavailable(ServiceUnavailableException e) {
+        ProblemDetail problem = ProblemDetail.forStatus(e.getStatus());
+        problem.setTitle(e.getStatus().getReasonPhrase());
+        problem.setProperty("code", e.getCode());
+        return ResponseEntity.status(e.getStatus())
+                .header(HttpHeaders.RETRY_AFTER, String.valueOf(e.getRetryAfterSeconds()))
+                .body(problem);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import cherry.mastermeister.connection.DbConnection;
 import cherry.mastermeister.connection.DbConnectionRepository;
-import cherry.mastermeister.connection.DbType;
+import cherry.mastermeister.common.dialect.DbType;
 import cherry.mastermeister.metadata.MetaColumn;
 import cherry.mastermeister.metadata.MetaColumnRepository;
 import cherry.mastermeister.metadata.MetaSchema;

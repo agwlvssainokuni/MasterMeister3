@@ -15,6 +15,7 @@
  */
 package cherry.mastermeister.connection;
 
+import cherry.mastermeister.common.dialect.DbType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

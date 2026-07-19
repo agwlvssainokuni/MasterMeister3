@@ -21,11 +21,11 @@
 
 ## Step 2: 接続管理(connection + common.DbDialect)
 
-- [ ] 2-1: CredentialEncryptor(AES-256-GCM、`v1:{keyId}:{IV}:{暗号文}`、active 鍵で暗号化・keyId で復号、復号失敗 CREDENTIAL_DECRYPT_FAILED)
-- [ ] 2-2: DbDialect + 4 実装(MySQL / MariaDB / PostgreSQL / H2 — URL 組み立て・ドライバクラス・カタログ/スキーマ概念)※⑤⑥で拡張する基盤
-- [ ] 2-3: TargetDataSourceRegistry(ConcurrentHashMap + 遅延生成、evict でクローズ、@PreDestroy、プール枯渇 503 TARGET_DB_BUSY)
-- [ ] 2-4: ConnectionService + ConnectionController(CRUD・一覧パスワード非含有・db_type 不変・password null 維持・接続テスト[未保存値可・プール外単発・理由分類]・監査 CONNECTION_* 4 種)
-- [ ] 2-5: テスト(Encryptor ラウンドトリップ / 鍵ローテーション / 未知 keyId、Registry 生成・破棄・再生成、CRUD 結合[409・400 種別変更・応答に password 無し]、接続テスト H2 成功/失敗分類)
+- [x] 2-1: CredentialEncryptor(AES-256-GCM、`v1:{keyId}:{IV}:{暗号文}`、active 鍵で暗号化・keyId で復号、復号失敗 CREDENTIAL_DECRYPT_FAILED)
+- [x] 2-2: DbDialect + 4 実装(MySQL / MariaDB / PostgreSQL / H2 — URL 組み立て・ドライバクラス・カタログ/スキーマ概念)※ DbType を common.dialect へ移動(common→connection の逆参照回避)。PermissionCacheInvalidated イベント(common.event)と ServiceUnavailableException(503 + Retry-After)も追加
+- [x] 2-3: TargetDataSourceRegistry(ConcurrentHashMap + 遅延生成、evict でクローズ、@PreDestroy。503 TARGET_DB_BUSY の送出は取込・⑤⑥のプール利用側)
+- [x] 2-4: ConnectionService + ConnectionController(CRUD・一覧パスワード非含有・db_type 不変・password null 維持・接続テスト[未保存値可・プール外単発・理由分類]・監査 CONNECTION_* 4 種。AuditEvents に④の 14 種を追加)
+- [x] 2-5: テスト 15 件(CredentialEncryptorTest 6・TargetDataSourceRegistryTest 2・ConnectionApiIntegrationTest 7 — 409/400 種別変更/password 非含有/403/接続テスト成功・AUTH_FAILED 分類・保存済み補完・id 未指定 400/監査 detail 非漏えい)
 
 ## Step 3: スキーマ取込(metadata)
 

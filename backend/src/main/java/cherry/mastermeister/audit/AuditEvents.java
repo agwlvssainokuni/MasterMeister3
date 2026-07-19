@@ -37,6 +37,22 @@ public final class AuditEvents {
     public static final String MAIL_SEND_FAILED = "MAIL_SEND_FAILED";
     public static final String SECURITY_ALERT_SENT = "SECURITY_ALERT_SENT";
 
+    // ユニット④: 管理操作(US-043 — business-rules.md §7)
+    public static final String CONNECTION_CREATED = "CONNECTION_CREATED";
+    public static final String CONNECTION_UPDATED = "CONNECTION_UPDATED";
+    public static final String CONNECTION_DELETED = "CONNECTION_DELETED";
+    public static final String CONNECTION_TESTED = "CONNECTION_TESTED";
+    public static final String SCHEMA_IMPORTED = "SCHEMA_IMPORTED";
+    public static final String PERMISSION_SET = "PERMISSION_SET";
+    public static final String PERMISSION_REMOVED = "PERMISSION_REMOVED";
+    public static final String GROUP_CREATED = "GROUP_CREATED";
+    public static final String GROUP_RENAMED = "GROUP_RENAMED";
+    public static final String GROUP_DELETED = "GROUP_DELETED";
+    public static final String GROUP_MEMBER_ADDED = "GROUP_MEMBER_ADDED";
+    public static final String GROUP_MEMBER_REMOVED = "GROUP_MEMBER_REMOVED";
+    public static final String PERMISSION_EXPORTED = "PERMISSION_EXPORTED";
+    public static final String PERMISSION_IMPORTED = "PERMISSION_IMPORTED";
+
     private AuditEvents() {
     }
 }

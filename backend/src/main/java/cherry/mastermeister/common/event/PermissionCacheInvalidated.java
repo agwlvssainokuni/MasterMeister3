@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cherry.mastermeister.connection;
+package cherry.mastermeister.common.event;
 
-/** 対象 RDBMS の種別(US-010)。作成後は変更不可。 */
-public enum DbType {
-    MYSQL,
-    MARIADB,
-    POSTGRESQL,
-    H2
+/**
+ * 実効権限キャッシュの無効化要求イベント(粗粒度 — 全無効化)。
+ * 発行元: 接続削除(connection)・スキーマ取込(metadata)。
+ * permission パッケージ内の変更は EffectivePermissionResolver を直接呼ぶため
+ * このイベントを使わない(パッケージ間の循環参照を避けるための片方向イベント)。
+ */
+public record PermissionCacheInvalidated() {
 }

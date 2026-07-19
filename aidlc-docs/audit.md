@@ -903,3 +903,11 @@
 **Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応(GATE 継続)
 
 ---
+
+## ユニット③ Code Generation - レビュー指摘 2(Request Changes)
+**Timestamp**: 2026-07-19T12:50:00Z
+**User Input**: "registration の画面が auth/auth.module.css(認証系単独画面の共通レイアウト)を参照している点も修正。"
+**AI Response**: "指摘を受領。共通レイアウト CSS を feature 非依存の src/app/standalone.module.css へ移動(未ログイン単独画面の共通レイアウトは feature 資産ではなく app 層の資産と整理)。LoginPage / RequestPage / CompletePage の参照を差し替え、features/auth/auth.module.css を削除。feature 間の相互参照ゼロを確認の上、check・テスト再実行してコミット。"
+**Context**: CONSTRUCTION - ユニット③ Code Generation。レビュー対応 2(GATE 継続)
+
+---

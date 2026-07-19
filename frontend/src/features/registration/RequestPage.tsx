@@ -18,8 +18,8 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import styles from "../../app/standalone.module.css";
 import { Alert, Button, Card, FormField, TextInput } from "../../design-system/components";
-import styles from "../auth/auth.module.css";
 import { requestRegistration } from "./api";
 
 /**

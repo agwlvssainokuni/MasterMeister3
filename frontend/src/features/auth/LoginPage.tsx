@@ -27,8 +27,8 @@ import {
   PasswordInput,
   TextInput,
 } from "../../design-system/components";
+import styles from "../../app/standalone.module.css";
 import { useAuth } from "./AuthProvider";
-import styles from "./auth.module.css";
 
 /**
  * ログイン画面(US-005)。

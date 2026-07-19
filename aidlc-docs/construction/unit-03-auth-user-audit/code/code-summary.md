@@ -19,12 +19,13 @@
 
 | 配置 | 実装 |
 |---|---|
-| app | apiClient(Bearer・401 シングルフライトリフレッシュ・Problem Details 解釈)、AppLayout(AppShell 統合・ナビ・ユーザメニュー)、HomePage(プレースホルダ)、routes |
+| app | apiClient(Bearer・401 シングルフライトリフレッシュ・Problem Details 解釈)、AppLayout(AppShell 統合・ナビ・ユーザメニュー)、HomePage(プレースホルダ)、routes、standalone.module.css(未ログイン単独画面の共通レイアウト) |
 | features/auth | api.ts(login/logout/me/preferences)、tokenStore(sessionStorage 集約)、AuthProvider(復元・ログイン・ログアウト・サーバ設定適用)、guards(RequireAuth/RequireAdmin)、usePreferences(サーバ保存)、LoginPage |
 | features/registration | api.ts(request/complete)、RequestPage、CompletePage |
 | features/admin/users | api.ts(list/approve/reject/unlock + 型定義)、UserListPage(サーバページング・フィルタ・承認/却下/ロック解除) |
 
 - API 呼び出し規約: 各 feature が自前の `api.ts` に API 関数と型を集約し、画面は apiClient を直接呼ばない(レビュー指摘 2026-07-19 反映)
+- feature 間参照の禁止: feature が別 feature の資産(api.ts・CSS 等)を参照しない。共有資産は app 層に置く(例: standalone.module.css — レビュー指摘 2 反映)
 | i18n | 辞書 auth / admin(ja/en) |
 
 ## テスト

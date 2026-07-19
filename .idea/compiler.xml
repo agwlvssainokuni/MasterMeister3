@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="25" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mastermeister.backend" options="-parameters -Xlint:all" />
+      <module name="mastermeister.backend.main" options="-parameters -Xlint:all" />
+      <module name="mastermeister.backend.test" options="-parameters -Xlint:all" />
+    </option>
+  </component>
+</project>

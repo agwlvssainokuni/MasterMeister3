@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-/* 認証系の単独画面(ログイン・登録申請・登録完了)の共通レイアウト */
+/*
+ * 未ログイン単独画面(ログイン・登録申請・登録完了)の共通レイアウト。
+ * feature 資産ではなく app 層の資産として提供する(feature 間の相互参照を避ける)。
+ */
 
 .wrapper {
   min-height: 100vh;

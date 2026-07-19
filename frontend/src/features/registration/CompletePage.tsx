@@ -27,7 +27,7 @@ import {
   PasswordInput,
   TextInput,
 } from "../../design-system/components";
-import styles from "../auth/auth.module.css";
+import styles from "../../app/standalone.module.css";
 import { completeRegistration } from "./api";
 
 /**
